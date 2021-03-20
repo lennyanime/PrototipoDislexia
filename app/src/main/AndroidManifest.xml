@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".CompetenciaAlfabetica"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".rendimientoDesempeño.Competencias_Rendimiento_Desempeno" />
+        <activity android:name=".procesosPerceptivos.Competencias_Procesos_Perceptivos" />
+        <activity android:name=".funcionesEjecutivas.Competencias_Funciones_Ejecutivas" />
+        <activity android:name=".memoriaDeTrabajo.Competencia_Memoria_Trabajo" />
+        <activity android:name=".competenciasLinguisticas.Competencias_Linguisticas" />
+        <activity android:name=".lateralidad.Competencias_Lateralidad" />
+        <activity android:name=".lateralidad.Lateralidad_2" />
+        <activity android:name=".lateralidad.Lateralidad_1" />
+        <activity android:name=".procesosPerceptivos.DiscriminacionCAuditiva" />
+        <activity android:name=".procesosPerceptivos.DiscriminicionVisual" />
+        <activity android:name=".rendimientoDesempeño.OrtografiaA_VelocidadE" />
+        <activity android:name=".rendimientoDesempeño.ReconocimientoCorreccionErrores" />
+        <activity android:name=".funcionesEjecutivas.AtencionSostenida" />
+        <activity android:name=".memoriaDeTrabajo.MemoriaSecuencialAuditiva" />
+        <activity android:name=".memoriaDeTrabajo.MemoriaTrabajoAuditiva" />
+        <activity android:name=".memoriaDeTrabajo.MemoriaSecuencialVisual" />
+        <activity android:name=".memoriaDeTrabajo.MemoriaVisual" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaOrtografica" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaSemantica" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaSintactica" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaLexica" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaSilabica" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaFonica" />
+        <activity android:name=".competenciasLinguisticas.CompetenciaAlfabetica" />
         <activity android:name=".Componentes" />
         <activity android:name=".Login">
             <intent-filter>

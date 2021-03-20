@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".competenciasLinguisticas.CompetenciaSintactica">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:gravity="center|center_horizontal"
+        android:text="Competencia Sintáctica"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/btnFonemasCA"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/policialadron" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/ladronpolicia"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/oracion"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="20dp"
+            android:gravity="center|center_horizontal"
+            android:text="El policía está persiguiendo el ladrón"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/policiacarro" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/policiaperro"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSalirCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Salir" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <Button
+            android:id="@+id/btnSiguienteCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Siguiente" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

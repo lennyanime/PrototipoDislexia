@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lateralidad.Competencias_Lateralidad">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="@string/c_lateralidad"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btnpruebaL1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/lateralidad_1">
+
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btnpruebaL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/lateralidad_2">
+
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSalirCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Salir" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <Button
+            android:id="@+id/btnSiguienteCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Siguiente" />
+    </LinearLayout>
+
+
+</LinearLayout>

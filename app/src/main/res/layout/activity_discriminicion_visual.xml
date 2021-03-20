@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".procesosPerceptivos.DiscriminicionVisual">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Discriminación y categorización visual"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btnFonemasCA"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/cuadrado" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/cruz" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/circulobn" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/octagono" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/octagono" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/estrella" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSalirCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Salir" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <Button
+            android:id="@+id/btnSiguienteCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Siguiente" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

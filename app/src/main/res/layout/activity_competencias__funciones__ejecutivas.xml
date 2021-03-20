@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".funcionesEjecutivas.Competencias_Funciones_Ejecutivas">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="@string/c_f_e_ejecutivas"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btn_a_selectiva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/c_a_sostenida">
+        </Button>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btn_a_dividida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/c_a_sostenida">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="top|center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSalirCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Salir" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="50dp"
+            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+
+        <Button
+            android:id="@+id/btnSiguienteCA"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Siguiente" />
+    </LinearLayout>
+
+
+</LinearLayout>
