@@ -24,6 +24,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/txtTextoCOrtografica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_prueba">
@@ -39,9 +40,10 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btnContadorSignosPuntuacion"
             android:layout_width="70dp"
-            android:layout_height="70dp">
-
+            android:layout_height="70dp"
+            android:foreground="?android:attr/selectableItemBackground">
         </Button>
     </LinearLayout>
 
@@ -58,9 +60,9 @@
             android:layout_height="50dp"
             android:text="Salir" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
             android:id="@+id/btnSiguienteCA"

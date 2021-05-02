@@ -39,7 +39,7 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/btnFonemasCA"
+            android:id="@+id/imgPez1"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:srcCompat="@drawable/cuadrado" />
@@ -55,7 +55,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgPez2"
             android:layout_width="76dp"
             android:layout_height="70dp"
             app:srcCompat="@drawable/cuadrado" />
@@ -65,7 +65,7 @@
             android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/dragImageViewBoat"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:srcCompat="@drawable/cuadrado" />

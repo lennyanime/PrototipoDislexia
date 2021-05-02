@@ -34,7 +34,7 @@
             android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnInstrucciones"
+                    android:id="@+id/btnInstruccionesCAlfabetica"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#2196F3"
@@ -52,15 +52,12 @@
             android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnFonemasCA"
+                    android:id="@+id/btnLetrasCorrectasCAlfabetica"
                     android:layout_width="68dp"
                     android:layout_height="54dp"
                     android:background="#2196F3"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
-
-
-
 
         </LinearLayout>
 
@@ -230,7 +227,7 @@
                     android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
 
                 <Button
-                    android:id="@+id/btnSiguienteCA"
+                    android:id="@+id/btnSiguienteCAlfabetica"
                     android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:text="Siguiente" />

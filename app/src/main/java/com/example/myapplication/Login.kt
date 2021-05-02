@@ -1,15 +1,20 @@
 package com.example.myapplication
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import android.widget.TextView
+import android.widget.Toast
+import com.example.myapplication.lateralidad.Lateralidad_2
+import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.util.UidVerifier
+import com.google.common.reflect.ClassPath
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -55,6 +60,7 @@ class Login : AppCompatActivity() {
             firebaseAuthWithGoogle(account)
         }
     }*/
+
     companion object {
         private const val RC_SIGN_IN = 120
     }
@@ -76,8 +82,9 @@ class Login : AppCompatActivity() {
         //Firebase Auth instance
         mAuth = FirebaseAuth.getInstance()
 
-        button.setOnClickListener {
+        btnLogin.setOnClickListener {
             signIn()
+
         }
     }
 
@@ -99,6 +106,8 @@ class Login : AppCompatActivity() {
                     val account = task.getResult(ApiException::class.java)!!
                     Log.d("SignInActivity", "firebaseAuthWithGoogle:" + account.id)
                     firebaseAuthWithGoogle(account.idToken!!)
+                    //persistencia
+
                 } catch (e: ApiException) {
                     // Google Sign In failed, update UI appropriately
                     Log.w("SignInActivity", "Google sign in failed", e)
@@ -118,6 +127,18 @@ class Login : AppCompatActivity() {
                         Log.d("SignInActivity", "signInWithCredential:success")
                         val intent = Intent(this, Componentes::class.java)
                         startActivity(intent)
+
+                        val user = Firebase.auth.currentUser
+                        if (user != null) {
+                            // User is signed in
+                            txtCorreo.text = user.email.toString()
+                            //intent.putExtra("prueba", txtCorreo.text)
+                            //startActivity(intent)
+
+                        } else {
+                            // No user is signed in
+                            txtCorreo.text = "error"
+                        }
                         //finish()
                     } else {
                         // If sign in fails, display a message to the user.
@@ -126,4 +147,5 @@ class Login : AppCompatActivity() {
                 }
     }
 }
+
 

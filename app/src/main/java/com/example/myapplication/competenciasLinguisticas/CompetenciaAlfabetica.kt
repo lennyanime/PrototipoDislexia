@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_competencia_alfabetica.*
 import kotlinx.android.synthetic.main.activity_competencia_alfabetica.btnSalirCA
-import kotlinx.android.synthetic.main.activity_competencia_alfabetica.btnFonemasCA
+
 
 class CompetenciaAlfabetica : AppCompatActivity() {
 
@@ -16,22 +16,38 @@ class CompetenciaAlfabetica : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competencia_alfabetica)
 
+        instruccionesCompetenciaAlfabetica()
         letrasCorrectas()
         salir()
+        btnLetrasCorrectasCAlfabetica.setEnabled(false)
+        btnSiguienteCAlfabetica.setEnabled(false)
+    }
 
+    private fun instruccionesCompetenciaAlfabetica(){
+
+        val mp = MediaPlayer.create(this, R.raw.lenny2)
+
+        if (!mp.isPlaying) {
+            btnInstruccionesCAlfabetica.setOnClickListener {
+                mp.start()
+                btnInstruccionesCAlfabetica.setEnabled(false)
+                Thread.sleep(2000)
+                btnLetrasCorrectasCAlfabetica.setEnabled(true)
+            }
+        }
     }
 
     private fun letrasCorrectas() {
-
         var botonesSeleccionados = 0
+
         buttonsSetEnabledFalse()
 
         val mp = MediaPlayer.create(this, R.raw.lenny2)
 
         if (!mp.isPlaying) {
-            this.btnFonemasCA.setOnClickListener {
+            btnLetrasCorrectasCAlfabetica.setOnClickListener {
                 mp.start()
-                this.btnFonemasCA.setEnabled(false)
+                btnLetrasCorrectasCAlfabetica.setEnabled(false)
                 Thread.sleep(6000)
                 buttonsSetEnabledTrue()
             }
@@ -42,11 +58,11 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             botonesSeleccionados++
 
             btnp.setEnabled(false)
-            if (botonesSeleccionados == 4){
+            if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
-
         }
 
         btnf.setOnClickListener {
@@ -56,6 +72,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btne.setOnClickListener {
@@ -65,6 +82,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btna.setOnClickListener {
@@ -74,6 +92,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btnj.setOnClickListener {
@@ -84,6 +103,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btnt.setOnClickListener {
@@ -93,6 +113,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btnm.setOnClickListener {
@@ -102,6 +123,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btnu.setOnClickListener {
@@ -111,6 +133,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btni.setOnClickListener {
@@ -120,6 +143,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btns.setOnClickListener {
@@ -129,6 +153,7 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btnq.setOnClickListener {
@@ -138,17 +163,20 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             if (botonesSeleccionados == 4) {
 
                 buttonsSetEnabledFalse()
+                btnSiguienteSetEnabledTrue()
             }
         }
         btno.setOnClickListener {
             botonesSeleccionados++
 
             btno.setEnabled(false)
-            if (botonesSeleccionados == 4) {
+            btnSiguienteSetEnabledTrue()
 
-                buttonsSetEnabledFalse()
-            }
         }
+    }
+
+    private fun validarNumeroBotonesSeleccionados() {
+
     }
 
     private fun buttonsSetEnabledFalse() {
@@ -165,14 +193,20 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             i.setEnabled(true)
     }
 
-    private fun salir( ) {
+    private fun salir() {
 
-        btnSalirCA.setOnClickListener{
+        btnSalirCA.setOnClickListener {
             onBackPressed()
             super.onDestroy()
         }
     }
-    private fun siguiente(){
+
+    private fun btnSiguienteSetEnabledTrue(){
+
+        btnSiguienteCAlfabetica.setEnabled(true)
+    }
+
+    private fun save() {
 
     }
 }

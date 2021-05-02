@@ -14,7 +14,23 @@
         android:layout_margin="20dp"
         android:gravity="center|center_horizontal"
         android:text="Competencia Sintáctica"
-        android:textSize="30sp" />
+        android:textSize="@dimen/text_size_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/btnInstruccionesCompetenciaSintactica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:text="@string/Instrucciones"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,20 +40,24 @@
         android:layout_margin="20dp">
 
         <ImageView
-            android:id="@+id/btnFonemasCA"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/policialadron" />
+            android:id="@+id/imgCSintactica1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/policialadron"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="primerImagen"/>
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/ladronpolicia"/>
+            android:id="@+id/imgCSintactica2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/ladronpolicia"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="segundaImagen"/>
 
     </LinearLayout>
 
@@ -50,9 +70,8 @@
             android:id="@+id/oracion"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_margin="20dp"
             android:gravity="center|center_horizontal"
-            android:text="El policía está persiguiendo el ladrón"
+            android:text="El policía está persiguiendo al ladrón"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -61,24 +80,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_margin="20dp">
+        android:gravity="center_horizontal">
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/policiacarro" />
+            android:id="@+id/imgCSintactica3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/policiacarro"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="terceraImagen"
+             />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/policiaperro"/>
+            android:id="@+id/imgCSintactica4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/policiaperro"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="cuartaImagen"/>
 
     </LinearLayout>
 
@@ -90,19 +113,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSalirCA"
+            android:id="@+id/btnSalirCSintactica"
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:text="Salir" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
-            android:id="@+id/btnSiguienteCA"
+            android:id="@+id/btnSiguienteCSintactica"
             android:layout_width="130dp"
             android:layout_height="50dp"
+            android:foreground="?android:attr/selectableItemBackground"
             android:text="Siguiente" />
     </LinearLayout>
 
