@@ -1,36 +1,40 @@
 package com.example.myapplication.lateralidad
 
 import android.graphics.Color
+import android.graphics.ColorFilter
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.ColorUtils
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_competencia_alfabetica.*
 import kotlinx.android.synthetic.main.activity_lateralidad_1.*
-import kotlinx.android.synthetic.main.activity_lateralidad_1.btnSalirCA
-
-
 
 
 class Lateralidad_1 : AppCompatActivity() {
 
-    private val db = FirebaseFirestore.getInstance()
-    //private final val email: String? = Firebase.auth.currentUser?.email
+    private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
+    private var imagenesColoreadas: Int = 0
+    private val PUNTAJE_MAXIMO: Int = 5
+    private var hits1: Int = 0
+    private var hits2: Int = 0
+    private var hits3: Int = 0
+    private var hits4: Int = 0
+    private var hits5: Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lateralidad_1)
 
-        instruccionesPruebaLateralidad()
+        instruccionesPruebaLateralidad1()
 
         seleccionarColorAuto_1()
 
@@ -52,9 +56,15 @@ class Lateralidad_1 : AppCompatActivity() {
 
         imgCar2Instrucciones.setColorFilter(Color.rgb(255, 87, 51))
 
+        btnSiguienteLateralidad1.setEnabled(false)
+
     }
 
-    private fun instruccionesPruebaLateralidad() {
+    private fun habilitarBotonSiguiente() {
+        btnSiguienteLateralidad1.setEnabled(true)
+    }
+
+    private fun instruccionesPruebaLateralidad1() {
 
         val mp = MediaPlayer.create(this, R.raw.lenny2)
 
@@ -63,11 +73,67 @@ class Lateralidad_1 : AppCompatActivity() {
                 mp.start()
                 btnInstruccionesLateralidad1.setEnabled(false)
                 Thread.sleep(2000)
-                buttonsSetEnabledTrueLateralidad1()
+                //buttonsSetEnabledTrueLateralidad1()
+                habilitarPruebaAuto1()
             }
             /*else {
                 mp.pause()
             }*/
+        }
+    }
+
+    private fun habilitarPruebaAuto1() {
+
+        val BOTONES_PRUEBA_1 = arrayListOf<Button>(btn1_car1, btn2_car1)
+
+        BOTONES_PRUEBA_1.forEach {
+
+            it.setEnabled(true)
+            it.setBackgroundColor(Color.TRANSPARENT)
+        }
+    }
+
+    private fun habilitarPruebaAuto2() {
+
+        val BOTONES_PRUEBA_2 = arrayListOf<Button>(btn3_car2, btn4_car2)
+
+        BOTONES_PRUEBA_2.forEach {
+
+            it.setEnabled(true)
+            it.setBackgroundColor(Color.TRANSPARENT)
+        }
+    }
+
+    private fun habilitarPruebaAuto3() {
+
+        val BOTONES_PRUEBA_3 = arrayListOf<Button>(btn5_car3, btn6_car3)
+
+        BOTONES_PRUEBA_3.forEach {
+
+            it.setEnabled(true)
+            it.setBackgroundColor(Color.TRANSPARENT)
+        }
+    }
+
+    private fun habilitarPruebaAuto4() {
+
+        val BOTONES_PRUEBA_4 = arrayListOf<Button>(btn7_car4, btn8_car4)
+
+        BOTONES_PRUEBA_4.forEach {
+
+            it.setEnabled(true)
+            it.setBackgroundColor(Color.TRANSPARENT)
+        }
+    }
+
+    private fun habilitarPruebaAuto5() {
+
+        val BOTONES_PRUEBA_5 = arrayListOf<Button>(btn9_car5, btn10_car5)
+
+        BOTONES_PRUEBA_5.forEach {
+
+            it.setEnabled(true)
+            it.setBackgroundColor(Color.TRANSPARENT)
         }
     }
 
@@ -78,7 +144,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn1_car1.setEnabled(false)
             btn2_car1.setEnabled(true)
             clicks++
-            hits++
+            hits1++
+            hits1 = hitsAcierto(hits1)
+            habilitarPruebaAuto2()
+
+            Toast.makeText(applicationContext,
+                    "$hits1",
+                    Toast.LENGTH_SHORT).show()
         }
 
         btn2_car1.setOnClickListener {
@@ -86,7 +158,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn2_car1.setEnabled(false)
             btn1_car1.setEnabled(true)
             clicks++
-            misses++
+            hits1--
+            hits1 = hitsError(hits1)
+            habilitarPruebaAuto2()
+
+            Toast.makeText(applicationContext,
+                    "$hits1",
+                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -97,8 +175,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn3_car2.setEnabled(false)
             btn4_car2.setEnabled(true)
             clicks++
-            misses++
+            hits2--
+            hits2 = hitsError(hits2)
+            habilitarPruebaAuto3()
 
+            Toast.makeText(applicationContext,
+                    "$hits2",
+                    Toast.LENGTH_SHORT).show()
         }
 
         btn4_car2.setOnClickListener {
@@ -106,7 +189,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn4_car2.setEnabled(false)
             btn3_car2.setEnabled(true)
             clicks++
-            hits++
+            hits2++
+            hits2 = hitsAcierto(hits2)
+            habilitarPruebaAuto3()
+
+            Toast.makeText(applicationContext,
+                    "$hits2",
+                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -117,7 +206,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn5_car3.setEnabled(false)
             btn6_car3.setEnabled(true)
             clicks++
-            hits++
+            hits3++
+            hits3 = hitsAcierto(hits3)
+            habilitarPruebaAuto4()
+
+            Toast.makeText(applicationContext,
+                    "$hits3",
+                    Toast.LENGTH_SHORT).show()
         }
 
         btn6_car3.setOnClickListener {
@@ -125,7 +220,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn6_car3.setEnabled(false)
             btn5_car3.setEnabled(true)
             clicks++
-            misses++
+            hits3--
+            hits3 = hitsError(hits3)
+            habilitarPruebaAuto4()
+
+            Toast.makeText(applicationContext,
+                    "$hits3",
+                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -136,7 +237,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn7_car4.setEnabled(false)
             btn8_car4.setEnabled(true)
             clicks++
-            misses++
+            hits4--
+            hits4 = hitsError(hits4)
+            habilitarPruebaAuto5()
+
+            Toast.makeText(applicationContext,
+                    "$hits4",
+                    Toast.LENGTH_SHORT).show()
         }
 
         btn8_car4.setOnClickListener {
@@ -144,7 +251,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn8_car4.setEnabled(false)
             btn7_car4.setEnabled(true)
             clicks++
-            hits++
+            hits4++
+            hits4 = hitsAcierto(hits4)
+            habilitarPruebaAuto5()
+
+            Toast.makeText(applicationContext,
+                    "$hits4",
+                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -155,7 +268,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn9_car5.setEnabled(false)
             btn10_car5.setEnabled(true)
             clicks++
-            misses++
+            hits5--
+            hits5 = hitsError(hits5)
+            habilitarBotonSiguiente()
+
+            Toast.makeText(applicationContext,
+                    "$hits5",
+                    Toast.LENGTH_SHORT).show()
         }
 
         btn10_car5.setOnClickListener {
@@ -163,7 +282,13 @@ class Lateralidad_1 : AppCompatActivity() {
             btn10_car5.setEnabled(false)
             btn9_car5.setEnabled(true)
             clicks++
-            hits++
+            hits5++
+            hits5 = hitsAcierto(hits5)
+            habilitarBotonSiguiente()
+
+            Toast.makeText(applicationContext,
+                    "$hits5",
+                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -174,24 +299,41 @@ class Lateralidad_1 : AppCompatActivity() {
             i.setEnabled(false)
             i.setBackgroundColor(Color.GRAY)
         }
-
     }
 
-    private fun buttonsSetEnabledTrueLateralidad1() {
-        val botonesCarros = arrayListOf<Button>(btn1_car1, btn2_car1, btn3_car2, btn4_car2, btn5_car3, btn6_car3, btn7_car4, btn8_car4, btn9_car5, btn10_car5)
+    private fun hitsError(restarHits: Int): Int {
+        var _restarHits = restarHits
 
-        for (i in botonesCarros) {
-            i.setEnabled(true)
-            i.setBackgroundColor(Color.TRANSPARENT)
-        }
+        if (_restarHits == 0 || _restarHits < 0)
+            _restarHits = 0
 
+        if (_restarHits == 1)
+            _restarHits--
+
+        return _restarHits
+    }
+
+    private fun hitsAcierto(acierto: Int): Int {
+        var _acierto = acierto
+
+        if (_acierto == 1 || _acierto > 1)
+            _acierto = 1
+
+        if (_acierto == 0)
+            _acierto++
+
+        return _acierto
     }
 
     private fun siguiente() {
 
         btnSiguienteLateralidad1.setOnClickListener {
-            Firebase.auth.currentUser?.email?.let { it1 ->
-                db.collection("LateralidadPrueba1").document(it1).set(
+
+            hits = hits1 + hits2 + hits3 + hits4 + hits5
+            misses = PUNTAJE_MAXIMO - hits
+
+            Firebase.auth.currentUser?.email?.let { email ->
+                DB.collection(email).document("LateralidadPrueba1").set(
                         hashMapOf("Clicks" to clicks,
                                 "Hits" to hits,
                                 "Misses" to misses)
@@ -204,9 +346,15 @@ class Lateralidad_1 : AppCompatActivity() {
 
         btnSalirCA.setOnClickListener {
             onBackPressed()
+
         }
     }
 }
+
+
+
+
+
 
 
 

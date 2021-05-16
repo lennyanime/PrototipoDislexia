@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".funcionesEjecutivas.AtencionDividida"></activity>
+        <activity android:name=".funcionesEjecutivas.AtencionSelectiva" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".rendimientoDesempeño.Competencias_Rendimiento_Desempeno" />
         <activity android:name=".procesosPerceptivos.Competencias_Procesos_Perceptivos" />
         <activity android:name=".funcionesEjecutivas.Competencias_Funciones_Ejecutivas" />
@@ -22,10 +24,10 @@
         <activity android:name=".lateralidad.Competencias_Lateralidad" />
         <activity android:name=".lateralidad.Lateralidad_2" />
         <activity android:name=".lateralidad.Lateralidad_1" />
-        <activity android:name=".procesosPerceptivos.DiscriminacionCAuditiva" />
-        <activity android:name=".procesosPerceptivos.DiscriminicionVisual" />
-        <activity android:name=".rendimientoDesempeño.OrtografiaA_VelocidadE" />
-        <activity android:name=".rendimientoDesempeño.ReconocimientoCorreccionErrores" />
+        <activity android:name=".procesosPerceptivos.DiscriminacionCategorizacionAuditiva" />
+        <activity android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual" />
+        <activity android:name=".rendimientoDesempeño.OrtografiaArbitraria_VelocidadEscritura" />
+        <activity android:name=".rendimientoDesempeño.Reconocimiento_CorreccionErrores" />
         <activity android:name=".funcionesEjecutivas.AtencionSostenida" />
         <activity android:name=".memoriaDeTrabajo.MemoriaSecuencialAuditiva" />
         <activity android:name=".memoriaDeTrabajo.MemoriaTrabajoAuditiva" />

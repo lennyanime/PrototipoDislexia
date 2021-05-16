@@ -21,14 +21,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="left"
-        android:layout_margin="20dp">
+        android:layout_margin="10dp">
 
-        <ImageView
-            android:id="@+id/Img_btnaudio"
-            android:layout_width="106dp"
-            android:layout_height="72dp"
+        <Button
+            android:id="@+id/btnInstruccionesMemoriaTAuditiva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Instrucciones"
             android:background="#6663C3"
-            app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+            android:foreground="?android:attr/selectableItemBackground"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            />
+
     </LinearLayout>
 
     <LinearLayout
@@ -39,20 +43,20 @@
         android:layout_margin="20dp">
 
         <Button
-            android:id="@+id/r1"
+            android:id="@+id/btn_rta1_memoriatrabajoaudtiva"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:text="upe" />
+            android:text="" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
-            android:id="@+id/r2"
+            android:id="@+id/btn_rta2_memoriatrabajoaudtiva"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:text="tup" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,20 +67,20 @@
         android:layout_margin="20dp">
 
         <Button
-            android:id="@+id/r3"
+            android:id="@+id/btn_rta3_memoriatrabajoaudtiva"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:text="ob" />
+            />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
-            android:id="@+id/r4"
+            android:id="@+id/btn_rta4_memoriatrabajoaudtiva"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:text="upt" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,12 +96,12 @@
             android:layout_height="50dp"
             android:text="Salir" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
-            android:id="@+id/btnSiguienteCA"
+            android:id="@+id/btnSiguienteMemoriaTrabajoAuditiva"
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:text="Siguiente" />

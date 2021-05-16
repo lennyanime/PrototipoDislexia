@@ -23,6 +23,7 @@
         android:layout_margin="10dp">
 
         <Button
+            android:id="@+id/btnInstruccionesLateralidad2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#6663C3"
@@ -102,7 +103,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#FFFFFF"
-
             android:tag="barcoFalse"
             app:srcCompat="@drawable/navegacion" />
 

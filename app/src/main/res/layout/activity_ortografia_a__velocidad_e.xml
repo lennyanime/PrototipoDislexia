@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".rendimientoDesempeño.OrtografiaA_VelocidadE">
+    tools:context=".rendimientoDesempeño.OrtografiaArbitraria_VelocidadEscritura">
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +13,7 @@
         android:layout_height="70dp"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:text="Ortografía arbitraria y corrección de errores"
+        android:text="Ortografía arbitraria y velocidad de escritura"
         android:textSize="30sp" />
     
     <LinearLayout

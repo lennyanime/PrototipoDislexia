@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:background="@drawable/border_layout_competencia_lateralidad_1"
+        android:background="@drawable/border"
         android:orientation="horizontal">
 
 

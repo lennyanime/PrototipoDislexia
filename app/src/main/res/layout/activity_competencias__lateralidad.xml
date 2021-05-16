@@ -65,9 +65,9 @@
             android:layout_height="50dp"
             android:text="Salir" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
             android:id="@+id/btnSiguienteCA"
