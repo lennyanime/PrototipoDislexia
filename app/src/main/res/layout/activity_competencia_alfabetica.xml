@@ -38,7 +38,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#2196F3"
-                    android:gravity="start"
+                    android:gravity="center"
+                    android:text="@string/Instrucciones"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
 
@@ -76,40 +77,48 @@
                     android:id="@+id/btnp"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="p" />
+                    android:text="p"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btnf"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="f" />
+                    android:text="c"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btne"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="e" />
+                    android:text="e"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btna"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="a" />
+                    android:text="f"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
         </LinearLayout>
 
@@ -125,40 +134,48 @@
                     android:id="@+id/btnj"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="j" />
+                    android:text="j"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btnt"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="t" />
+                    android:text="t"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btnm"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="m" />
+                    android:text="m"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btnu"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="u" />
+                    android:text="u"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
         </LinearLayout>
 
         <LinearLayout
@@ -172,40 +189,48 @@
                     android:id="@+id/btni"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="i" />
+                    android:text="s"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btns"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="s" />
+                    android:text="q"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btnq"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="q" />
+                    android:text="o"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="20dp"
                     android:layout_height="0dp">
-                </androidx.appcompat.widget.AppCompatEditText>
+                </Space>
 
                 <Button
                     android:id="@+id/btno"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:text="o" />
+                    android:text="r"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
         </LinearLayout>
 
         <LinearLayout
@@ -222,12 +247,12 @@
                     android:layout_height="50dp"
                     android:text="Salir" />
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <Space
                     android:layout_width="50dp"
-                    android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+                    android:layout_height="0dp"></Space>
 
                 <Button
-                    android:id="@+id/btnSiguienteCAlfabetica"
+                    android:id="@+id/btnSiguienteCompetenciaAlfabetica"
                     android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:text="Siguiente" />

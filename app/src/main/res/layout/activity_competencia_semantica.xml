@@ -41,11 +41,13 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/txtInstruccion1CompetenciaSemantica"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="toca el triángulo"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            android:visibility="invisible"></TextView>
 
     </LinearLayout>
 
@@ -61,6 +63,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="invisible"
             app:srcCompat="@drawable/triangle" />
 
         <Space
@@ -72,6 +75,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="invisible"
             app:srcCompat="@drawable/poligono" />
     </LinearLayout>
 
@@ -82,11 +86,13 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txtInstruccion2CompetenciaSemantica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top|center"
             android:text="Arrastra el círculo dentro del cuadrado"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            android:visibility="invisible"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,8 +105,9 @@
                 android:id="@+id/imgCirculoObjetivo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:tag="circle"
                 android:background="@drawable/border"
+                android:tag="circle"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/circulo" />
 
         </LinearLayout>
@@ -116,6 +123,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:tag="circle"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/circulo" />
         </LinearLayout>
 
@@ -125,15 +133,17 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/border"
+
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imgCirculoError"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border"
             android:tag="circleFalse"
+            android:visibility="invisible"
             app:srcCompat="@drawable/circulo" />
     </LinearLayout>
 

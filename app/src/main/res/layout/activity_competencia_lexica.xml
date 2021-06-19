@@ -42,7 +42,7 @@
         android:layout_margin="10dp">
 
         <Button
-            android:id="@+id/btnMostraPalabra"
+            android:id="@+id/btnMostrarPalabra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#6663C3"
@@ -92,7 +92,7 @@
 
         <Space
             android:layout_width="50dp"
-            android:layout_height="40dp"></Space>
+            android:layout_height="30dp"></Space>
 
         <TextView
             android:id="@+id/txtMostrarPalabra"

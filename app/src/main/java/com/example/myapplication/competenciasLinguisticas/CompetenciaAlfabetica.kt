@@ -2,25 +2,35 @@ package com.example.myapplication.competenciasLinguisticas
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_competencia_alfabetica.*
-import kotlinx.android.synthetic.main.activity_competencia_alfabetica.btnSalirCA
-
 
 class CompetenciaAlfabetica : AppCompatActivity() {
+
+    private val DB = FirebaseFirestore.getInstance()
+    private var clicks: Int = 0
+    private var hits: Int = 0
+    private var misses: Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competencia_alfabetica)
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         instruccionesCompetenciaAlfabetica()
         letrasCorrectas()
+        siguiente()
         salir()
         btnLetrasCorrectasCAlfabetica.setEnabled(false)
-        btnSiguienteCAlfabetica.setEnabled(false)
+        btnSiguienteCompetenciaAlfabetica.setEnabled(false)
     }
 
     private fun instruccionesCompetenciaAlfabetica(){
@@ -37,8 +47,16 @@ class CompetenciaAlfabetica : AppCompatActivity() {
         }
     }
 
+    private fun habilitarBotones(){
+        val BOTONES_PRUEBA_ALFABETICA = arrayListOf<Button>(btnp, btnf, btne, btna, btnj, btnt, btnm, btnu, btni, btns, btnq, btno)
+
+        BOTONES_PRUEBA_ALFABETICA.forEach {
+            it.setEnabled(true)
+            it.setVisibility(View.VISIBLE)
+        }
+    }
+
     private fun letrasCorrectas() {
-        var botonesSeleccionados = 0
 
         buttonsSetEnabledFalse()
 
@@ -48,135 +66,97 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             btnLetrasCorrectasCAlfabetica.setOnClickListener {
                 mp.start()
                 btnLetrasCorrectasCAlfabetica.setEnabled(false)
-                Thread.sleep(6000)
-                buttonsSetEnabledTrue()
+                Thread.sleep(2000)
+                habilitarBotones()
             }
         }
 
         btnp.setOnClickListener {
             Toast.makeText(applicationContext, "Correcto", Toast.LENGTH_SHORT).show()
-            botonesSeleccionados++
 
             btnp.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            hits++
         }
 
         btnf.setOnClickListener {
-            botonesSeleccionados++
 
             btnf.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btne.setOnClickListener {
 
-            botonesSeleccionados++
             btne.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btna.setOnClickListener {
-            botonesSeleccionados++
 
             btna.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btnj.setOnClickListener {
-            botonesSeleccionados++
 
             Toast.makeText(applicationContext, "Correcto", Toast.LENGTH_SHORT).show()
             btnj.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            hits++
         }
         btnt.setOnClickListener {
-            botonesSeleccionados++
+
             Toast.makeText(applicationContext, "Correcto", Toast.LENGTH_SHORT).show()
             btnt.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            hits++
         }
         btnm.setOnClickListener {
-            botonesSeleccionados++
 
             btnm.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btnu.setOnClickListener {
-            botonesSeleccionados++
 
             btnu.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btni.setOnClickListener {
-            botonesSeleccionados++
             btni.setEnabled(false)
             Toast.makeText(applicationContext, "Correcto", Toast.LENGTH_SHORT).show()
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            hits++
         }
         btns.setOnClickListener {
-            botonesSeleccionados++
             btns.setEnabled(false)
 
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btnq.setOnClickListener {
-            botonesSeleccionados++
 
             btnq.setEnabled(false)
-            if (botonesSeleccionados == 4) {
-
-                buttonsSetEnabledFalse()
-                btnSiguienteSetEnabledTrue()
-            }
+            validarNumeroBotonesSeleccionados()
+            misses++
         }
         btno.setOnClickListener {
-            botonesSeleccionados++
 
+            validarNumeroBotonesSeleccionados()
             btno.setEnabled(false)
-            btnSiguienteSetEnabledTrue()
-
+            misses++
         }
     }
 
     private fun validarNumeroBotonesSeleccionados() {
 
+        clicks++
+        if (clicks == 4) {
+
+            buttonsSetEnabledFalse()
+            btnSiguienteCompetenciaAlfabetica.setEnabled(true)
+        }
     }
 
     private fun buttonsSetEnabledFalse() {
@@ -186,30 +166,26 @@ class CompetenciaAlfabetica : AppCompatActivity() {
             i.setEnabled(false)
     }
 
-    private fun buttonsSetEnabledTrue() {
-        val botonesLetras = arrayListOf<Button>(btnp, btnf, btne, btna, btnj, btnt, btnm, btnu, btni, btns, btnq, btno)
-
-        for (i in botonesLetras)
-            i.setEnabled(true)
-    }
-
     private fun salir() {
 
-        btnSalirCA.setOnClickListener {
-            onBackPressed()
-            super.onDestroy()
+
+    }
+
+    private fun siguiente() {
+
+        btnSiguienteCompetenciaAlfabetica.setOnClickListener {
+
+            Firebase.auth.currentUser?.email?.let { email ->
+                DB.collection(email).document("CompetenciaAlfabética").set(
+                    hashMapOf("Clicks" to clicks,
+                        "Hits" to hits,
+                        "Misses" to misses)
+                )
+            }
         }
     }
-
-    private fun btnSiguienteSetEnabledTrue(){
-
-        btnSiguienteCAlfabetica.setEnabled(true)
-    }
-
-    private fun save() {
-
-    }
 }
+
 
 
 

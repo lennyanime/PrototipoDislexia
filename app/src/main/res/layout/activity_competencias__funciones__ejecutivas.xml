@@ -24,11 +24,11 @@
         android:layout_margin="20dp">
 
         <Button
-            android:id="@+id/btn_a_selectiva"
+            android:id="@+id/btnAtencionDividida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="@string/c_a_sostenida">
+            android:text="@string/c_a_dividida">
         </Button>
 
 
@@ -42,7 +42,25 @@
         android:layout_margin="20dp">
 
         <Button
-            android:id="@+id/btn_a_dividida"
+            android:id="@+id/btnAtencionSelectiva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/c_a_selectiva">
+        </Button>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btnAtencionSostenida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"

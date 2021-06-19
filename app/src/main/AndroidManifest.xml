@@ -13,35 +13,94 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".funcionesEjecutivas.AtencionDividida"></activity>
-        <activity android:name=".funcionesEjecutivas.AtencionSelectiva" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".rendimientoDesempeño.Competencias_Rendimiento_Desempeno" />
-        <activity android:name=".procesosPerceptivos.Competencias_Procesos_Perceptivos" />
-        <activity android:name=".funcionesEjecutivas.Competencias_Funciones_Ejecutivas" />
-        <activity android:name=".memoriaDeTrabajo.Competencia_Memoria_Trabajo" />
-        <activity android:name=".competenciasLinguisticas.Competencias_Linguisticas" />
-        <activity android:name=".lateralidad.Competencias_Lateralidad" />
-        <activity android:name=".lateralidad.Lateralidad_2" />
-        <activity android:name=".lateralidad.Lateralidad_1" />
-        <activity android:name=".procesosPerceptivos.DiscriminacionCategorizacionAuditiva" />
-        <activity android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual" />
-        <activity android:name=".rendimientoDesempeño.OrtografiaArbitraria_VelocidadEscritura" />
-        <activity android:name=".rendimientoDesempeño.Reconocimiento_CorreccionErrores" />
-        <activity android:name=".funcionesEjecutivas.AtencionSostenida" />
-        <activity android:name=".memoriaDeTrabajo.MemoriaSecuencialAuditiva" />
-        <activity android:name=".memoriaDeTrabajo.MemoriaTrabajoAuditiva" />
-        <activity android:name=".memoriaDeTrabajo.MemoriaSecuencialVisual" />
-        <activity android:name=".memoriaDeTrabajo.MemoriaVisual" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaOrtografica" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaSemantica" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaSintactica" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaLexica" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaSilabica" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaFonica" />
-        <activity android:name=".competenciasLinguisticas.CompetenciaAlfabetica" />
-        <activity android:name=".Componentes" />
-        <activity android:name=".Login">
+
+        <activity
+            android:name=".funcionesEjecutivas.AtencionDividida"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".funcionesEjecutivas.AtencionSelectiva"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".rendimientoDesempeño.Competencias_Rendimiento_Desempeno"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".procesosPerceptivos.Competencias_Procesos_Perceptivos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".funcionesEjecutivas.Competencias_Funciones_Ejecutivas"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".memoriaDeTrabajo.Competencia_Memoria_Trabajo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.Competencias_Linguisticas"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".lateralidad.Competencias_Lateralidad"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".lateralidad.Lateralidad_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".lateralidad.Lateralidad_1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".procesosPerceptivos.DiscriminacionCategorizacionAuditiva"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".rendimientoDesempeño.OrtografiaArbitraria_VelocidadEscritura"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".rendimientoDesempeño.Reconocimiento_CorreccionErrores"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".funcionesEjecutivas.AtencionSostenida"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".memoriaDeTrabajo.MemoriaSecuencialAuditiva"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".memoriaDeTrabajo.MemoriaTrabajoAuditiva"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".memoriaDeTrabajo.MemoriaSecuencialVisual"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".memoriaDeTrabajo.MemoriaVisual"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaOrtografica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaSemantica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaSintactica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaLexica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaSilabica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaFonica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".competenciasLinguisticas.CompetenciaAlfabetica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Componentes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

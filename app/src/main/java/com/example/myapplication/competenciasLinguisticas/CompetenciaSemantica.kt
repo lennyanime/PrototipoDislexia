@@ -133,7 +133,6 @@ class CompetenciaSemantica : AppCompatActivity() {
         }
 
         override fun onDrawShadow(canvas: Canvas?) {
-            //super.onDrawShadow(canvas)
             v.draw(canvas)
         }
     }
@@ -188,16 +187,31 @@ class CompetenciaSemantica : AppCompatActivity() {
 
     private fun habilitarImagenesPrueba1() {
 
+        txtInstruccion1CompetenciaSemantica.setVisibility(View.VISIBLE)
         val IMAGENES_COMPETENCIA_SEMANTICA = arrayListOf<ImageView>(imgTriangulo, imgPoligono)
 
-        IMAGENES_COMPETENCIA_SEMANTICA.forEach { it.setEnabled(true) }
+        IMAGENES_COMPETENCIA_SEMANTICA.forEach {
+            it.setEnabled(true)
+            it.setVisibility(View.VISIBLE)
+        }
     }
 
     private fun deshabilitarImagenesPrueba1() {
 
         val IMAGENES_COMPETENCIA_SEMANTICA = arrayListOf<ImageView>(imgTriangulo, imgPoligono)
+        IMAGENES_COMPETENCIA_SEMANTICA.forEach {
+            it.setEnabled(false)
+        }
+    }
 
-        IMAGENES_COMPETENCIA_SEMANTICA.forEach { it.setEnabled(false) }
+    private fun habilitarImagenesPrueba2() {
+        txtInstruccion2CompetenciaSemantica.setVisibility(View.VISIBLE)
+        val IMAGENES_COMPETENCIA_SEMANTICA = arrayListOf<ImageView>(imgCircle, imgCirculoObjetivo, imgCirculoError)
+
+        IMAGENES_COMPETENCIA_SEMANTICA.forEach {
+            it.setEnabled(true)
+            it.setVisibility(View.VISIBLE)
+        }
     }
 
     private fun deshabilitarImagenesPrueba2() {
@@ -205,13 +219,6 @@ class CompetenciaSemantica : AppCompatActivity() {
         val IMAGENES_COMPETENCIA_SEMANTICA = arrayListOf<ImageView>(imgCircle, imgCirculoObjetivo, imgCirculoError)
 
         IMAGENES_COMPETENCIA_SEMANTICA.forEach { it.setEnabled(false) }
-    }
-
-    private fun habilitarImagenesPrueba2() {
-
-        val IMAGENES_COMPETENCIA_SEMANTICA = arrayListOf<ImageView>(imgCircle, imgCirculoObjetivo, imgCirculoError)
-
-        IMAGENES_COMPETENCIA_SEMANTICA.forEach { it.setEnabled(true) }
     }
 
     private fun habilitarBotonSiguiente(){ btnSiguienteCompetenciaSemantica.setEnabled(true) }

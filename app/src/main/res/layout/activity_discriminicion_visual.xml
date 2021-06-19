@@ -47,6 +47,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="invisible"
             app:srcCompat="@drawable/cuadrado" />
 
         <Space
@@ -57,8 +58,9 @@
             android:id="@+id/img2PruebaDiscriminizacionVisual"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/cruz"
-            android:foreground="?android:attr/selectableItemBackground"/>
+            android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/cruz" />
 
     </LinearLayout>
 
@@ -73,8 +75,9 @@
             android:id="@+id/img3PruebaDiscriminizacionVisual"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/circulobn"
-            android:foreground="?android:attr/selectableItemBackground"/>
+            android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/circulobn" />
 
         <Space
             android:layout_width="50dp"
@@ -84,8 +87,10 @@
             android:id="@+id/img4PruebaDiscriminizacionVisual"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/octagono"
-            android:foreground="?android:attr/selectableItemBackground"/>
+            android:foreground="?android:attr/selectableItemBackground"
+            android:tag="no"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/octagono" />
 
     </LinearLayout>
 
@@ -100,8 +105,10 @@
             android:id="@+id/img5PruebaDiscriminizacionVisual"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/octagono"
-            android:foreground="?android:attr/selectableItemBackground"/>
+            android:foreground="?android:attr/selectableItemBackground"
+            android:tag="si"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/octagono" />
 
         <Space
             android:layout_width="50dp"
@@ -111,8 +118,9 @@
             android:id="@+id/img6PruebaDiscriminizacionVisual"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/estrella"
-            android:foreground="?android:attr/selectableItemBackground"/>
+            android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/estrella" />
 
     </LinearLayout>
 
@@ -134,7 +142,7 @@
             android:layout_height="0dp"></Space>
 
         <Button
-            android:id="@+id/btnSiguienteCA"
+            android:id="@+id/btnSiguienteDiscriminizacionCV"
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:text="Siguiente" />

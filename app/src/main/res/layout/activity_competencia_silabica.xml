@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="20dp"
+        android:layout_margin="0dp"
         android:gravity="center|center_horizontal"
         android:text="Competencia Silábica"
         android:textSize="30sp" />
@@ -25,158 +25,135 @@
             android:id="@+id/btnInstruccionesSilabica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLetra1PruebaSilabica"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnLetra2PruebaSilabica"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnLetra3PruebaSilabica"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnLetra4PruebaSilabica"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnConfirmarTextoPruebaSilabica"
+            android:text="confirmar palabra"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground">
-        </Button>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnLetra1"
-            android:layout_width="60dp"
+            android:layout_marginBottom="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground">
-        </Button>
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"></Space>
-
-        <Button
-            android:id="@+id/btnLetra2"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground"></Button>
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"></Space>
-
-        <Button
-            android:id="@+id/btnLetra3"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground"></Button>
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"></Space>
-
-        <Button
-            android:id="@+id/btnLetra4"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground"></Button>
+            android:backgroundTint="@color/green"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:orientation="vertical">
 
-        </EditText>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"></Space>
+                <EditText
+                    android:id="@+id/txtSilabas"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="respuesta" />
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"></EditText>
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnmenuPrincipal"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="menú" />
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"></EditText>
+                <Space
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"/>
 
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"></Space>
-
-
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"></EditText>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"></Space>
-
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"></EditText>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
-
-        <Button
-            android:id="@+id/btnSiguienteCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
-    </LinearLayout>
-
+                <Button
+                    android:id="@+id/btnSiguienteCompetenciaSilabica"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="Siguiente" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

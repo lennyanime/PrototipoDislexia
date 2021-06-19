@@ -19,36 +19,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_margin="20dp">
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btnInstruccionesAtencionSostenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:gravity="center"
+            android:text="@string/Instrucciones"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
 
-        <ImageView
-            android:id="@+id/imgPez1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
-
-        <ImageView
-            android:id="@+id/imgPez2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
-
-        <ImageView
-            android:id="@+id/dragImageViewBoat"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,30 +43,30 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imgCruz1AtencionSostenida"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            app:srcCompat="@drawable/cruz" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgCirculo1AtencionSostenida"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            app:srcCompat="@drawable/circulobn" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+            <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imgOctagonoAtencionSostenida"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            app:srcCompat="@drawable/octagono" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,27 +78,62 @@
 
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imgCirculo2AtencionSostenida"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/circulobn" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"></Space>
+
+        <ImageView
+            android:id="@+id/imgEstrellaAtencionSostenida"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/estrella" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"></Space>
+
+        <ImageView
+            android:id="@+id/imgCruz2AtencionSostenida"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/cruz" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="20dp">
+
+
+        <ImageView
+            android:id="@+id/imgCuadrado1AtencionSostenida"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:srcCompat="@drawable/cuadrado" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imgTrianguloAtencionSostenida"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            app:srcCompat="@drawable/trianglebn" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/imgCuadrado2AtencionSostenida"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:srcCompat="@drawable/cuadrado" />
@@ -134,9 +152,9 @@
             android:layout_height="50dp"
             android:text="Salir" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"></Space>
 
         <Button
             android:id="@+id/btnSiguienteCA"

@@ -1,11 +1,9 @@
 package com.example.myapplication.lateralidad
 
 import android.graphics.Color
-import android.graphics.ColorFilter
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
@@ -21,13 +19,13 @@ class Lateralidad_1 : AppCompatActivity() {
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
-    private var imagenesColoreadas: Int = 0
     private val PUNTAJE_MAXIMO: Int = 5
     private var hits1: Int = 0
     private var hits2: Int = 0
     private var hits3: Int = 0
     private var hits4: Int = 0
     private var hits5: Int = 0
+    private var stop: Int=0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +46,7 @@ class Lateralidad_1 : AppCompatActivity() {
 
         siguiente()
 
-        salir()
+        menuPrincipal()
 
         buttonsSetEnabledFalseLateralidad1()
 
@@ -147,10 +145,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits1++
             hits1 = hitsAcierto(hits1)
             habilitarPruebaAuto2()
-
-            Toast.makeText(applicationContext,
-                    "$hits1",
-                    Toast.LENGTH_SHORT).show()
         }
 
         btn2_car1.setOnClickListener {
@@ -161,10 +155,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits1--
             hits1 = hitsError(hits1)
             habilitarPruebaAuto2()
-
-            Toast.makeText(applicationContext,
-                    "$hits1",
-                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -178,10 +168,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits2--
             hits2 = hitsError(hits2)
             habilitarPruebaAuto3()
-
-            Toast.makeText(applicationContext,
-                    "$hits2",
-                    Toast.LENGTH_SHORT).show()
         }
 
         btn4_car2.setOnClickListener {
@@ -192,10 +178,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits2++
             hits2 = hitsAcierto(hits2)
             habilitarPruebaAuto3()
-
-            Toast.makeText(applicationContext,
-                    "$hits2",
-                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -209,10 +191,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits3++
             hits3 = hitsAcierto(hits3)
             habilitarPruebaAuto4()
-
-            Toast.makeText(applicationContext,
-                    "$hits3",
-                    Toast.LENGTH_SHORT).show()
         }
 
         btn6_car3.setOnClickListener {
@@ -223,10 +201,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits3--
             hits3 = hitsError(hits3)
             habilitarPruebaAuto4()
-
-            Toast.makeText(applicationContext,
-                    "$hits3",
-                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -240,10 +214,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits4--
             hits4 = hitsError(hits4)
             habilitarPruebaAuto5()
-
-            Toast.makeText(applicationContext,
-                    "$hits4",
-                    Toast.LENGTH_SHORT).show()
         }
 
         btn8_car4.setOnClickListener {
@@ -254,10 +224,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits4++
             hits4 = hitsAcierto(hits4)
             habilitarPruebaAuto5()
-
-            Toast.makeText(applicationContext,
-                    "$hits4",
-                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -271,10 +237,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits5--
             hits5 = hitsError(hits5)
             habilitarBotonSiguiente()
-
-            Toast.makeText(applicationContext,
-                    "$hits5",
-                    Toast.LENGTH_SHORT).show()
         }
 
         btn10_car5.setOnClickListener {
@@ -285,10 +247,6 @@ class Lateralidad_1 : AppCompatActivity() {
             hits5++
             hits5 = hitsAcierto(hits5)
             habilitarBotonSiguiente()
-
-            Toast.makeText(applicationContext,
-                    "$hits5",
-                    Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -329,6 +287,7 @@ class Lateralidad_1 : AppCompatActivity() {
 
         btnSiguienteLateralidad1.setOnClickListener {
 
+            stop++
             hits = hits1 + hits2 + hits3 + hits4 + hits5
             misses = PUNTAJE_MAXIMO - hits
 
@@ -342,7 +301,7 @@ class Lateralidad_1 : AppCompatActivity() {
         }
     }
 
-    private fun salir() {
+    private fun menuPrincipal() {
 
         btnSalirCA.setOnClickListener {
             onBackPressed()

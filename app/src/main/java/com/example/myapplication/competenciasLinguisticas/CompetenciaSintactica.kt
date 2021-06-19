@@ -6,43 +6,33 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import com.example.myapplication.R
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_competencia_sintactica.*
 import kotlinx.android.synthetic.main.activity_competencia_sintactica.btnInstruccionesCompetenciaSintactica
 
 
 class CompetenciaSintactica : AppCompatActivity() {
+
+    private val DB = FirebaseFirestore.getInstance()
+    private var clicks: Int = 0
+    private var hits: Int = 0
+    private var misses: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competencia_sintactica)
 
         instruccionesCompetenciaSintactica()
-        imagenesSetEnabledFalse()
 
-        btnSiguienteCSintactica.setEnabled(false)
-    }
+        imagenesDeshabilitadas()
 
-    fun primerImagen(v: View) {
+        btnSiguienteCompetenciaSintactica.setEnabled(false)
 
-        imagenesSetEnabledFalse()
-        siguienteSetEnabledTrue()
-    }
+        prueba()
 
-    fun segundaImagen(v: View) {
-
-        imagenesSetEnabledFalse()
-        siguienteSetEnabledTrue()
-    }
-
-    fun terceraImagen(v: View) {
-
-        imagenesSetEnabledFalse()
-        siguienteSetEnabledTrue()
-    }
-
-    fun cuartaImagen(v: View) {
-
-        imagenesSetEnabledFalse()
-        siguienteSetEnabledTrue()
+        siguiente()
     }
 
     private fun instruccionesCompetenciaSintactica() {
@@ -54,27 +44,76 @@ class CompetenciaSintactica : AppCompatActivity() {
                 mp.start()
                 Thread.sleep(2000)
                 btnInstruccionesCompetenciaSintactica.setEnabled(false)
-                imagenesSetEnabledTrue()
+                imagenesHabilitadas()
+                txtInstruccionCompetenciaSemantica.setVisibility(View.VISIBLE)
             }
         }
     }
 
-    private fun imagenesSetEnabledFalse() {
-        val imagenes = arrayListOf<ImageView>(imgCSintactica1, imgCSintactica2, imgCSintactica3, imgCSintactica4)
+    private fun prueba() {
 
-        for (i in imagenes)
-            i.setEnabled(false)
+        img1CompetenciaSintactica.setOnClickListener{
+            clicks++
+            hits++
+            imagenesDeshabilitadas()
+            habilitarBotonSiguiente()
+        }
+
+        img2CompetenciaSintactica.setOnClickListener{
+            clicks++
+            misses++
+            imagenesDeshabilitadas()
+            habilitarBotonSiguiente()
+        }
+
+        img3CompetenciaSintactica.setOnClickListener{
+            clicks++
+            misses++
+            imagenesDeshabilitadas()
+            habilitarBotonSiguiente()
+        }
+
+        img4CompetenciaSintactica.setOnClickListener{
+            clicks++
+            misses++
+            imagenesDeshabilitadas()
+            habilitarBotonSiguiente()
+        }
     }
 
-    private fun imagenesSetEnabledTrue() {
-        val imagenes = arrayListOf<ImageView>(imgCSintactica1, imgCSintactica2, imgCSintactica3, imgCSintactica4)
+    private fun imagenesDeshabilitadas() {
+        val IMAGENES_COMPETENCIA_SINTACTICA = arrayListOf<ImageView>(img1CompetenciaSintactica, img2CompetenciaSintactica, img3CompetenciaSintactica, img4CompetenciaSintactica)
 
-        for (i in imagenes)
-            i.setEnabled(true)
+        IMAGENES_COMPETENCIA_SINTACTICA.forEach {
+            it.setEnabled(false)
+        }
     }
 
-    private fun siguienteSetEnabledTrue() {
+    private fun imagenesHabilitadas() {
+        val IMAGENES_COMPETENCIA_SINTACTICA = arrayListOf<ImageView>(img1CompetenciaSintactica, img2CompetenciaSintactica, img3CompetenciaSintactica, img4CompetenciaSintactica)
 
-        btnSiguienteCSintactica.setEnabled(true)
+        IMAGENES_COMPETENCIA_SINTACTICA.forEach {
+            it.setEnabled(true)
+            it.setVisibility(View.VISIBLE)
+        }
+    }
+
+    private fun habilitarBotonSiguiente() {
+
+        btnSiguienteCompetenciaSintactica.setEnabled(true)
+    }
+
+    private fun siguiente(){
+
+        btnSiguienteCompetenciaSintactica.setOnClickListener {
+
+            Firebase.auth.currentUser?.email?.let { email ->
+                DB.collection(email).document("CompetenciaSintáctica").set(
+                    hashMapOf("Clicks" to clicks,
+                        "Hits" to hits,
+                        "Misses" to misses)
+                )
+            }
+        }
     }
 }
