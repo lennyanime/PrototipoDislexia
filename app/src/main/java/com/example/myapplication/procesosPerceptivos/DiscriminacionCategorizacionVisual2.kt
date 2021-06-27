@@ -1,33 +1,26 @@
 package com.example.myapplication.procesosPerceptivos
 
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_competencia_alfabetica.*
 import kotlinx.android.synthetic.main.activity_discriminicion_visual.*
-import kotlinx.android.synthetic.main.activity_discriminicion_visual.view.*
-import kotlinx.android.synthetic.main.activity_lateralidad_1.*
-import kotlinx.android.synthetic.main.activity_lateralidad_2.*
-import kotlin.time.milliseconds
 
 /*
 val  IMAGENES_DISCRIMINIZCION_VISUAL = arrayListOf<ImageView>(img1PruebaDiscriminizacionVisual, img2PruebaDiscriminizacionVisual, img3PruebaDiscriminizacionVisual,
         img4PruebaDiscriminizacionVisual, img5PruebaDiscriminizacionVisual, img6PruebaDiscriminizacionVisual)
 */
-class DiscriminacionCategorizacionVisual : AppCompatActivity() {
+class DiscriminacionCategorizacionVisual2 : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
+    private var PUNTAJE_MAXIMO = 3
     private var t1: Int = 0
     private var t2: Int = 0
 
@@ -42,8 +35,6 @@ class DiscriminacionCategorizacionVisual : AppCompatActivity() {
         imagenesCorrectas()
 
         pruebaCorrecta()
-
-        siguiente()
 
         figurasIncorrectas()
     }
@@ -68,7 +59,8 @@ class DiscriminacionCategorizacionVisual : AppCompatActivity() {
         }
     }
 
-    private fun mostrarBotonesOcultosDiscriminacionVisual(){
+    private fun mostrarBotonesOcultosDiscriminacionVisual() {
+
         val BOTONES_PRUEBA_DISCRIMINACION_VISUAL = arrayListOf<ImageView>(
             img1PruebaDiscriminizacionVisual,
             img2PruebaDiscriminizacionVisual,
@@ -76,7 +68,6 @@ class DiscriminacionCategorizacionVisual : AppCompatActivity() {
             img4PruebaDiscriminizacionVisual,
             img5PruebaDiscriminizacionVisual,
             img6PruebaDiscriminizacionVisual)
-
 
         BOTONES_PRUEBA_DISCRIMINACION_VISUAL.forEach {
             it.setVisibility(View.VISIBLE)
@@ -118,7 +109,7 @@ class DiscriminacionCategorizacionVisual : AppCompatActivity() {
         img5PruebaDiscriminizacionVisual.setOnClickListener {
             t2 = 1
         }
-            }
+    }
 
     //TODO: validar el número de hits y misses
     private fun imagenesCorrectas() {
@@ -131,13 +122,13 @@ class DiscriminacionCategorizacionVisual : AppCompatActivity() {
         }
     }
 
-    private fun opcionIncorrecta(){
+    private fun opcionIncorrecta() {
 
-        t1=0
-        t2=0
+        t1 = 0
+        t2 = 0
     }
 
-    private fun figurasIncorrectas(){
+    private fun figurasIncorrectas() {
 
         img1PruebaDiscriminizacionVisual.setOnClickListener {
 
@@ -157,22 +148,6 @@ class DiscriminacionCategorizacionVisual : AppCompatActivity() {
         img6PruebaDiscriminizacionVisual.setOnClickListener {
 
             opcionIncorrecta()
-        }
-    }
-
-    private fun siguiente(){
-
-        btnSiguienteDiscriminizacionCV.setOnClickListener {
-
-            imagenesCorrectas()
-
-            Firebase.auth.currentUser?.email?.let { email ->
-                DB.collection(email).document("DiscriminaciónCategorizacionVisual").set(
-                    hashMapOf("Clicks" to clicks,
-                        "Hits" to hits,
-                        "Misses" to misses)
-                )
-            }
         }
     }
 }

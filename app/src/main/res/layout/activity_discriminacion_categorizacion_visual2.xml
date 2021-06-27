@@ -16,26 +16,7 @@
         android:text="Discriminación y categorización visual"
         android:textSize="30sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="left"
-        android:layout_margin="10dp">
-
-        <Button
-            android:id="@+id/btnInstruccionesDiscriminizacionVisual"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Instrucciones"
-            android:background="#6663C3"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -121,31 +102,6 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:visibility="invisible"
             app:srcCompat="@drawable/estrella" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
-
-        <Button
-            android:id="@+id/btnSiguienteDiscriminizacionCV"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
 
     </LinearLayout>
 

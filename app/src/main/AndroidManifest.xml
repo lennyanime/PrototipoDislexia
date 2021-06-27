@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-
+        <activity android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual3"></activity>
+        <activity android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual2" />
         <activity
             android:name=".funcionesEjecutivas.AtencionDividida"
             android:screenOrientation="portrait" />
@@ -51,7 +52,7 @@
             android:name=".procesosPerceptivos.DiscriminacionCategorizacionAuditiva"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual"
+            android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual1"
             android:screenOrientation="portrait" />
         <activity
             android:name=".rendimientoDesempeño.OrtografiaArbitraria_VelocidadEscritura"

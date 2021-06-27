@@ -71,7 +71,7 @@ class AtencionSelectiva : AppCompatActivity() {
             it.setVisibility(View.VISIBLE)
             it.text = PRUEBA1[random.nextInt(PRUEBA1.size)]
             //it.text = PRUEBA2[random.nextInt(PRUEBA2.size)]
-            if (it.getText().equals("u")) {
+            if (it.text.equals("u")) {
                 contadorU++
                 it.tag = "correctoPrueba1"
             }
@@ -132,7 +132,7 @@ class AtencionSelectiva : AppCompatActivity() {
             if (contadorP > 0) {
                 for (i in 1..contadorP - 1) {
                     //PRUEBA2.filter { x -> x == "p" }
-                    it.text = PRUEBA2.get(0)
+                    it.text = PRUEBA2[0]
                     it.tag = ""
                 }
             }

@@ -23,7 +23,7 @@ class Competencias_Procesos_Perceptivos : AppCompatActivity() {
     }
 
     private fun discrimizacionCategorizacionVisual() {
-        val intent = Intent(this, DiscriminacionCategorizacionVisual()::class.java)
+        val intent = Intent(this, DiscriminacionCategorizacionVisual1()::class.java)
         startActivity(intent)
     }
 }

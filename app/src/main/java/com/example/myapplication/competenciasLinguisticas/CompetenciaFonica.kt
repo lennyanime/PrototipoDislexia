@@ -4,6 +4,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.myapplication.R
@@ -14,16 +15,17 @@ import kotlinx.android.synthetic.main.activity_competencia_fonica.*
 import kotlinx.coroutines.*
 import java.util.*
 
-private val words =
-    arrayListOf("leña", "peña", "miedo", "riego", "playa", "raya", "reír", "freír",
-        "flor", "ladrillo", "abrigo", "montaña", "araña", "cristal", "saltar",
-        "mano", "sano", "bota", "gota", "paja", "caja")
+private val palabrasCorrectas =
+    arrayListOf("miedo", "riego", "reír", "freír",
+        "flor", "ladrillo", "abrigo", "cristal", "saltar",
+        "mano", "sano", "playa", "raya", "paja", "caja")
 
 class CompetenciaFonica : AppCompatActivity() {
 
-    private var random = Random()
+    //private var random = Random()
 
-    private val map: Map<String, String> = mapOf("leña" to "peña")
+    private val map: HashMap<String, String> = hashMapOf(
+        "leña" to "peña", "bota" to "gota", "montaña" to "araña")
 
     private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
@@ -57,6 +59,7 @@ class CompetenciaFonica : AppCompatActivity() {
         btnSiguienteCompetenciaFonica.isEnabled = false
 
         siguiente()
+
     }
 
     private fun instruccionesPruebaFonica() {
@@ -79,31 +82,28 @@ class CompetenciaFonica : AppCompatActivity() {
 
     private fun randomWordRow1() {
 
-        words.forEach { _ ->
+        if (map.keys.isNotEmpty() && map.values.isNotEmpty()) {
 
-            palabra1PruebaFonica.text = words[random.nextInt(words.size)]
-            palabra2PruebaFonica.text = words[random.nextInt(words.size)]
-
-            while (palabra1PruebaFonica.text.toString() == palabra2PruebaFonica.text.toString() || palabra1PruebaFonica.text
-                    .toString().substring(palabra1PruebaFonica.length() - 3)
-                !=
-                palabra2PruebaFonica.text.toString()
-                    .substring(palabra2PruebaFonica.length() - 3)
-            )
-                palabra2PruebaFonica.text = words[random.nextInt(words.size)]
+            palabra1PruebaFonica.text = map.keys.random()
+            palabra2PruebaFonica.text = map.getValue(palabra1PruebaFonica.text.toString())
         }
 
         btnRtaPositiva1CFonica.setOnClickListener {
 
             clicks++
-
+            //map.remove(map.containsKey(palabra1PruebaFonica.text))
             btnRtaPositiva1CFonica.isEnabled = false
             btnRtaNegativaCFonica1.isEnabled = true
 
             btnRtaPositiva2CFonica.isEnabled = true
             btnRtaNegativaCFonica2.isEnabled = true
 
-            when {
+            hits1++
+            hits1 = hitsAcierto(hits1)
+
+            /*when {
+
+                //map.containsKey(palabra1PruebaFonica.text.toString())
                 palabra1PruebaFonica.text.toString()
                     .substring(palabra1PruebaFonica.length() - 3)
                         ==
@@ -116,7 +116,7 @@ class CompetenciaFonica : AppCompatActivity() {
                     hits1--
                     hits1 = hitsError(hits1)
                 }
-            }
+            }*/
         }
 
         btnRtaNegativaCFonica1.setOnClickListener {
@@ -129,37 +129,39 @@ class CompetenciaFonica : AppCompatActivity() {
             btnRtaPositiva2CFonica.isEnabled = true
             btnRtaNegativaCFonica2.isEnabled = true
 
-            when {
-                palabra1PruebaFonica.text.toString()
-                    .substring(palabra1PruebaFonica.length() - 3)
-                        ==
-                        palabra2PruebaFonica.text.toString()
-                            .substring(palabra2PruebaFonica.length() - 3) -> {
-                    hits1--
-                    hits1 = hitsError(hits1)
-                }
-                else -> {
-                    hits1++
-                    hits1 = hitsAcierto(hits1)
-                }
-            }
+            /* when {
+                 palabra1PruebaFonica.text.toString()
+                     .substring(palabra1PruebaFonica.length() - 3)
+                         ==
+                         palabra2PruebaFonica.text.toString()
+                             .substring(palabra2PruebaFonica.length() - 3) -> {
+                     hits1--
+                     hits1 = hitsError(hits1)
+                 }
+                 else -> {
+                     hits1++
+                     hits1 = hitsAcierto(hits1)
+                 }
+             }*/
+            hits1--
+            hits1 = hitsError(hits1)
         }
 
         //forma correcta de borrar un TextView
-        words.remove("${palabra1PruebaFonica.text}")
-        words.remove("${palabra2PruebaFonica.text}")
+        /* palabrasCorrectas.remove("${palabra1PruebaFonica.text}")
+         palabrasCorrectas.remove("${palabra2PruebaFonica.text}")*/
     }
 
     private fun randomWordRow2() {
 
-        words.forEach {
+        palabrasCorrectas.forEach {
 
-            palabra3PruebaFonica.text = words[random.nextInt(words.size)]
-            palabra4PruebaFonica.text = words[random.nextInt(words.size)]
+            palabra3PruebaFonica.text = palabrasCorrectas.random()
+            palabra4PruebaFonica.text = palabrasCorrectas.random()
 
-            while (palabra4PruebaFonica.text.toString() == palabra3PruebaFonica.getText().toString()
+            while (palabra4PruebaFonica.text.toString() == palabra3PruebaFonica.text.toString()
             )
-                palabra4PruebaFonica.text = words[random.nextInt(words.size)]
+                palabra4PruebaFonica.text = palabrasCorrectas.random()
         }
 
         btnRtaPositiva2CFonica.setOnClickListener {
@@ -210,25 +212,23 @@ class CompetenciaFonica : AppCompatActivity() {
             }
         }
         //forma correcta de borrar un TextView
-        words.remove("${palabra3PruebaFonica.text}")
-        words.remove("${palabra4PruebaFonica.text}")
+        palabrasCorrectas.remove("${palabra3PruebaFonica.text}")
+        palabrasCorrectas.remove("${palabra4PruebaFonica.text}")
     }
 
     private fun randomWordRow3() {
 
-        words.forEach {
+        //TODO: pasar la llave y valor del map en los botones y verificar que no se repitan los de la fila 1
 
-            palabra5PruebaFonica.text = words[random.nextInt(words.size)]
-            palabra6PruebaFonica.text = words[random.nextInt(words.size)]
+        if (map.keys.isNotEmpty() && map.values.isNotEmpty()) {
 
-            while (palabra5PruebaFonica.text.toString() == palabra6PruebaFonica.text
-                    .toString() || palabra5PruebaFonica.text.toString()
-                    .substring(palabra5PruebaFonica.length() - 3)
-                !=
-                palabra6PruebaFonica.text.toString()
-                    .substring(palabra6PruebaFonica.length() - 3)
-            )
-                palabra6PruebaFonica.text = words[random.nextInt(words.size)]
+            palabra5PruebaFonica.text = map.keys.random()
+            palabra6PruebaFonica.text = map.getValue(palabra5PruebaFonica.text.toString())
+
+            while (palabra5PruebaFonica.text == palabra1PruebaFonica.text) {
+                palabra5PruebaFonica.text = map.keys.random()
+                palabra6PruebaFonica.text = map.getValue(palabra5PruebaFonica.text.toString())
+            }
         }
 
         btnRtaPositiva3CFonica.setOnClickListener {
@@ -280,21 +280,22 @@ class CompetenciaFonica : AppCompatActivity() {
         }
 
         //forma correcta de borrar un TextView
-        words.remove("${palabra5PruebaFonica.text}")
-        words.remove("${palabra6PruebaFonica.text}")
+        /*palabrasCorrectas.remove("${palabra5PruebaFonica.text}")
+        palabrasCorrectas.remove("${palabra6PruebaFonica.text}")*/
     }
 
     private fun randomWordRow4() {
 
+        palabrasCorrectas.forEach {
 
-        words.forEach {
-
-            palabra7PruebaFonica.text = words[random.nextInt(words.size)]
-            palabra8PruebaFonica.text = words[random.nextInt(words.size)]
+            palabrasCorrectas.random()
+            palabra7PruebaFonica.text = palabrasCorrectas.random()
+            palabra8PruebaFonica.text = palabrasCorrectas.random()
 
             while (palabra8PruebaFonica.text.toString() == palabra7PruebaFonica.text.toString()
             )
-                palabra8PruebaFonica.text = words[random.nextInt(words.size)]
+            //palabra8PruebaFonica.text = words[random.nextInt(words.size)]
+                palabra8PruebaFonica.text = palabrasCorrectas.random()
         }
 
         btnRtaPositiva4CFonica.setOnClickListener {
@@ -345,8 +346,8 @@ class CompetenciaFonica : AppCompatActivity() {
         }
 
         //forma correcta de borrar un TextView
-        words.remove("${palabra7PruebaFonica.text}")
-        words.remove("${palabra8PruebaFonica.text}")
+        palabrasCorrectas.remove("${palabra7PruebaFonica.text}")
+        palabrasCorrectas.remove("${palabra8PruebaFonica.text}")
     }
 
     private fun inhabilitarBotones() {
