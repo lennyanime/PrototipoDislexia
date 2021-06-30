@@ -55,8 +55,8 @@
                     android:id="@+id/btn_rta1_memoriatrabajoaudtiva"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:text=""
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:tag="udp"/>
 
                 <Space
                     android:layout_width="50dp"
@@ -66,8 +66,8 @@
                     android:id="@+id/btn_rta2_memoriatrabajoaudtiva"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:text=""
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:tag="udp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -81,7 +81,8 @@
                     android:id="@+id/btn_rta3_memoriatrabajoaudtiva"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:tag="udp"/>
 
                 <Space
                     android:layout_width="50dp"
@@ -91,7 +92,8 @@
                     android:id="@+id/btn_rta4_memoriatrabajoaudtiva"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:tag="udp"/>
             </LinearLayout>
 
             <LinearLayout

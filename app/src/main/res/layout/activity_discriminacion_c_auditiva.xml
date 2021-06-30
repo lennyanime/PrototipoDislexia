@@ -43,8 +43,8 @@
 
         <Button
             android:id="@+id/btn_rta1_DiscriminizacionAuditiva"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:textAllCaps="false"/>
 
         <Space
@@ -53,8 +53,8 @@
 
         <Button
             android:id="@+id/btn_rta2_DiscriminizacionAuditiva"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:textAllCaps="false" />
     </LinearLayout>
 
@@ -67,8 +67,8 @@
 
         <Button
             android:id="@+id/btn_rta3_DiscriminizacionAuditiva"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:textAllCaps="false"/>
 
         <Space
@@ -77,8 +77,8 @@
 
         <Button
             android:id="@+id/btn_rta4_DiscriminizacionAuditiva"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:textAllCaps="false"/>
     </LinearLayout>
 

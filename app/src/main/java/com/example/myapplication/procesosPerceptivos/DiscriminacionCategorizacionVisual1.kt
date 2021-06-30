@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_discriminicion_visual.*
@@ -21,10 +20,10 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
     private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
     private var hits: Int = 0
-    private var misses: Int = 0
-    private var PUNTAJE_MAXIMO = 3
     private var t1: Int = 0
     private var t2: Int = 0
+
+    private var data : MutableList<Int> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,15 +31,15 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
 
         instruccionesPruebaDiscriminizacionVisual()
 
-        desactivarImagenes()
-
-        imagenesCorrectas()
+        //desactivarImagenes()
 
         pruebaCorrecta()
 
         //siguiente()
 
         figurasIncorrectas()
+
+        btnSiguienteDiscriminizacionCV.isEnabled = false
     }
 
 
@@ -88,7 +87,7 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
             img5PruebaDiscriminizacionVisual,
             img6PruebaDiscriminizacionVisual)
 
-        IMAGENES_DISCRIMINIZCION_VISUAL.forEach { it.setEnabled(false) }
+        IMAGENES_DISCRIMINIZCION_VISUAL.forEach { it.isEnabled = false }
     }
 
     private fun activarImagenes() {
@@ -107,15 +106,20 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
     private fun pruebaCorrecta() {
 
         img4PruebaDiscriminizacionVisual.setOnClickListener {
+            clicks++
             t1 = 1
+            imagenesCorrectas()
+            segundaPrueba()
         }
 
         img5PruebaDiscriminizacionVisual.setOnClickListener {
+            clicks++
             t2 = 1
+            imagenesCorrectas()
+            segundaPrueba()
         }
     }
 
-    //TODO: validar el número de hits y misses
     private fun imagenesCorrectas() {
 
         if (t1 == 1 && t2 == 1) {
@@ -124,6 +128,18 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
             Toast.makeText(applicationContext,
                 "$hits",
                 Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun segundaPrueba() {
+
+        if (clicks == 2) {
+            data.add(clicks)
+            data.add(hits)
+            val intent = Intent(this, DiscriminacionCategorizacionVisual2()::class.java)
+            intent.putExtra("hits", hits)
+            intent.putExtra("clicks", clicks)
+            startActivity(intent)
         }
     }
 
@@ -136,40 +152,37 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
     private fun figurasIncorrectas() {
 
         img1PruebaDiscriminizacionVisual.setOnClickListener {
-
+            clicks++
             opcionIncorrecta()
             segundaPrueba()
         }
 
         img2PruebaDiscriminizacionVisual.setOnClickListener {
-
+            clicks++
             opcionIncorrecta()
             segundaPrueba()
         }
 
         img3PruebaDiscriminizacionVisual.setOnClickListener {
-
+            clicks++
             opcionIncorrecta()
             segundaPrueba()
         }
 
         img6PruebaDiscriminizacionVisual.setOnClickListener {
-
+            clicks++
             opcionIncorrecta()
             segundaPrueba()
         }
     }
 
-    private fun segundaPrueba(){
-
-        val intent = Intent(this, DiscriminacionCategorizacionVisual2::class.java)
-        startActivity(intent)
-    }
     /*private fun siguiente() {
 
         btnSiguienteDiscriminizacionCV.setOnClickListener {
 
-            imagenesCorrectas()
+            //segundaPrueba()
+
+           *//* imagenesCorrectas()
             misses = PUNTAJE_MAXIMO - hits
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("DiscriminaciónCategorizacionVisual").set(
@@ -177,7 +190,7 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
                         "Hits" to hits,
                         "Misses" to misses)
                 )
-            }
+            }*//*
         }
     }*/
 }

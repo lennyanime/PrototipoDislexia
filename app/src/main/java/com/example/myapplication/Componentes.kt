@@ -18,7 +18,7 @@ class Componentes : AppCompatActivity() {
 
         btncl.setOnClickListener{CompetenciasLinguisticas()}
 
-        btnmt.setOnClickListener{MemoriaDeTrabjo()}
+        btnmt.setOnClickListener{MemoriaDeTrabajo()}
 
         btnfe.setOnClickListener{FuncionesEjecutivas()}
 
@@ -35,7 +35,7 @@ class Componentes : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun MemoriaDeTrabjo(){
+    private fun MemoriaDeTrabajo(){
         val intent = Intent(this, Competencia_Memoria_Trabajo()::class.java)
         startActivity(intent)
     }

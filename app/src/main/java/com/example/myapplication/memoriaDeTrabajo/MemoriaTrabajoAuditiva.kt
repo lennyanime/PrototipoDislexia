@@ -9,14 +9,10 @@ import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_competencia_fonica.view.*
 import kotlinx.android.synthetic.main.activity_memoria_trabajo_auditiva.*
 import java.util.*
 
 private lateinit var PRUEBA: ArrayList<String>
-private lateinit var LETRAS: MutableList<String>
-private lateinit var TAG: MutableList<String>
-private val map: HashMap<Button, String> = hashMapOf()
 
 class MemoriaTrabajoAuditiva : AppCompatActivity() {
 
@@ -37,7 +33,6 @@ class MemoriaTrabajoAuditiva : AppCompatActivity() {
         instruccionesPruebaMemoriaTrabajoAuditiva()
 
         siguiente()
-
     }
 
     private fun instruccionesPruebaMemoriaTrabajoAuditiva() {
@@ -60,56 +55,72 @@ class MemoriaTrabajoAuditiva : AppCompatActivity() {
     private fun habilitarBotonesPrueba1() {
 
         PRUEBA = arrayListOf("udp", "upb", "upq", "udq")
+
         validacionPalabraAleatorias(btn_rta1_memoriatrabajoaudtiva,
             btn_rta2_memoriatrabajoaudtiva,
             btn_rta3_memoriatrabajoaudtiva,
             btn_rta4_memoriatrabajoaudtiva)
 
-        val BOTONES_MEMORIA_AUDITIVA = arrayListOf<Button>(btn_rta1_memoriatrabajoaudtiva,
-            btn_rta2_memoriatrabajoaudtiva,
-            btn_rta3_memoriatrabajoaudtiva,
-            btn_rta4_memoriatrabajoaudtiva)
+        btn_rta1_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("udp", btn_rta1_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba2()
+        }
 
-        BOTONES_MEMORIA_AUDITIVA.forEach {
+        btn_rta2_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("udp", btn_rta2_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba2()
+        }
 
-            it.setOnClickListener {
+        btn_rta3_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("udp", btn_rta3_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba2()
+        }
 
-                clicks++
-                validacionPalabraCorrecta("udp")
-                habilitarBotonesPrueba2()
-            }
+        btn_rta4_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("udp", btn_rta4_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba2()
         }
     }
 
     private fun habilitarBotonesPrueba2() {
-        PRUEBA = arrayListOf("cal", "cqo", "cdi", "cap")
 
-        val BOTONES_MEMORIA_AUDITIVA = arrayListOf<Button>(btn_rta1_memoriatrabajoaudtiva,
-            btn_rta2_memoriatrabajoaudtiva,
-            btn_rta3_memoriatrabajoaudtiva,
-            btn_rta4_memoriatrabajoaudtiva)
+        PRUEBA = arrayListOf("cal", "cqo", "cdi", "cap")
 
         validacionPalabraAleatorias(btn_rta1_memoriatrabajoaudtiva,
             btn_rta2_memoriatrabajoaudtiva,
             btn_rta3_memoriatrabajoaudtiva,
             btn_rta4_memoriatrabajoaudtiva)
 
-        BOTONES_MEMORIA_AUDITIVA.forEach {
+        btn_rta1_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("cal", btn_rta1_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba3()
+        }
 
-            it.setOnClickListener {
-                clicks++
-                validacionPalabraCorrecta("cal")
-                habilitarBotonesPrueba3()
-            }
+        btn_rta2_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("cal", btn_rta2_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba3()
+        }
+
+        btn_rta3_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("cal", btn_rta3_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba3()
+        }
+
+        btn_rta4_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("cal", btn_rta4_memoriatrabajoaudtiva)
+            habilitarBotonesPrueba3()
         }
     }
 
     private fun habilitarBotonesPrueba3() {
-
-        val BOTONES_MEMORIA_AUDITIVA = arrayListOf<Button>(btn_rta1_memoriatrabajoaudtiva,
-            btn_rta2_memoriatrabajoaudtiva,
-            btn_rta3_memoriatrabajoaudtiva,
-            btn_rta4_memoriatrabajoaudtiva)
 
         PRUEBA = arrayListOf("enp", "enm", "esd", "emt")
         validacionPalabraAleatorias(btn_rta1_memoriatrabajoaudtiva,
@@ -117,44 +128,47 @@ class MemoriaTrabajoAuditiva : AppCompatActivity() {
             btn_rta3_memoriatrabajoaudtiva,
             btn_rta4_memoriatrabajoaudtiva)
 
-        BOTONES_MEMORIA_AUDITIVA.forEach {
-            it.setOnClickListener {
+        btn_rta1_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("enp", btn_rta1_memoriatrabajoaudtiva)
+            habilitarBotonSiguiente()
+        }
 
-                clicks++
-                habilitarBotonesPrueba3()
-                validacionPalabraCorrecta("enp")
-                inhabilitarBotones()
-                btnSiguienteMemoriaTrabajoAuditiva.isEnabled = true
+        btn_rta2_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("enp", btn_rta2_memoriatrabajoaudtiva)
+            habilitarBotonSiguiente()
+        }
 
-                if (clicks == 3) {
-                    btnSiguienteMemoriaTrabajoAuditiva.isEnabled = true
-                    //it.text = ""
-                }
-            }
+        btn_rta3_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("enp", btn_rta3_memoriatrabajoaudtiva)
+            habilitarBotonSiguiente()
+        }
+
+        btn_rta4_memoriatrabajoaudtiva.setOnClickListener {
+            clicks++
+            validacionPalabraCorrecta("enp", btn_rta4_memoriatrabajoaudtiva)
+            habilitarBotonSiguiente()
         }
     }
 
-    private fun validacionPalabraCorrecta(palabra: String) {
-        Toast.makeText(applicationContext,
-            palabra,
-            Toast.LENGTH_SHORT).show()
-        val BOTONES_MEMORIA_AUDITIVA = arrayListOf<Button>(btn_rta1_memoriatrabajoaudtiva,
-            btn_rta2_memoriatrabajoaudtiva,
-            btn_rta3_memoriatrabajoaudtiva,
-            btn_rta4_memoriatrabajoaudtiva)
+    private fun habilitarBotonSiguiente(){
 
-        BOTONES_MEMORIA_AUDITIVA.forEach {
+        if(clicks == 3){
+            btnSiguienteMemoriaTrabajoAuditiva.isEnabled = true
+            inhabilitarBotones()
+        }
+    }
 
-            it.setOnClickListener {
+    private fun validacionPalabraCorrecta(palabra: String, boton: Button) {
 
-                for(i in BOTONES_MEMORIA_AUDITIVA.iterator()) {
+        if (boton.text.toString() == palabra) {
 
-                    if (i.tag.toString() == palabra) {
-                        hits++
-                    }
-
-                }
-            }
+            hits++
+            Toast.makeText(applicationContext,
+                "entro, $hits",
+                Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -180,7 +194,6 @@ class MemoriaTrabajoAuditiva : AppCompatActivity() {
 
             while (d.text == b.text || d.text == c.text || a.text == d.text)
                 d.text = PRUEBA[random.nextInt(PRUEBA.size)]
-
         }
     }
 
@@ -193,15 +206,11 @@ class MemoriaTrabajoAuditiva : AppCompatActivity() {
 
         botonesMemoriaTrabajoAuditiva.forEach {
             it.setEnabled(false)
+            it.text=""
         }
     }
 
     private fun siguiente() {
-
-        val BOTONES_MEMORIA_AUDITIVA = arrayListOf<Button>(btn_rta1_memoriatrabajoaudtiva,
-            btn_rta2_memoriatrabajoaudtiva,
-            btn_rta3_memoriatrabajoaudtiva,
-            btn_rta4_memoriatrabajoaudtiva)
 
         btnSiguienteMemoriaTrabajoAuditiva.setOnClickListener {
 

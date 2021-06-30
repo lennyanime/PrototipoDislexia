@@ -1,125 +1,66 @@
 package com.example.myapplication.procesosPerceptivos
 
-import android.media.MediaPlayer
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_discriminicion_visual.*
+import kotlinx.android.synthetic.main.activity_discriminacion_categorizacion_visual2.*
 
-/*
-val  IMAGENES_DISCRIMINIZCION_VISUAL = arrayListOf<ImageView>(img1PruebaDiscriminizacionVisual, img2PruebaDiscriminizacionVisual, img3PruebaDiscriminizacionVisual,
-        img4PruebaDiscriminizacionVisual, img5PruebaDiscriminizacionVisual, img6PruebaDiscriminizacionVisual)
-*/
 class DiscriminacionCategorizacionVisual2 : AppCompatActivity() {
 
-    private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
     private var hits: Int = 0
-    private var misses: Int = 0
-    private var PUNTAJE_MAXIMO = 3
     private var t1: Int = 0
     private var t2: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_discriminicion_visual)
+        setContentView(R.layout.activity_discriminacion_categorizacion_visual2)
 
-        instruccionesPruebaDiscriminizacionVisual()
+        img8PruebaDiscriminacionVisual.setOnClickListener {
+            clicks++
+            t1 = 1
+            imagenesCorrectas()
+            terceraPrueba()
+        }
 
-        desactivarImagenes()
+        img11PruebaDiscriminacionVisual.setOnClickListener {
+            clicks++
+            t2 = 1
+            imagenesCorrectas()
+            terceraPrueba()
+        }
+
+        obtenerClicksHits()
+
+        figurasIncorrectas()
 
         imagenesCorrectas()
 
-        pruebaCorrecta()
-
-        figurasIncorrectas()
     }
 
+    private fun obtenerClicksHits(){
 
-    private fun instruccionesPruebaDiscriminizacionVisual() {
+        val bundle = intent.extras
+        clicks = bundle?.get("clicks") as Int
+        hits = bundle?.get("hits") as Int
+    }
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+    private fun terceraPrueba(){
 
-        btnInstruccionesDiscriminizacionVisual.setOnClickListener {
-            if (!mp.isPlaying) {
-                mp.start()
-                btnInstruccionesDiscriminizacionVisual.setEnabled(false)
-                Thread.sleep(4000)
-                mostrarBotonesOcultosDiscriminacionVisual()
-                activarImagenes()
-                //btnInstruccionesDiscriminizacionVisual.setEnabled(true)
-            }
-            /*else {
-                mp.pause()
-            }*/
+        if (clicks == 4) {
+
+            val intent = Intent(this, DiscriminacionCategorizacionVisual3()::class.java)
+            intent.putExtra("hits", hits)
+            intent.putExtra("clicks", clicks)
+            startActivity(intent)
         }
     }
 
-    private fun mostrarBotonesOcultosDiscriminacionVisual() {
-
-        val BOTONES_PRUEBA_DISCRIMINACION_VISUAL = arrayListOf<ImageView>(
-            img1PruebaDiscriminizacionVisual,
-            img2PruebaDiscriminizacionVisual,
-            img3PruebaDiscriminizacionVisual,
-            img4PruebaDiscriminizacionVisual,
-            img5PruebaDiscriminizacionVisual,
-            img6PruebaDiscriminizacionVisual)
-
-        BOTONES_PRUEBA_DISCRIMINACION_VISUAL.forEach {
-            it.setVisibility(View.VISIBLE)
-        }
-    }
-
-    private fun desactivarImagenes() {
-
-        val IMAGENES_DISCRIMINIZCION_VISUAL = arrayListOf<ImageView>(
-            img1PruebaDiscriminizacionVisual,
-            img2PruebaDiscriminizacionVisual,
-            img3PruebaDiscriminizacionVisual,
-            img4PruebaDiscriminizacionVisual,
-            img5PruebaDiscriminizacionVisual,
-            img6PruebaDiscriminizacionVisual)
-
-        IMAGENES_DISCRIMINIZCION_VISUAL.forEach { it.setEnabled(false) }
-    }
-
-    private fun activarImagenes() {
-
-        val IMAGENES_DISCRIMINIZCION_VISUAL = arrayListOf<ImageView>(
-            img1PruebaDiscriminizacionVisual,
-            img2PruebaDiscriminizacionVisual,
-            img3PruebaDiscriminizacionVisual,
-            img4PruebaDiscriminizacionVisual,
-            img5PruebaDiscriminizacionVisual,
-            img6PruebaDiscriminizacionVisual)
-
-        IMAGENES_DISCRIMINIZCION_VISUAL.forEach { it.setEnabled(true) }
-    }
-
-    private fun pruebaCorrecta() {
-
-        img4PruebaDiscriminizacionVisual.setOnClickListener {
-            t1 = 1
-        }
-
-        img5PruebaDiscriminizacionVisual.setOnClickListener {
-            t2 = 1
-        }
-    }
-
-    //TODO: validar el número de hits y misses
     private fun imagenesCorrectas() {
 
-        if (t1 == 1 && t2 == 1) {
+        if (t1 == 1 && t2 == 1)
             hits++
-            Toast.makeText(applicationContext,
-                "$hits",
-                Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun opcionIncorrecta() {
@@ -130,24 +71,28 @@ class DiscriminacionCategorizacionVisual2 : AppCompatActivity() {
 
     private fun figurasIncorrectas() {
 
-        img1PruebaDiscriminizacionVisual.setOnClickListener {
-
+        img7PruebaDiscriminacionVisual.setOnClickListener {
+            clicks++
             opcionIncorrecta()
+            terceraPrueba()
         }
 
-        img2PruebaDiscriminizacionVisual.setOnClickListener {
-
+        img9PruebaDiscriminacionVisual.setOnClickListener {
+            clicks++
             opcionIncorrecta()
+            terceraPrueba()
         }
 
-        img3PruebaDiscriminizacionVisual.setOnClickListener {
-
+        img10PruebaDiscriminacionVisual.setOnClickListener {
+            clicks++
             opcionIncorrecta()
+            terceraPrueba()
         }
 
-        img6PruebaDiscriminizacionVisual.setOnClickListener {
-
+        img12PruebaDiscriminacionVisual.setOnClickListener {
+            clicks++
             opcionIncorrecta()
+            terceraPrueba()
         }
     }
 }
