@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".funcionesEjecutivas.AtencionSostenida3">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Atención sostenida"
+        android:textSize="30sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_margin="20dp">
+
+                <ImageView
+                    android:id="@+id/imgCruz1AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/cruz"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="cruz"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgCirculo1AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/circulobn"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="circulo"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgTriangulo1AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/trianglebn"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="triangulo"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_margin="20dp">
+
+                <ImageView
+                    android:id="@+id/imgCirculo2AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/circulobn"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="circulo"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgEstrella1AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/estrella"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="estrella"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgTrapecio1AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/trapecio"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="trapecio"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_margin="20dp">
+
+                <ImageView
+                    android:id="@+id/imgCuadrado1AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/cuadrado"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="cuadrado"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgTriangulo2AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/trianglebn"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="triangulo"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgCuadrado2AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/cuadrado"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="cuadrado"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_margin="20dp">
+
+                <ImageView
+                    android:id="@+id/imgCruz2AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/cruz"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="cruz"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"></Space>
+
+                <ImageView
+                    android:id="@+id/imgEstrella2AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/estrella"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="estrella"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
+
+                <ImageView
+                    android:id="@+id/imgTrapecio2AtencionSostenida3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/trapecio"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:tag="trapecio"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="50dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnMenuPrincipalAtencionSostenida"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:text="Menú" />
+
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"></Space>
+
+                <Button
+                    android:id="@+id/btnSiguienteAtencionSostenida"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:text="Siguiente"
+                    android:foreground="?android:attr/selectableItemBackground"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

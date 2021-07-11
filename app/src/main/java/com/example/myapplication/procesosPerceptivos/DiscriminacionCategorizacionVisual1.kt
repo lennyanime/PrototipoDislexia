@@ -17,13 +17,10 @@ val  IMAGENES_DISCRIMINIZCION_VISUAL = arrayListOf<ImageView>(img1PruebaDiscrimi
 */
 class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
 
-    private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
     private var hits: Int = 0
     private var t1: Int = 0
     private var t2: Int = 0
-
-    private var data : MutableList<Int> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,8 +131,7 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
     private fun segundaPrueba() {
 
         if (clicks == 2) {
-            data.add(clicks)
-            data.add(hits)
+
             val intent = Intent(this, DiscriminacionCategorizacionVisual2()::class.java)
             intent.putExtra("hits", hits)
             intent.putExtra("clicks", clicks)
@@ -175,22 +171,4 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
             segundaPrueba()
         }
     }
-
-    /*private fun siguiente() {
-
-        btnSiguienteDiscriminizacionCV.setOnClickListener {
-
-            //segundaPrueba()
-
-           *//* imagenesCorrectas()
-            misses = PUNTAJE_MAXIMO - hits
-            Firebase.auth.currentUser?.email?.let { email ->
-                DB.collection(email).document("DiscriminaciónCategorizacionVisual").set(
-                    hashMapOf("Clicks" to clicks,
-                        "Hits" to hits,
-                        "Misses" to misses)
-                )
-            }*//*
-        }
-    }*/
 }

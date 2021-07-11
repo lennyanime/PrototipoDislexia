@@ -20,8 +20,6 @@ class AtencionSelectiva : AppCompatActivity() {
     private var misses: Int = 0
     private var random = Random()
 
-    //TODO: inhabilitar todos los botones por cada prueba y habilitarlos luego de 2 segundos y crear dos funciones para
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_atencion_selectiva)
@@ -95,7 +93,6 @@ class AtencionSelectiva : AppCompatActivity() {
 
                 if (clicks == 1) {
                     inhabilitarBotones()
-                    Thread.sleep(2000)
                     habilitarBotonesPrueba2()
                 }
             }
@@ -148,7 +145,6 @@ class AtencionSelectiva : AppCompatActivity() {
 
                 if (clicks == 2) {
                     inhabilitarBotones()
-                    Thread.sleep(2000)
                     habilitarBotonesPrueba3()
                 }
             }

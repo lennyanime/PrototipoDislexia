@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.myapplication.R
-import com.example.myapplication.lateralidad.Lateralidad_1
 import kotlinx.android.synthetic.main.activity_competencias__funciones__ejecutivas.*
 
 class Competencias_Funciones_Ejecutivas : AppCompatActivity() {
@@ -12,15 +11,13 @@ class Competencias_Funciones_Ejecutivas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competencias__funciones__ejecutivas)
 
-
-
         btnAtencionDividida.setOnClickListener {
             atencionDividida()
         }
 
-       btnAtencionSelectiva.setOnClickListener {
-           atencionSelectiva()
-       }
+        btnAtencionSelectiva.setOnClickListener {
+            atencionSelectiva()
+        }
 
         btnAtencionSostenida.setOnClickListener {
             atencionSostenida()
@@ -28,22 +25,22 @@ class Competencias_Funciones_Ejecutivas : AppCompatActivity() {
 
     }
 
-    private fun atencionDividida(){
+    private fun atencionDividida() {
 
-            val intent = Intent(this, AtencionDividida::class.java)
-            startActivity(intent)
+        val intent = Intent(this, AtencionDividida::class.java)
+        startActivity(intent)
     }
 
-    private fun atencionSelectiva(){
+    private fun atencionSelectiva() {
 
-            val intent = Intent(this, AtencionSelectiva::class.java)
-            startActivity(intent)
+        val intent = Intent(this, AtencionSelectiva::class.java)
+        startActivity(intent)
 
     }
 
-    private fun atencionSostenida(){
+    private fun atencionSostenida() {
 
-            val intent = Intent(this, AtencionSostenida::class.java)
-            startActivity(intent)
+        val intent = Intent(this, AtencionSostenida1::class.java)
+        startActivity(intent)
     }
 }

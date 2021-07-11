@@ -57,10 +57,6 @@ class DiscriminacionCategorizacionVisual3 : AppCompatActivity() {
         val bundle = intent.extras
         clicks = bundle?.get("clicks") as Int
         hits = bundle?.get("hits") as Int
-
-        Toast.makeText(applicationContext,
-            "$hits , $clicks",
-            Toast.LENGTH_SHORT).show()
     }
 
     private fun imagenesCorrectas() {

@@ -1,10 +1,10 @@
 package com.example.myapplication.competenciasLinguisticas
 
+import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.myapplication.R
@@ -12,8 +12,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_competencia_fonica.*
-import kotlinx.coroutines.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 private val palabrasCorrectas =
     arrayListOf("miedo", "riego", "reír", "freír",
@@ -21,8 +21,6 @@ private val palabrasCorrectas =
         "mano", "sano", "playa", "raya", "paja", "caja")
 
 class CompetenciaFonica : AppCompatActivity() {
-
-    //private var random = Random()
 
     private val map: HashMap<String, String> = hashMapOf(
         "leña" to "peña", "bota" to "gota", "montaña" to "araña")
@@ -55,7 +53,6 @@ class CompetenciaFonica : AppCompatActivity() {
         randomWordRow3()
         randomWordRow4()
 
-        //TODO: habilitar el bóton cuando se haya habilitado los botones de la última fila
         btnSiguienteCompetenciaFonica.isEnabled = false
 
         siguiente()
@@ -91,32 +88,18 @@ class CompetenciaFonica : AppCompatActivity() {
         btnRtaPositiva1CFonica.setOnClickListener {
 
             clicks++
-            //map.remove(map.containsKey(palabra1PruebaFonica.text))
+
             btnRtaPositiva1CFonica.isEnabled = false
+            btnRtaPositiva1CFonica.setBackgroundColor(Color.GRAY)
+
             btnRtaNegativaCFonica1.isEnabled = true
+            btnRtaNegativaCFonica1.setBackgroundColor(Color.TRANSPARENT)
 
             btnRtaPositiva2CFonica.isEnabled = true
             btnRtaNegativaCFonica2.isEnabled = true
 
             hits1++
             hits1 = hitsAcierto(hits1)
-
-            /*when {
-
-                //map.containsKey(palabra1PruebaFonica.text.toString())
-                palabra1PruebaFonica.text.toString()
-                    .substring(palabra1PruebaFonica.length() - 3)
-                        ==
-                        palabra2PruebaFonica.text.toString()
-                            .substring(palabra1PruebaFonica.length() - 3) -> {
-                    hits1++
-                    hits1 = hitsAcierto(hits1)
-                }
-                else -> {
-                    hits1--
-                    hits1 = hitsError(hits1)
-                }
-            }*/
         }
 
         btnRtaNegativaCFonica1.setOnClickListener {
@@ -124,32 +107,17 @@ class CompetenciaFonica : AppCompatActivity() {
             clicks++
 
             btnRtaPositiva1CFonica.isEnabled = true
+            btnRtaPositiva1CFonica.setBackgroundColor(Color.TRANSPARENT)
+
             btnRtaNegativaCFonica1.isEnabled = false
+            btnRtaNegativaCFonica1.setBackgroundColor(Color.GRAY)
 
             btnRtaPositiva2CFonica.isEnabled = true
             btnRtaNegativaCFonica2.isEnabled = true
 
-            /* when {
-                 palabra1PruebaFonica.text.toString()
-                     .substring(palabra1PruebaFonica.length() - 3)
-                         ==
-                         palabra2PruebaFonica.text.toString()
-                             .substring(palabra2PruebaFonica.length() - 3) -> {
-                     hits1--
-                     hits1 = hitsError(hits1)
-                 }
-                 else -> {
-                     hits1++
-                     hits1 = hitsAcierto(hits1)
-                 }
-             }*/
             hits1--
             hits1 = hitsError(hits1)
         }
-
-        //forma correcta de borrar un TextView
-        /* palabrasCorrectas.remove("${palabra1PruebaFonica.text}")
-         palabrasCorrectas.remove("${palabra2PruebaFonica.text}")*/
     }
 
     private fun randomWordRow2() {
@@ -169,7 +137,10 @@ class CompetenciaFonica : AppCompatActivity() {
             clicks++
 
             btnRtaPositiva2CFonica.isEnabled = false
+            btnRtaPositiva2CFonica.setBackgroundColor(Color.GRAY)
+
             btnRtaNegativaCFonica2.isEnabled = true
+            btnRtaNegativaCFonica2.setBackgroundColor(Color.TRANSPARENT)
 
             btnRtaPositiva3CFonica.isEnabled = true
             btnRtaNegativaCFonica3.isEnabled = true
@@ -193,7 +164,10 @@ class CompetenciaFonica : AppCompatActivity() {
             clicks++
 
             btnRtaPositiva2CFonica.isEnabled = true
+            btnRtaPositiva2CFonica.setBackgroundColor(Color.TRANSPARENT)
+
             btnRtaNegativaCFonica2.isEnabled = false
+            btnRtaNegativaCFonica2.setBackgroundColor(Color.GRAY)
 
             btnRtaPositiva3CFonica.isEnabled = true
             btnRtaNegativaCFonica3.isEnabled = true
@@ -218,8 +192,6 @@ class CompetenciaFonica : AppCompatActivity() {
 
     private fun randomWordRow3() {
 
-        //TODO: pasar la llave y valor del map en los botones y verificar que no se repitan los de la fila 1
-
         if (map.keys.isNotEmpty() && map.values.isNotEmpty()) {
 
             palabra5PruebaFonica.text = map.keys.random()
@@ -236,7 +208,10 @@ class CompetenciaFonica : AppCompatActivity() {
             clicks++
 
             btnRtaPositiva3CFonica.isEnabled = false
+            btnRtaPositiva3CFonica.setBackgroundColor(Color.GRAY)
+
             btnRtaNegativaCFonica3.isEnabled = true
+            btnRtaNegativaCFonica3.setBackgroundColor(Color.TRANSPARENT)
 
             btnRtaPositiva4CFonica.isEnabled = true
             btnRtaNegativaCFonica4.isEnabled = true
@@ -260,7 +235,10 @@ class CompetenciaFonica : AppCompatActivity() {
             clicks++
 
             btnRtaPositiva3CFonica.isEnabled = true
+            btnRtaPositiva3CFonica.setBackgroundColor(Color.TRANSPARENT)
+
             btnRtaNegativaCFonica3.isEnabled = false
+            btnRtaNegativaCFonica3.setBackgroundColor(Color.GRAY)
 
             btnRtaPositiva4CFonica.isEnabled = true
             btnRtaNegativaCFonica4.isEnabled = true
@@ -278,10 +256,6 @@ class CompetenciaFonica : AppCompatActivity() {
                 hits3 = hitsAcierto(hits3)
             }
         }
-
-        //forma correcta de borrar un TextView
-        /*palabrasCorrectas.remove("${palabra5PruebaFonica.text}")
-        palabrasCorrectas.remove("${palabra6PruebaFonica.text}")*/
     }
 
     private fun randomWordRow4() {
@@ -294,15 +268,18 @@ class CompetenciaFonica : AppCompatActivity() {
 
             while (palabra8PruebaFonica.text.toString() == palabra7PruebaFonica.text.toString()
             )
-            //palabra8PruebaFonica.text = words[random.nextInt(words.size)]
                 palabra8PruebaFonica.text = palabrasCorrectas.random()
         }
 
         btnRtaPositiva4CFonica.setOnClickListener {
 
             btnSiguienteCompetenciaFonica.isEnabled = true
+
             btnRtaPositiva4CFonica.isEnabled = false
+            btnRtaPositiva4CFonica.setBackgroundColor(Color.GRAY)
+
             btnRtaNegativaCFonica4.isEnabled = true
+            btnRtaNegativaCFonica4.setBackgroundColor(Color.TRANSPARENT)
 
             clicks++
             when {
@@ -326,7 +303,11 @@ class CompetenciaFonica : AppCompatActivity() {
             clicks++
 
             btnSiguienteCompetenciaFonica.isEnabled = true
+
             btnRtaPositiva4CFonica.isEnabled = true
+            btnRtaPositiva4CFonica.setBackgroundColor(Color.TRANSPARENT)
+
+            btnRtaNegativaCFonica4.setBackgroundColor(Color.GRAY)
             btnRtaNegativaCFonica4.isEnabled = false
 
             when {
@@ -350,9 +331,9 @@ class CompetenciaFonica : AppCompatActivity() {
         palabrasCorrectas.remove("${palabra8PruebaFonica.text}")
     }
 
-    private fun inhabilitarBotones() {
+    private fun botonesPruebaFonica(): ArrayList<Button> {
 
-        val BOTONES_PRUEBA_FONICA = arrayListOf<Button>(btnRtaPositiva1CFonica,
+        return arrayListOf(btnRtaPositiva1CFonica,
             btnRtaNegativaCFonica1,
             btnRtaPositiva2CFonica,
             btnRtaNegativaCFonica2,
@@ -360,8 +341,11 @@ class CompetenciaFonica : AppCompatActivity() {
             btnRtaNegativaCFonica3,
             btnRtaPositiva4CFonica,
             btnRtaNegativaCFonica4)
+    }
 
-        BOTONES_PRUEBA_FONICA.forEach {
+    private fun inhabilitarBotones() {
+
+        botonesPruebaFonica().forEach {
 
             it.isEnabled = false
         }
@@ -369,16 +353,7 @@ class CompetenciaFonica : AppCompatActivity() {
 
     private fun ocultarBotones() {
 
-        val BOTONES_PRUEBA_FONICA = arrayListOf<Button>(btnRtaPositiva1CFonica,
-            btnRtaNegativaCFonica1,
-            btnRtaPositiva2CFonica,
-            btnRtaNegativaCFonica2,
-            btnRtaPositiva3CFonica,
-            btnRtaNegativaCFonica3,
-            btnRtaPositiva4CFonica,
-            btnRtaNegativaCFonica4)
-
-        BOTONES_PRUEBA_FONICA.forEach {
+        botonesPruebaFonica().forEach {
 
             it.isVisible = false
         }
@@ -386,24 +361,15 @@ class CompetenciaFonica : AppCompatActivity() {
 
     private fun mostrarBotones() {
 
-        val BOTONES_PRUEBA_FONICA = arrayListOf<Button>(btnRtaPositiva1CFonica,
-            btnRtaNegativaCFonica1,
-            btnRtaPositiva2CFonica,
-            btnRtaNegativaCFonica2,
-            btnRtaPositiva3CFonica,
-            btnRtaNegativaCFonica3,
-            btnRtaPositiva4CFonica,
-            btnRtaNegativaCFonica4)
-
-        BOTONES_PRUEBA_FONICA.forEach {
+        botonesPruebaFonica().forEach {
 
             it.isVisible = true
         }
     }
 
-    private fun ocultarTexto() {
+    private fun textoPruebaFonica():ArrayList<TextView>{
 
-        val EDIT_TEXT = arrayListOf<TextView>(palabra1PruebaFonica,
+        return arrayListOf(palabra1PruebaFonica,
             palabra2PruebaFonica,
             palabra3PruebaFonica,
             palabra4PruebaFonica,
@@ -411,8 +377,11 @@ class CompetenciaFonica : AppCompatActivity() {
             palabra6PruebaFonica,
             palabra7PruebaFonica,
             palabra8PruebaFonica)
+    }
 
-        EDIT_TEXT.forEach {
+    private fun ocultarTexto() {
+
+        textoPruebaFonica().forEach {
 
             it.isVisible = false
         }
@@ -420,16 +389,7 @@ class CompetenciaFonica : AppCompatActivity() {
 
     private fun habilitarTexto() {
 
-        val EDIT_TEXT = arrayListOf<TextView>(palabra1PruebaFonica,
-            palabra2PruebaFonica,
-            palabra3PruebaFonica,
-            palabra4PruebaFonica,
-            palabra5PruebaFonica,
-            palabra6PruebaFonica,
-            palabra7PruebaFonica,
-            palabra8PruebaFonica)
-
-        EDIT_TEXT.forEach {
+        textoPruebaFonica().forEach {
 
             it.isVisible = true
         }

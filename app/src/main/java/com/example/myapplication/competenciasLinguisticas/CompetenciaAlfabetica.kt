@@ -51,8 +51,8 @@ class CompetenciaAlfabetica : AppCompatActivity() {
         val BOTONES_PRUEBA_ALFABETICA = arrayListOf<Button>(btnp, btnf, btne, btna, btnj, btnt, btnm, btnu, btni, btns, btnq, btno)
 
         BOTONES_PRUEBA_ALFABETICA.forEach {
-            it.setEnabled(true)
-            it.setVisibility(View.VISIBLE)
+            it.isEnabled = true
+            it.visibility = View.VISIBLE
         }
     }
 
