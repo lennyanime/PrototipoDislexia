@@ -8,13 +8,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_discriminicion_visual.*
 
-/*
-val  IMAGENES_DISCRIMINIZCION_VISUAL = arrayListOf<ImageView>(img1PruebaDiscriminizacionVisual, img2PruebaDiscriminizacionVisual, img3PruebaDiscriminizacionVisual,
-        img4PruebaDiscriminizacionVisual, img5PruebaDiscriminizacionVisual, img6PruebaDiscriminizacionVisual)
-*/
 class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
 
     private var clicks: Int = 0
@@ -28,11 +23,7 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
 
         instruccionesPruebaDiscriminizacionVisual()
 
-        //desactivarImagenes()
-
         pruebaCorrecta()
-
-        //siguiente()
 
         figurasIncorrectas()
 
@@ -51,7 +42,6 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
                 Thread.sleep(4000)
                 mostrarBotonesOcultosDiscriminacionVisual()
                 activarImagenes()
-                //btnInstruccionesDiscriminizacionVisual.setEnabled(true)
             }
             /*else {
                 mp.pause()

@@ -19,36 +19,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_margin="20dp">
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btnInstruccionesMemoriaVisual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/Instrucciones" />
+    </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgPez1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
-
-        <ImageView
-            android:id="@+id/imgPez2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
-
-        <ImageView
-            android:id="@+id/dragImageViewBoat"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+        <Button
+            android:id="@+id/btnIniciarPrueba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="Iniciar prueba" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,30 +59,33 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imgMemoriaVisual1"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/circulobn" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"/>
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgMemoriaVisual2"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:background="@drawable/border"
             app:srcCompat="@drawable/cuadrado" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"/>
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imgMemoriaVisual3"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/cruz" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,30 +97,70 @@
 
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imgMemoriaVisual4"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/estrella" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"/>
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imgMemoriaVisual5"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/triangulo" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="20dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"/>
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/imgMemoriaVisual6"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/cuadrado" />
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/trianguloinvertido" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/imgMemoriaVisual7"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/pentagono" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <ImageView
+            android:id="@+id/imgMemoriaVisual8"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/cubo" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <ImageView
+            android:id="@+id/imgMemoriaVisual9"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/border"
+            app:srcCompat="@drawable/rectangle" />
     </LinearLayout>
 
     <LinearLayout
@@ -129,21 +171,19 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSalirCA"
+            android:id="@+id/btnMenuMemoriaVisual"
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:text="Salir" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+            android:layout_height="0dp"/>
 
         <Button
-            android:id="@+id/btnSiguienteCA"
+            android:id="@+id/btnSiguienteMemoriaVisual"
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:text="Siguiente" />
     </LinearLayout>
-
-
 </LinearLayout>

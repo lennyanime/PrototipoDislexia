@@ -70,7 +70,6 @@ class CompetenciaSilabica : AppCompatActivity() {
 
         val mp = MediaPlayer.create(this, R.raw.lenny2)
 
-        //TODO: aquí va el audio de la palabra de esta prueba
         btnLetra1PruebaSilabica.setOnClickListener {
 
             if (!mp.isPlaying) {
