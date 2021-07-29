@@ -7,15 +7,6 @@
     android:orientation="vertical"
     tools:context=".memoriaDeTrabajo.MemoriaSecuencialVisual">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="20dp"
-        android:gravity="center|center_horizontal"
-        android:text="Memoria de trabajo secuencial visual"
-        android:textSize="30sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,13 +32,13 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSecuenciaMemoriaSecuencialVisual"
+            android:id="@+id/btnMemoriaSecuencialVisual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#2196F3"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
-            android:text="ver secuencia" />
+            android:text="iniciar prueba" />
 
     </LinearLayout>
 
@@ -63,7 +54,8 @@
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:visibility="invisible"
-            app:srcCompat="@drawable/triangulo" />
+            app:srcCompat="@drawable/triangulo"
+            android:foreground="?android:attr/selectableItemBackground"/>
     </LinearLayout>
 
     <LinearLayout
@@ -79,11 +71,12 @@
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:visibility="invisible"
-            app:srcCompat="@drawable/triangulo" />
+            app:srcCompat="@drawable/octagono"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
         <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp" />
+            android:layout_width="24dp"
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/imgPosicion3"
@@ -91,7 +84,8 @@
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:visibility="invisible"
-            app:srcCompat="@drawable/estrella" />
+            app:srcCompat="@drawable/estrella"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
     </LinearLayout>
 
@@ -107,7 +101,8 @@
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:visibility="invisible"
-            app:srcCompat="@drawable/triangulo" />
+            app:srcCompat="@drawable/pentagono"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
         <Space
             android:layout_width="20dp"
@@ -119,7 +114,8 @@
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:visibility="invisible"
-            app:srcCompat="@drawable/estrella" />
+            app:srcCompat="@drawable/circulobn"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
         <Space
             android:layout_width="20dp"
@@ -131,7 +127,8 @@
             android:layout_height="80dp"
             android:background="@drawable/border"
             android:visibility="invisible"
-            app:srcCompat="@drawable/rectangle" />
+            app:srcCompat="@drawable/rectangle"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
     </LinearLayout>
 

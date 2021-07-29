@@ -28,6 +28,7 @@
             android:layout_margin="10dp"
             android:background="#6663C3"
             android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:text="@string/Instrucciones"
             android:foreground="?android:attr/selectableItemBackground"/>
 
     </LinearLayout>

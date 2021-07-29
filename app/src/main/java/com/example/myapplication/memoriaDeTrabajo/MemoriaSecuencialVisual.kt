@@ -5,17 +5,22 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_memoria_secuencial_visual.*
+import kotlinx.android.synthetic.main.activity_memoria_visual.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-private lateinit var imagenes: MutableList<ImageView>
+private lateinit var secuenciaVisualCorrectas: MutableList<ImageView>
+//mutableListOf("correcto1", "correcto2", "correcto3")
+
+private lateinit var secuenciaVisualRespuestas: MutableList<ImageView>
 
 class MemoriaSecuencialVisual : AppCompatActivity() {
 
@@ -25,24 +30,31 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
     private var misses: Int = 0
     private var PUNTAJE_MAXIMO = 6
 
-    private var cont = 0
+    private lateinit var imagenAzar1: ImageView
+    private lateinit var imagenAzar2: ImageView
+    private lateinit var imagenAzar3: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memoria_secuencial_visual)
 
-        //btnSiguienteMemoriaSV.isEnabled = false
+        btnSiguienteMemoriaSV.isEnabled = false
 
-        btnSecuenciaMemoriaSecuencialVisual.isVisible = false
+        btnMemoriaSecuencialVisual.isEnabled = false
 
         instruccionesMemoriaSecuencialVisual()
 
+        inhabilitarImagenes()
+
         siguiente()
 
-        cambiarImagenes()
+        validarImagenCorrecta()
 
-        mostrarSecuenciaImagenes()
+        iniciarPrueba()
 
+        secuenciaVisualCorrectas = mutableListOf()
+
+        secuenciaVisualRespuestas = mutableListOf()
     }
 
     private fun instruccionesMemoriaSecuencialVisual() {
@@ -54,166 +66,236 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
                 mp.start()
                 btnInstruccionesMemoriaSecuencialVisual.isEnabled = false
                 Thread.sleep(2000)
-                btnSecuenciaMemoriaSecuencialVisual.isVisible = true
-                inhabilitarImagenes()
-
-                //imgPosicion1.setImageResource(R.drawable.coche)
-                //imgPosicion1.setImageResource(pruebaImagenes().get(0))
+                btnMemoriaSecuencialVisual.isEnabled = true
             }
         }
     }
 
-    private fun mostrarSecuenciaImagenes() {
+    private fun iniciarPrueba() {
 
-        btnSecuenciaMemoriaSecuencialVisual.setOnClickListener {
+        btnMemoriaSecuencialVisual.setOnClickListener {
 
-            cont++
+            listaImagenes().forEach {
 
-            when (cont) {
-
-                1 -> imgPosicion1.isVisible = true
-                2 -> imgPosicion2.isVisible = true
-                3 -> imgPosicion4.isVisible = true
-                4 -> imgPosicion3.isVisible = true
-                5 -> imgPosicion5.isVisible = true
-                6 -> {
-                    habilitarImagenes()
-
-                    cambiarImagenesCorrectas()
-
-                    imgPosicion6.isVisible = true
-
-                    btnSecuenciaMemoriaSecuencialVisual.isEnabled = false
-                }
+                it.isVisible = true
             }
-        }
-    }
 
-    private fun cambiarImagenesCorrectas() {
+            imagenAzar1 = listaImagenes().random()
 
-        GlobalScope.launch {
+            imagenAzar2 = listaImagenes().random()
 
-            delay(6000)
-            imgPosicion1.setImageResource(imagenesPrueba()[0])
-            imgPosicion2.setImageResource(imagenesPrueba()[1])
-            imgPosicion4.setImageResource(imagenesPrueba()[2])
-            imgPosicion3.setImageResource(imagenesPrueba()[4])
-            imgPosicion5.setImageResource(imagenesPrueba()[5])
-            imgPosicion6.setImageResource(imagenesPrueba()[6])
-        }
-    }
+            imagenAzar3 = listaImagenes().random()
 
-    private fun imagenesPrueba(): ArrayList<Int> {
+            while (imagenAzar1 == imagenAzar2 || imagenAzar1 == imagenAzar3) {
+                imagenAzar1 = listaImagenes().random()
 
-        var img1 = R.drawable.trianglebn
-        var img2 = R.drawable.trapecio
-        var img3 = R.drawable.circulobn
-        var img4 = R.drawable.estrella
-        var img5 = R.drawable.cruz
-        var img6 = R.drawable.pentagono
-        var img7 = R.drawable.cuadrado
-        var img8 = R.drawable.triangulo
-        var img9 = R.drawable.rectangle
+            }
+            imagenAzar1.tag = "correcto"
+            secuenciaVisualCorrectas.add(imagenAzar1)
 
-        return arrayListOf(img1,
-            img2,
-            img3,
-            img4,
-            img5,
-            img6,
-            img7,
-            img8,
-            img9
-        )
-    }
+            while (imagenAzar2 == imagenAzar1 || imagenAzar2 == imagenAzar3) {
+                imagenAzar2 = listaImagenes().random()
 
-    private fun cambiarImagenes() {
+            }
+            imagenAzar2.tag = "correcto"
+            secuenciaVisualCorrectas.add(imagenAzar2)
 
-        imgPosicion1.setOnClickListener {
+            while (imagenAzar3 == imagenAzar2 || imagenAzar3 == imagenAzar1) {
+                imagenAzar3 = listaImagenes().random()
 
-            imgPosicion1.setImageResource(imagenesPrueba().random())
+            }
+            imagenAzar3.tag = "correcto"
+            secuenciaVisualCorrectas.add(imagenAzar3)
 
             GlobalScope.launch {
-
-                delay(1000)
-
-                /*if(imgPosicion1 == listaImagenes()[0])
-                    hits++*/
+                delay(2000)
+                ocultarImagen1()
             }
+
+            GlobalScope.launch {
+                delay(3000)
+                mostrarImagen1()
+            }
+
+            GlobalScope.launch {
+                delay(4000)
+                ocultarImagen2()
+            }
+
+            GlobalScope.launch {
+                delay(5000)
+                mostrarImagen2()
+            }
+
+            GlobalScope.launch {
+                delay(6000)
+                ocultarImagen3()
+            }
+
+            GlobalScope.launch {
+                delay(7000)
+                mostrarImagen3()
+                habilitarImagenes()
+            }
+        }
+    }
+
+    private fun ocultarImagen1() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                imagenAzar1.isInvisible = true
+            }
+        },
+    ).start()
+
+    private fun mostrarImagen1() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                imagenAzar1.isVisible = true
+            }
+        },
+    ).start()
+
+    private fun ocultarImagen2() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                imagenAzar2.isInvisible = true
+            }
+        },
+    ).start()
+
+    private fun mostrarImagen2() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                imagenAzar2.isVisible = true
+            }
+        },
+    ).start()
+
+    private fun ocultarImagen3() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                imagenAzar3.isInvisible = true
+            }
+        },
+    ).start()
+
+    private fun mostrarImagen3() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                imagenAzar3.isVisible = true
+            }
+        },
+    ).start()
+
+    private fun habilitarImagenes() = Thread(
+        kotlinx.coroutines.Runnable {
+
+            this@MemoriaSecuencialVisual.runOnUiThread {
+
+                listaImagenes().forEach {
+
+                    it.isEnabled = true
+                }
+            }
+        },
+    ).start()
+
+    private fun validarImagenCorrecta() {
+
+        imgPosicion1.setOnClickListener {
+            clicks++
+
+            if (it.tag == "correcto")
+                secuenciaVisualRespuestas.add(imgPosicion1)
+            secuenciaVisualRespuestas.add(imgPosicion1)
+
+            habilitarBotonSiguiente()
         }
 
         imgPosicion2.setOnClickListener {
+            clicks++
 
-            imgPosicion2.setImageResource(imagenesPrueba().random())
+            if (it.tag == "correcto")
+                secuenciaVisualRespuestas.add(imgPosicion2)
+            secuenciaVisualRespuestas.add(imgPosicion2)
 
-            /* if(imgPosicion2 == listaImagenes()[1])
-                 hits++*/
+            habilitarBotonSiguiente()
         }
 
         imgPosicion3.setOnClickListener {
+            clicks++
 
-            imgPosicion3.setImageResource(imagenesPrueba().random())
+            if (it.tag == "correcto")
+                secuenciaVisualRespuestas.add(imgPosicion3)
+            secuenciaVisualRespuestas.add(imgPosicion3)
 
-            /*if(imgPosicion3 == listaImagenes()[2])
-                hits++*/
+            habilitarBotonSiguiente()
         }
 
         imgPosicion4.setOnClickListener {
+            clicks++
 
-            imgPosicion4.setImageResource(imagenesPrueba().random())
+            if (it.tag == "correcto")
+                secuenciaVisualRespuestas.add(imgPosicion4)
+            secuenciaVisualRespuestas.add(imgPosicion4)
 
-            /*if(imgPosicion4 == listaImagenes()[3])
-                hits++*/
+            habilitarBotonSiguiente()
         }
 
         imgPosicion5.setOnClickListener {
+            clicks++
 
-            imgPosicion5.setImageResource(imagenesPrueba().random())
+            if (it.tag == "correcto")
+                secuenciaVisualRespuestas.add(imgPosicion5)
+            secuenciaVisualRespuestas.add(imgPosicion5)
 
-            /* if(imgPosicion5 == listaImagenes()[4])
-                 hits++*/
+            habilitarBotonSiguiente()
         }
 
         imgPosicion6.setOnClickListener {
+            clicks++
 
-            imgPosicion6.setImageResource(imagenesPrueba().random())
+            if (it.tag == "correcto")
+                secuenciaVisualRespuestas.add(imgPosicion6)
+            secuenciaVisualRespuestas.add(imgPosicion6)
 
-            if (imgPosicion6 == validarImagenesCorrectas().getValue(key = "imagen6")) {
-
-                hits++
-
-                Toast.makeText(applicationContext,
-                    "correcto",
-                    Toast.LENGTH_SHORT).show()
-            } else {
-
-                Toast.makeText(applicationContext,
-                    "incorrecto",
-                    Toast.LENGTH_SHORT).show()
-            }
+            habilitarBotonSiguiente()
         }
     }
 
-    private fun validarImagenesCorrectas(): HashMap<String, ImageView> {
+    private fun habilitarBotonSiguiente() {
 
-        return hashMapOf(
-            "imagen1" to imgPosicion1,
-            "imagen2" to imgPosicion2,
-            "imagen3" to imgPosicion3,
-            "imagen4" to imgPosicion4,
-            "imagen5" to imgPosicion5,
-            "imagen6" to imgPosicion6
-        )
+        if (clicks == 3) {
+
+            inhabilitarImagenes()
+
+            btnSiguienteMemoriaSV.isEnabled = true
+        }
     }
 
     private fun listaImagenes(): ArrayList<ImageView> {
 
-        return arrayListOf(imgPosicion1,
+        return arrayListOf(
+            imgPosicion1,
             imgPosicion2,
             imgPosicion3,
             imgPosicion4,
             imgPosicion5,
-            imgPosicion6)
+            imgPosicion6
+        )
     }
 
     private fun inhabilitarImagenes() {
@@ -224,25 +306,39 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         }
     }
 
-    private fun habilitarImagenes() {
+     private fun validarRespuestas() {
 
-        listaImagenes().forEach {
+         var indice = 0
 
-            it.isEnabled = true
-        }
-    }
+         while (indice < secuenciaVisualCorrectas.size) {
+             if (secuenciaVisualCorrectas[indice] == secuenciaVisualRespuestas[indice])
+                 hits++
+
+             indice++
+         }
+
+         Toast.makeText(
+             applicationContext,
+             "$hits",
+             Toast.LENGTH_SHORT
+         ).show()
+     }
 
     private fun siguiente() {
 
         btnSiguienteMemoriaSV.setOnClickListener {
 
+            validarRespuestas()
+
             misses = PUNTAJE_MAXIMO - hits
 
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("MemoriaSecuencialVisual").set(
-                    hashMapOf("Clicks" to clicks,
+                    hashMapOf(
+                        "Clicks" to clicks,
                         "Hits" to hits,
-                        "Misses" to misses)
+                        "Misses" to misses
+                    )
                 )
             }
         }

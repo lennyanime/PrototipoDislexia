@@ -43,5 +43,12 @@
     <string name="lateralidad_1">Lateralidad 1</string>
     <string name="lateralidad_2">Lateralidad 2</string>
 
+    <string name="rendimientoDesempeño">Rendimiento o Desempeño</string>
+
+    <string name="velocidadLectura">Velocidad de lectura</string>
+    <string name="comprensionLectura">Comprensión de lectura</string>
+    <string name="reconocimientoErrores">Reconocimiento de Errores</string>
+    <string name="ortografiaArbitraria">Ortografía arbitraria y velocidad de escritura</string>
+
     <string name="Instrucciones">Instrucciones</string>
 </resources>

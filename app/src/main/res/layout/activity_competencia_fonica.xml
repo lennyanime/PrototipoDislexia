@@ -79,20 +79,18 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:gravity="end"
                     android:backgroundTint="@color/green"
                     android:foreground="?android:attr/selectableItemBackground"
-                    >
-                </Button>
+                    android:gravity="end"></Button>
 
                 <Button
                     android:id="@+id/btnRtaNegativaCFonica1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:gravity="end"
                     android:backgroundTint="@color/red"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="end">
 
                 </Button>
 
@@ -101,7 +99,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 

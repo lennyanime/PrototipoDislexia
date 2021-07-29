@@ -14,15 +14,19 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_memoria_visual.*
 import kotlinx.coroutines.*
 
+private lateinit var imagenesSeleccionadas: MutableList<String>
+
 class MemoriaVisual : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
-    private var PUNTAJE_MAXIMO = 6
+    private var PUNTAJE_MAXIMO = 3
 
-    private lateinit var imagenAzar: ImageView
+    private lateinit var imagenAzar1: ImageView
+    private lateinit var imagenAzar2: ImageView
+    private lateinit var imagenAzar3: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +34,19 @@ class MemoriaVisual : AppCompatActivity() {
 
         instruccionesMemoriaVisual()
 
+        btnIniciarPruebaMemoriaVisual.isEnabled = false
+
+        btnSiguienteMemoriaVisual.isEnabled = false
+
         inhabilitarImagenes()
 
         siguiente()
 
-        //prueba()
+        prueba()
 
-        //mostrarImagenOculta()
+        validarImagenCorrecta()
 
+        imagenesSeleccionadas = mutableListOf()
     }
 
     private fun instruccionesMemoriaVisual() {
@@ -51,7 +60,7 @@ class MemoriaVisual : AppCompatActivity() {
                 Thread.sleep(2000)
                 btnInstruccionesMemoriaVisual.isEnabled = false
                 habilitarImagenes()
-                prueba()
+                btnIniciarPruebaMemoriaVisual.isEnabled = true
             }
         }
     }
@@ -89,32 +98,72 @@ class MemoriaVisual : AppCompatActivity() {
 
     private fun prueba() {
 
-        btnIniciarPrueba.setOnClickListener {
-            imagenAzar = listaImagenes().random()
-            imagenAzar.tag = "correcto"
-            imagenAzar.isInvisible = true
+        btnIniciarPruebaMemoriaVisual.setOnClickListener {
 
-            GlobalScope.launch(Dispatchers.Main) {
-                mostrarImagenOculta()
+            imagenAzar1 = listaImagenes().random()
+            imagenAzar1.tag = "correcto"
+
+            imagenAzar2 = listaImagenes().random()
+            imagenAzar2.tag = "correcto"
+
+            imagenAzar3 = listaImagenes().random()
+            imagenAzar3.tag = "correcto"
+
+            while(imagenAzar1 == imagenAzar2 || imagenAzar1 == imagenAzar3){
+                imagenAzar1 = listaImagenes().random()
+                imagenAzar1.tag = "correcto"
+            }
+
+            while(imagenAzar2 == imagenAzar1 || imagenAzar2 == imagenAzar3){
+                imagenAzar2 = listaImagenes().random()
+                imagenAzar2.tag = "correcto"
+            }
+
+            while(imagenAzar3 == imagenAzar2 || imagenAzar3 == imagenAzar1){
+                imagenAzar3 = listaImagenes().random()
+                imagenAzar3.tag = "correcto"
+            }
+
+            ocultarImagen()
+
+            GlobalScope.launch {
+                delay(100)
+                imagenTransparente()
             }
         }
     }
 
-    suspend fun mostrarImagenOculta() {
+    private fun ocultarImagen() = Thread(
+        Runnable {
+            this@MemoriaVisual.runOnUiThread {
 
-        delay(2000)
+                imagenAzar1.isInvisible = true
+                imagenAzar2.isInvisible = true
+                imagenAzar3.isInvisible = true
+            }
+        },
+    ).start()
 
-        imagenAzar.isVisible = true
+    private fun imagenTransparente() = Thread(
+        Runnable {
+            this@MemoriaVisual.runOnUiThread {
 
-    }
+                imagenAzar1.isVisible = true
+                imagenAzar2.isVisible = true
+                imagenAzar3.isVisible = true
+            }
+        },
+    ).start()
 
-    private fun validarImagenCorrecta(imagen: ImageView) {
+    private fun validarImagenCorrecta() {
 
         listaImagenes().forEach {
 
             it.setOnClickListener {
 
-                if (imagen.tag == "correcto") {
+                clicks++
+
+                if (it.tag == "correcto") {
 
                     Toast.makeText(
                         applicationContext,
@@ -123,9 +172,20 @@ class MemoriaVisual : AppCompatActivity() {
                     ).show()
 
                     hits++
-
                 }
+
+                habilitarBotonSiguiente()
             }
+        }
+    }
+
+    private fun habilitarBotonSiguiente() {
+
+        if (clicks == 3) {
+
+            inhabilitarImagenes()
+
+            btnSiguienteMemoriaVisual.isEnabled = true
         }
     }
 

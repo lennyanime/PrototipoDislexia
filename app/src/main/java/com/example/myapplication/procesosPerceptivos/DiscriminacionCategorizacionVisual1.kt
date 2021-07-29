@@ -33,13 +33,13 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
 
     private fun instruccionesPruebaDiscriminizacionVisual() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.discriminacioncategorizacionvisual)
 
         btnInstruccionesDiscriminizacionVisual.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
                 btnInstruccionesDiscriminizacionVisual.setEnabled(false)
-                Thread.sleep(4000)
+                Thread.sleep(13000)
                 mostrarBotonesOcultosDiscriminacionVisual()
                 activarImagenes()
             }

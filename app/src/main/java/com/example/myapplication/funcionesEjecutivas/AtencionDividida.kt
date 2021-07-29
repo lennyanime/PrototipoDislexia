@@ -11,6 +11,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_atencion_dividida.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
+private lateinit var listaTags: MutableList<String>
 
 class AtencionDividida : AppCompatActivity() {
 
@@ -18,10 +23,7 @@ class AtencionDividida : AppCompatActivity() {
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
-    private var PUNTAJE_MAXIMO = 2
-
-    private lateinit var imagenAzar1: ImageView
-    private lateinit var imagenAzar2: ImageView
+    private var PUNTAJE_MAXIMO = 6
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +33,15 @@ class AtencionDividida : AppCompatActivity() {
 
         instruccionesAtencionDividida()
 
+        iniciarPrueba()
+
         siguiente()
 
-        validarImagenMatriz1()
+        validarImagenesMatriz2()
 
-        validarImagenMatriz2()
+        validarImagenesMatriz1()
+
+        listaTags = mutableListOf()
     }
 
     private fun instruccionesAtencionDividida() {
@@ -48,7 +54,22 @@ class AtencionDividida : AppCompatActivity() {
                 Thread.sleep(2000)
                 btnInstruccionesAtencionDividida.isEnabled = false
                 habilitarImagenes()
-                desaparecerImagenes()
+            }
+        }
+    }
+
+    private fun iniciarPrueba() {
+
+        btnIniciarPruebaAtencionDividida.setOnClickListener {
+
+            desaparecerImagenes()
+
+            GlobalScope.launch {
+                desaparecerImagenes2()
+            }
+
+            GlobalScope.launch {
+                desaparecerImagenes3()
             }
         }
     }
@@ -70,7 +91,8 @@ class AtencionDividida : AppCompatActivity() {
 
     private fun listaImagenes2(): ArrayList<ImageView> {
 
-        return arrayListOf(imgCruz2AtencionDividida,
+        return arrayListOf(
+            imgCruz2AtencionDividida,
             imgCirculo2AtencionDividida,
             imgTriangulo2AtencionDividida,
             imgPentagono2AtencionDividida,
@@ -78,22 +100,64 @@ class AtencionDividida : AppCompatActivity() {
             imgTrapecio2AtencionDividida,
             imgCuadrado2AtencionDividida,
             imgTrianguloInvertido2AtencionDividida,
-            imgRectangulo2AtencionDividida)
+            imgRectangulo2AtencionDividida
+        )
     }
 
     private fun desaparecerImagenes() {
 
-        imagenAzar1 = listaImagenes1().random()
-        imagenAzar2 = listaImagenes2().random()
+        val imagenAzar1 = listaImagenes1().random()
+        var imagenAzar2 = listaImagenes2().random()
 
-        while (imagenAzar1.tag == imagenAzar2.tag)
-            imagenAzar1 = listaImagenes1().random()
+        listaTags.add(imagenAzar1.tag.toString())
+
+        while (listaTags.contains(imagenAzar2.tag.toString()))
+            imagenAzar2 = listaImagenes2().random()
 
         imagenAzar1.isInvisible = true
         imagenAzar2.isInvisible = true
+
+        listaTags.add(imagenAzar2.tag.toString())
     }
 
-    private fun validarImagenMatriz1() {
+    suspend fun desaparecerImagenes2() {
+
+            delay(2000)
+
+            val imagenAzar3 = listaImagenes1().random()
+            var imagenAzar4 = listaImagenes2().random()
+
+            listaTags.add(imagenAzar3.tag.toString())
+
+            while (listaTags.contains(imagenAzar4.tag.toString()))
+                imagenAzar4 = listaImagenes2().random()
+
+            imagenAzar3.isInvisible = true
+            imagenAzar4.isInvisible = true
+
+            listaTags.add(imagenAzar4.tag.toString())
+
+    }
+
+    suspend fun desaparecerImagenes3() {
+
+            delay(4000)
+
+            val imagenAzar5 = listaImagenes1().random()
+            var imagenAzar6 = listaImagenes2().random()
+
+            listaTags.add(imagenAzar5.tag.toString())
+
+            while (listaTags.contains(imagenAzar6.tag.toString()))
+                imagenAzar6 = listaImagenes2().random()
+
+            imagenAzar5.isInvisible = true
+            imagenAzar6.isInvisible = true
+
+            listaTags.add(imagenAzar6.tag.toString())
+    }
+
+    private fun validarImagenesMatriz1() {
 
         listaImagenes1().forEach {
 
@@ -101,15 +165,19 @@ class AtencionDividida : AppCompatActivity() {
 
                 clicks++
 
-                var boton = it.tag
+                val boton = it.tag
 
-                if (imagenAzar2.tag == boton){
+                it.isEnabled = false
+
+                if (listaTags.contains(boton)) {
 
                     hits++
 
-                    Toast.makeText(applicationContext,
-                        "correcto",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                            applicationContext,
+                    "correcto",
+                    Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 habilitarBotonSiguiente()
@@ -117,7 +185,7 @@ class AtencionDividida : AppCompatActivity() {
         }
     }
 
-    private fun validarImagenMatriz2() {
+    private fun validarImagenesMatriz2() {
 
         listaImagenes2().forEach {
 
@@ -125,15 +193,19 @@ class AtencionDividida : AppCompatActivity() {
 
                 clicks++
 
-                var boton = it.tag
+                val boton = it.tag
 
-                if (imagenAzar1.tag == boton){
+                it.isEnabled = false
+
+                if (listaTags.contains(boton)) {
 
                     hits++
 
-                    Toast.makeText(applicationContext,
+                    Toast.makeText(
+                        applicationContext,
                         "correcto",
-                        Toast.LENGTH_SHORT).show()
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 habilitarBotonSiguiente()
@@ -143,7 +215,7 @@ class AtencionDividida : AppCompatActivity() {
 
     private fun habilitarBotonSiguiente() {
 
-        if (clicks == 2) {
+        if (clicks == 6) {
 
             btnSiguienteAtencionDividida.isEnabled = true
             inhabilitarImagenes()
@@ -184,9 +256,11 @@ class AtencionDividida : AppCompatActivity() {
 
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("AtenciónDividida").set(
-                    hashMapOf("Clicks" to clicks,
+                    hashMapOf(
+                        "Clicks" to clicks,
                         "Hits" to hits,
-                        "Misses" to misses)
+                        "Misses" to misses
+                    )
                 )
             }
         }
