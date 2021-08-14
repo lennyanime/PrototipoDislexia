@@ -18,7 +18,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 private lateinit var secuenciaVisualCorrectas: MutableList<ImageView>
-//mutableListOf("correcto1", "correcto2", "correcto3")
 
 private lateinit var secuenciaVisualRespuestas: MutableList<ImageView>
 
@@ -28,11 +27,13 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
-    private var PUNTAJE_MAXIMO = 6
+    private val PUNTAJE_MAXIMO = 9
+    private var totalPruebas = 0
 
     private lateinit var imagenAzar1: ImageView
     private lateinit var imagenAzar2: ImageView
     private lateinit var imagenAzar3: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +76,10 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
 
         btnMemoriaSecuencialVisual.setOnClickListener {
 
+            totalPruebas++
+
+            btnMemoriaSecuencialVisual.isEnabled = false
+
             listaImagenes().forEach {
 
                 it.isVisible = true
@@ -88,7 +93,6 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
 
             while (imagenAzar1 == imagenAzar2 || imagenAzar1 == imagenAzar3) {
                 imagenAzar1 = listaImagenes().random()
-
             }
             imagenAzar1.tag = "correcto"
             secuenciaVisualCorrectas.add(imagenAzar1)
@@ -102,7 +106,6 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
 
             while (imagenAzar3 == imagenAzar2 || imagenAzar3 == imagenAzar1) {
                 imagenAzar3 = listaImagenes().random()
-
             }
             imagenAzar3.tag = "correcto"
             secuenciaVisualCorrectas.add(imagenAzar3)
@@ -218,9 +221,11 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         imgPosicion1.setOnClickListener {
             clicks++
 
-            if (it.tag == "correcto")
+            if (it.tag == "correcto") {
                 secuenciaVisualRespuestas.add(imgPosicion1)
-            secuenciaVisualRespuestas.add(imgPosicion1)
+            } else {
+                secuenciaVisualRespuestas.add(imgFake)
+            }
 
             habilitarBotonSiguiente()
         }
@@ -228,9 +233,11 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         imgPosicion2.setOnClickListener {
             clicks++
 
-            if (it.tag == "correcto")
+            if (it.tag == "correcto") {
                 secuenciaVisualRespuestas.add(imgPosicion2)
-            secuenciaVisualRespuestas.add(imgPosicion2)
+            } else {
+                secuenciaVisualRespuestas.add(imgFake)
+            }
 
             habilitarBotonSiguiente()
         }
@@ -238,9 +245,12 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         imgPosicion3.setOnClickListener {
             clicks++
 
-            if (it.tag == "correcto")
+            if (it.tag == "correcto") {
                 secuenciaVisualRespuestas.add(imgPosicion3)
-            secuenciaVisualRespuestas.add(imgPosicion3)
+
+            } else {
+                secuenciaVisualRespuestas.add(imgFake)
+            }
 
             habilitarBotonSiguiente()
         }
@@ -248,9 +258,11 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         imgPosicion4.setOnClickListener {
             clicks++
 
-            if (it.tag == "correcto")
+            if (it.tag == "correcto") {
                 secuenciaVisualRespuestas.add(imgPosicion4)
-            secuenciaVisualRespuestas.add(imgPosicion4)
+            } else {
+                secuenciaVisualRespuestas.add(imgFake)
+            }
 
             habilitarBotonSiguiente()
         }
@@ -258,9 +270,11 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         imgPosicion5.setOnClickListener {
             clicks++
 
-            if (it.tag == "correcto")
+            if (it.tag == "correcto") {
                 secuenciaVisualRespuestas.add(imgPosicion5)
-            secuenciaVisualRespuestas.add(imgPosicion5)
+            } else {
+                secuenciaVisualRespuestas.add(imgFake)
+            }
 
             habilitarBotonSiguiente()
         }
@@ -268,9 +282,11 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         imgPosicion6.setOnClickListener {
             clicks++
 
-            if (it.tag == "correcto")
+            if (it.tag == "correcto") {
                 secuenciaVisualRespuestas.add(imgPosicion6)
-            secuenciaVisualRespuestas.add(imgPosicion6)
+            } else {
+                secuenciaVisualRespuestas.add(imgFake)
+            }
 
             habilitarBotonSiguiente()
         }
@@ -278,12 +294,21 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
 
     private fun habilitarBotonSiguiente() {
 
-        if (clicks == 3) {
+        if (clicks == 3 || clicks == 6 || clicks == 9) {
 
             inhabilitarImagenes()
 
             btnSiguienteMemoriaSV.isEnabled = true
-        }
+        }/*else{
+            btnSiguienteMemoriaSV.isEnabled = false
+        }*/
+    }
+
+    private fun borrarListas() {
+
+        secuenciaVisualCorrectas.clear()
+        secuenciaVisualRespuestas.clear()
+
     }
 
     private fun listaImagenes(): ArrayList<ImageView> {
@@ -306,29 +331,57 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         }
     }
 
-     private fun validarRespuestas() {
+    private fun validarRespuestas() {
 
-         var indice = 0
+        var indice = 0
 
-         while (indice < secuenciaVisualCorrectas.size) {
-             if (secuenciaVisualCorrectas[indice] == secuenciaVisualRespuestas[indice])
-                 hits++
+        while (indice < secuenciaVisualCorrectas.size) {
+            if (secuenciaVisualCorrectas[indice] == secuenciaVisualRespuestas[indice]) {
+                hits++
+                Toast.makeText(
+                    applicationContext,
+                    "yes",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "no",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
-             indice++
-         }
+            indice++
+        }
 
-         Toast.makeText(
-             applicationContext,
-             "$hits",
-             Toast.LENGTH_SHORT
-         ).show()
-     }
+        Toast.makeText(
+            applicationContext,
+            "$hits",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun pruebas() {
+
+        if (totalPruebas == 1) {
+
+            btnMemoriaSecuencialVisual.isEnabled = true
+        }
+    }
 
     private fun siguiente() {
 
         btnSiguienteMemoriaSV.setOnClickListener {
 
+            btnSiguienteMemoriaSV.isEnabled = false
+
             validarRespuestas()
+
+            borrarListas()
+
+            btnMemoriaSecuencialVisual.isEnabled = true
+
+            pruebas()
 
             misses = PUNTAJE_MAXIMO - hits
 

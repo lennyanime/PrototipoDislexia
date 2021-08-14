@@ -1,10 +1,9 @@
 package com.example.myapplication.memoriaDeTrabajo
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import com.example.myapplication.competenciasLinguisticas.CompetenciaAlfabetica
 import kotlinx.android.synthetic.main.activity_competencia__memoria__trabajo.*
 
 class Competencia_Memoria_Trabajo : AppCompatActivity() {

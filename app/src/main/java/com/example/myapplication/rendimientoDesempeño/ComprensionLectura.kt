@@ -2,9 +2,6 @@ package com.example.myapplication.rendimientoDesempeño
 
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.View
-import android.widget.CheckBox
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
@@ -12,7 +9,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_comprension_de_lectura.*
-import kotlinx.android.synthetic.main.activity_comprension_de_lectura.view.*
 
 class ComprensionLectura : AppCompatActivity() {
 
@@ -52,24 +48,6 @@ class ComprensionLectura : AppCompatActivity() {
             }*/
         }
     }
-
-    /*private fun listaRespuestasPregunta1(): ArrayList<RadioButton> {
-
-        return arrayListOf(
-            chkRespuesta1,
-            chkRespuesta2,
-            chkRespuesta3
-        )
-    }
-
-    private fun listaRespuestasPregunta2(): ArrayList<RadioButton> {
-
-        return arrayListOf(
-            chkRespuesta4,
-            chkRespuesta5,
-            chkRespuesta6
-        )
-    }*/
 
     private fun respuestaCorrecta1() {
 

@@ -7,10 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import com.example.myapplication.R
-import kotlinx.android.synthetic.main.activity_atencion_sostenida1.*
-import kotlinx.android.synthetic.main.activity_atencion_sostenida1.view.*
 import kotlinx.android.synthetic.main.activity_atencion_sostenida2.*
-import kotlinx.android.synthetic.main.activity_atencion_sostenida2.view.*
 
 class AtencionSostenida2 : AppCompatActivity() {
 

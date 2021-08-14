@@ -7,19 +7,16 @@ import android.graphics.Color
 import android.graphics.Point
 import android.media.MediaPlayer
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_competencia_semantica.*
-import kotlinx.android.synthetic.main.activity_discriminicion_visual.*
-import kotlinx.android.synthetic.main.activity_lateralidad_1.*
-import kotlinx.android.synthetic.main.activity_lateralidad_2.*
 import kotlinx.android.synthetic.main.activity_lateralidad_2.textView
 
 class CompetenciaSemantica : AppCompatActivity() {

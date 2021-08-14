@@ -10,12 +10,11 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_competencia_silabica.*
-import java.lang.reflect.Type
+import java.util.*
 
 private lateinit var silabas: MutableList<String>
 
@@ -42,11 +41,11 @@ class CompetenciaSilabica : AppCompatActivity() {
 
         siguiente()
 
-        btnSiguienteCompetenciaSilabica.setEnabled(false)
+        btnSiguienteCompetenciaSilabica.isEnabled = false
 
-        btnConfirmarTextoPruebaSilabica.setEnabled(false)
+        btnConfirmarTextoPruebaSilabica.isEnabled = false
 
-        txtSilabas.setVisibility(View.INVISIBLE)
+        txtSilabas.visibility = View.INVISIBLE
 
         silabas = mutableListOf()
 
@@ -60,8 +59,8 @@ class CompetenciaSilabica : AppCompatActivity() {
             btnInstruccionesSilabica.setOnClickListener {
                 mp.start()
                 Thread.sleep(2000)
-                btnInstruccionesSilabica.setEnabled(false)
-                btnLetra1PruebaSilabica.setEnabled(true)
+                btnInstruccionesSilabica.isEnabled = false
+                btnLetra1PruebaSilabica.isEnabled = true
             }
         }
     }
@@ -76,9 +75,9 @@ class CompetenciaSilabica : AppCompatActivity() {
 
                 mp.start()
                 Thread.sleep(2000)
-                btnLetra1PruebaSilabica.setEnabled(false)
-                btnConfirmarTextoPruebaSilabica.setEnabled(true)
-                txtSilabas.setVisibility(View.VISIBLE)
+                btnLetra1PruebaSilabica.isEnabled = false
+                btnConfirmarTextoPruebaSilabica.isEnabled = true
+                txtSilabas.visibility = View.VISIBLE
             }
         }
     }
@@ -94,26 +93,26 @@ class CompetenciaSilabica : AppCompatActivity() {
 
             val regex = "^[a-zA-Z]+$".toRegex()
 
-            if (!txtSilabas.text.toString().toLowerCase()
+            if (!txtSilabas.text.toString().trim().toLowerCase(Locale.ROOT)
                     .contains(regex) || txtSilabas.text.isEmpty()
             ) {
                 ocultarTeclado(txtSilabas)
                 Toast.makeText(applicationContext,
                     "Tu respuesta no es una palabra o no escribiste nada",
                     Toast.LENGTH_SHORT).show()
-                txtSilabas.setText(null)
+                txtSilabas.text = null
             } else {
 
                 silabas.add(txtSilabas.text.toString())
-                txtSilabas.setText(null)
+                txtSilabas.text = null
                 ocultarTeclado(txtSilabas)
 
                 when (silabas.size) {
 
                     1 -> {
 
-                        btnConfirmarTextoPruebaSilabica.setEnabled(false)
-                        btnLetra2PruebaSilabica.setEnabled(true)
+                        btnConfirmarTextoPruebaSilabica.isEnabled = false
+                        btnLetra2PruebaSilabica.isEnabled = true
                         txtSilabas.visibility = View.INVISIBLE
 
                         if (silabas.contains("plen")) {
@@ -125,8 +124,8 @@ class CompetenciaSilabica : AppCompatActivity() {
                         }
                     }
                     2 -> {
-                        btnConfirmarTextoPruebaSilabica.setEnabled(false)
-                        btnLetra3PruebaSilabica.setEnabled(true)
+                        btnConfirmarTextoPruebaSilabica.isEnabled = false
+                        btnLetra3PruebaSilabica.isEnabled = true
                         txtSilabas.visibility = View.INVISIBLE
 
                         if (silabas.contains("crep")) {
@@ -139,8 +138,8 @@ class CompetenciaSilabica : AppCompatActivity() {
                     }
                     3 -> {
 
-                        btnConfirmarTextoPruebaSilabica.setEnabled(false)
-                        btnLetra4PruebaSilabica.setEnabled(true)
+                        btnConfirmarTextoPruebaSilabica.isEnabled = false
+                        btnLetra4PruebaSilabica.isEnabled = true
                         txtSilabas.visibility = View.INVISIBLE
 
                         if (silabas.contains("dal")) {
@@ -153,8 +152,8 @@ class CompetenciaSilabica : AppCompatActivity() {
                     }
                     4 -> {
 
-                        btnConfirmarTextoPruebaSilabica.setEnabled(false)
-                        btnSiguienteCompetenciaSilabica.setEnabled(true)
+                        btnConfirmarTextoPruebaSilabica.isEnabled = false
+                        btnSiguienteCompetenciaSilabica.isEnabled = true
                         txtSilabas.visibility = View.INVISIBLE
 
                         if (silabas.contains("pri")) {
@@ -172,8 +171,8 @@ class CompetenciaSilabica : AppCompatActivity() {
                     if (!mp.isPlaying) {
                         mp.start()
                         Thread.sleep(2000)
-                        btnLetra2PruebaSilabica.setEnabled(false)
-                        btnConfirmarTextoPruebaSilabica.setEnabled(true)
+                        btnLetra2PruebaSilabica.isEnabled = false
+                        btnConfirmarTextoPruebaSilabica.isEnabled = true
                         txtSilabas.visibility = View.VISIBLE
                     }
                 }
@@ -184,8 +183,8 @@ class CompetenciaSilabica : AppCompatActivity() {
                     if (!mp.isPlaying) {
                         mp.start()
                         Thread.sleep(2000)
-                        btnLetra3PruebaSilabica.setEnabled(false)
-                        btnConfirmarTextoPruebaSilabica.setEnabled(true)
+                        btnLetra3PruebaSilabica.isEnabled = false
+                        btnConfirmarTextoPruebaSilabica.isEnabled = true
                         txtSilabas.visibility = View.VISIBLE
                     }
                 }
@@ -196,8 +195,8 @@ class CompetenciaSilabica : AppCompatActivity() {
                     if (!mp.isPlaying) {
                         mp.start()
                         Thread.sleep(2000)
-                        btnLetra4PruebaSilabica.setEnabled(false)
-                        btnConfirmarTextoPruebaSilabica.setEnabled(true)
+                        btnLetra4PruebaSilabica.isEnabled = false
+                        btnConfirmarTextoPruebaSilabica.isEnabled = true
                         txtSilabas.visibility = View.VISIBLE
                     }
                 }
@@ -226,12 +225,11 @@ class CompetenciaSilabica : AppCompatActivity() {
 
         BOTONES_PRUEBA_SILABICA.forEach {
 
-            it.setEnabled(false)
+            it.isEnabled = false
         }
     }
 
     private fun siguiente() {
-
 
         btnSiguienteCompetenciaSilabica.setOnClickListener {
             clicks = silabas.size

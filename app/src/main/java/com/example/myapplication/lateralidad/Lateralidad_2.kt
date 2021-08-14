@@ -11,15 +11,12 @@ import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_lateralidad_1.*
 import kotlinx.android.synthetic.main.activity_lateralidad_2.*
-import kotlinx.android.synthetic.main.activity_lateralidad_2.textView
 
 //lateinit var view: TextView
 class Lateralidad_2 : AppCompatActivity() {

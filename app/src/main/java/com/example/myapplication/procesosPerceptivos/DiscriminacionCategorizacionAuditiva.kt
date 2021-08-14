@@ -10,7 +10,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_discriminacion_c_auditiva.*
-import kotlinx.android.synthetic.main.activity_memoria_trabajo_auditiva.*
 import java.util.*
 
 private lateinit var PRUEBA: ArrayList<String>

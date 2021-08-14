@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,60 +14,135 @@
         android:gravity="center"
         android:text="Ortografía arbitraria y velocidad de escritura"
         android:textSize="30sp" />
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_margin="10dp"
         android:gravity="left"
-        android:layout_margin="20dp">
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/Img_btnaudio"
-            android:layout_width="106dp"
-            android:layout_height="72dp"
-            android:background="#6663C3"
-            android:layout_margin="20dp"
-            app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_margin="20dp">
-
-        <EditText
+        <Button
+            android:id="@+id/btnInstruccionesOrtografiaVelocidadEscritura"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            
-        </EditText>
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/Instrucciones" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_margin="0dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
+            android:id="@+id/btnOrtografiaArbitrariaFrase1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/btnSiguienteCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
+            android:id="@+id/btnOrtografiaArbitrariaFrase2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnOrtografiaArbitrariaFrase3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#6663C3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnConfirmarFraseOrtografiaArbitraria"
+            android:text="confirmar palabra"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtFrases"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="respuesta" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnMenuPrincipalOAVE"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="menú" />
+
+                <Space
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"/>
+
+                <Button
+                    android:id="@+id/btnSiguienteOrtografiaArbitraria"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="Siguiente" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

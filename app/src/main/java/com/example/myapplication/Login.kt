@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R.string.default_web_client_id
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignIn.*
+import com.google.android.gms.auth.api.signin.GoogleSignIn.getClient
+import com.google.android.gms.auth.api.signin.GoogleSignIn.getSignedInAccountFromIntent
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions.*
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions.DEFAULT_SIGN_IN
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
@@ -19,45 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class Login : AppCompatActivity() {
 
-    /*var googleSignInClient: GoogleSignInClient? = null
-    val RC_SIGN_IN = 1000
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-// Configure Google Sign In
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        button.setOnClickListener {
-            var signInIntent = googleSignInClient?.signInIntent
-            startActivityForResult(signInIntent, RC_SIGN_IN)
-        }
-    }
-
-    fun firebaseAuthWithGoogle(acct: GoogleSignInAccount?) {
-        var credential = GoogleAuthProvider.getCredential(acct?.idToken, null)
-        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                println("Google Login ")
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == RC_SIGN_IN) {
-            var task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            var account = task.getResult(ApiException::class.java)
-            firebaseAuthWithGoogle(account)
-        }
-    }*/
-/* companion object {
+    companion object {
         private const val RC_SIGN_IN = 120
     }
 
@@ -80,7 +42,6 @@ class Login : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             signIn()
-
         }
     }
 
@@ -121,7 +82,7 @@ class Login : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("SignInActivity", "signInWithCredential:success")
-                    val intent = Intent(this, Componentes::class.java)
+                    val intent = Intent(this, DatosPersonales::class.java)
                     startActivity(intent)
 
 
@@ -129,8 +90,8 @@ class Login : AppCompatActivity() {
                     if (user != null) {
                         // User is signed in
                         txtCorreo.text = user.email.toString()
-                        *//* intent.putExtra("prueba", txtCorreo.text)
-                         startActivity(intent)*//*
+                        intent.putExtra("prueba", txtCorreo.text)
+                        startActivity(intent)
 
                     } else {
                         // No user is signed in
@@ -142,15 +103,6 @@ class Login : AppCompatActivity() {
                     Log.d("SignInActivity", "signInWithCredential:failure")
                 }
             }
-    }*/
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        btnLogin.setOnClickListener{
-            val intent = Intent(this, Componentes::class.java)
-            startActivity(intent)
-        }
     }
 }
 

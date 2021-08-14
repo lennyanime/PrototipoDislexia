@@ -1,8 +1,8 @@
 package com.example.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.competenciasLinguisticas.Competencias_Linguisticas
 import com.example.myapplication.funcionesEjecutivas.Competencias_Funciones_Ejecutivas
 import com.example.myapplication.lateralidad.Competencias_Lateralidad
