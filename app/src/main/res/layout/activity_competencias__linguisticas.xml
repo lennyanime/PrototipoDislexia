@@ -10,7 +10,6 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="20dp"
         android:gravity="center"
         android:text="@string/c_lingúísticas"
         android:textSize="30sp" />
@@ -46,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/c_silabica">
-
         </Button>
 
         <Button
@@ -91,21 +89,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"/>
-
-        <Button
-            android:id="@+id/btnSiguienteCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
+            android:id="@+id/btnSalirCompetenciasLinguisticas"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="menu" />
     </LinearLayout>
-
-
 </LinearLayout>

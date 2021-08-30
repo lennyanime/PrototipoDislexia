@@ -37,15 +37,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="10dp"
-        android:gravity="center|center_horizontal"
-        android:text="titulo lectura"
-        android:textSize="32sp" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -59,9 +50,10 @@
                 android:id="@+id/txtTextoVelocidadLectura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/texto_prueba"
+                android:layout_margin="10dp"
+                android:text="@string/texto_velocidadLectura"
                 android:textSize="24sp"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,18 +81,20 @@
 
                 <Button
                     android:id="@+id/btnMenuPrincipalVelocidadLectura"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Salir" />
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="menu" />
 
                 <Space
-                    android:layout_width="50dp"
+                    android:layout_width="30dp"
                     android:layout_height="0dp" />
 
                 <Button
                     android:id="@+id/btnSiguienteVelocidadLectura"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
                     android:enabled="false"
                     android:text="Siguiente" />
             </LinearLayout>

@@ -1,16 +1,20 @@
 package com.example.myapplication.procesosPerceptivos
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_discriminacion_c_auditiva.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 private lateinit var PRUEBA: ArrayList<String>
 
@@ -31,18 +35,63 @@ class DiscriminacionCategorizacionAuditiva : AppCompatActivity() {
         btnSiguienteDiscriminizacionCA.isEnabled = false
 
         siguiente()
+
+        menu()
+
+        ocultarInhabilitarBotonesAudio()
+
+        btnPalabra1PruebaDCA.isEnabled = false
+
+        audioInstruccion()
+    }
+
+    private fun menu(){
+
+        btnMenuDiscriminacionAuditiva.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun ocultarInhabilitarBotonesAudio(){
+
+        listaBotonesDiscriminacionAuditiva().forEach {
+            it.isEnabled = false
+            it.isVisible = false
+        }
+    }
+
+    private fun mostrarHabilitarBotonesAudio(){
+
+        listaBotonesDiscriminacionAuditiva().forEach {
+            it.isEnabled = true
+            it.isVisible = true
+        }
+    }
+
+    private fun listaBotonesDiscriminacionAuditiva():ArrayList<Button>{
+
+        return arrayListOf(btn_rta1_DiscriminizacionAuditiva,
+            btn_rta2_DiscriminizacionAuditiva,
+            btn_rta3_DiscriminizacionAuditiva,
+            btn_rta4_DiscriminizacionAuditiva)
+           /* btnPalabra1PruebaDCA,
+            btnPalabra2PruebaDCA,*/
+            //btnPalabra3PruebaDCA)
     }
 
     private fun instruccionesPruebaDiscriminizacionCategorizacionAuditiva() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.discriminacionauditiva2)
 
         btnInstruccionesDiscriminizacionCA.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
-                btnInstruccionesDiscriminizacionCA.setEnabled(false)
-                Thread.sleep(2000)
-                habilitarBotonesPrueba1()
+                btnInstruccionesDiscriminizacionCA.isEnabled = false
+                Thread.sleep(16000)
+                layoutDiscriminacionAuditiva.isVisible = true
+                btnPalabra1PruebaDCA.isEnabled = true
+                btnPalabra1PruebaDCA.isVisible = true
             }
             /*else {
                 mp.pause()
@@ -50,9 +99,24 @@ class DiscriminacionCategorizacionAuditiva : AppCompatActivity() {
         }
     }
 
+    private fun audioInstruccion(){
+
+        val mp = MediaPlayer.create(this, R.raw.pruebadiscriminacionauditiva)
+
+        btnPalabra1PruebaDCA.setOnClickListener {
+            if (!mp.isPlaying) {
+                mp.start()
+                Thread.sleep(4000)
+                btnPalabra1PruebaDCA.isEnabled = false
+                habilitarBotonesPrueba1()
+                mostrarHabilitarBotonesAudio()
+            }
+        }
+    }
+
     private fun habilitarBotonesPrueba1() {
 
-        PRUEBA = arrayListOf("udp", "upb", "upq", "udq")
+        PRUEBA = arrayListOf("udp", "upb", "upq", "upt")
 
         validacionPalabraAleatorias(btn_rta1_DiscriminizacionAuditiva,
             btn_rta2_DiscriminizacionAuditiva,
@@ -95,25 +159,25 @@ class DiscriminacionCategorizacionAuditiva : AppCompatActivity() {
 
         btn_rta1_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("cdi", btn_rta1_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("cap", btn_rta1_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
         }
 
         btn_rta2_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("cdi", btn_rta2_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("cap", btn_rta2_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
         }
 
         btn_rta3_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("cdi", btn_rta3_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("cap", btn_rta3_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
         }
 
         btn_rta4_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("cdi", btn_rta4_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("cap", btn_rta4_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
         }
     }
@@ -129,28 +193,28 @@ class DiscriminacionCategorizacionAuditiva : AppCompatActivity() {
 
         btn_rta1_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("enp", btn_rta1_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("enm", btn_rta1_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
             habilitarBotonSiguiente()
         }
 
         btn_rta2_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("enp", btn_rta2_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("enm", btn_rta2_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
             habilitarBotonSiguiente()
         }
 
         btn_rta3_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("enp", btn_rta3_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("enm", btn_rta3_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
             habilitarBotonSiguiente()
         }
 
         btn_rta4_DiscriminizacionAuditiva.setOnClickListener {
             clicks++
-            validacionPalabraCorrecta("enp", btn_rta4_DiscriminizacionAuditiva)
+            validacionPalabraCorrecta("enm", btn_rta4_DiscriminizacionAuditiva)
             habilitarBotonesPrueba3()
             habilitarBotonSiguiente()
         }
@@ -159,11 +223,9 @@ class DiscriminacionCategorizacionAuditiva : AppCompatActivity() {
     private fun validacionPalabraCorrecta(palabra: String, boton: Button) {
 
         if (boton.text.toString() == palabra) {
-
             hits++
-            Toast.makeText(applicationContext,
-                "entro, $hits",
-                Toast.LENGTH_SHORT).show()
+        }else{
+            misses++
         }
     }
 
@@ -221,12 +283,20 @@ class DiscriminacionCategorizacionAuditiva : AppCompatActivity() {
 
         btnSiguienteDiscriminizacionCA.setOnClickListener {
             Firebase.auth.currentUser?.email?.let { email ->
-                db.collection(email).document("DiscriminizaciónCategorizacionAuditiva").set(
+                db.collection(email).document("DiscriminaciónCategorizacionAuditiva").set(
                     hashMapOf("Clicks" to clicks,
                         "Hits" to hits,
                         "Misses" to misses)
                 )
             }
+
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

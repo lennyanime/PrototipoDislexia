@@ -7,14 +7,6 @@
     android:orientation="vertical"
     tools:context=".competenciasLinguisticas.CompetenciaLexica">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:gravity="center|center_horizontal"
-        android:text="Competencia Léxica"
-        android:textSize="@dimen/text_size_title" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,7 +63,7 @@
 
     <Space
         android:layout_width="0dp"
-        android:layout_height="20dp"></Space>
+        android:layout_height="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,7 +73,7 @@
 
         <Space
             android:layout_width="50dp"
-            android:layout_height="40dp"></Space>
+            android:layout_height="40dp"/>
 
         <TextView
             android:id="@+id/wordLexica"
@@ -92,7 +84,7 @@
 
         <Space
             android:layout_width="50dp"
-            android:layout_height="30dp"></Space>
+            android:layout_height="30dp"/>
 
         <TextView
             android:id="@+id/txtMostrarPalabra"
@@ -109,7 +101,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <Button
+        <ImageView
             android:id="@+id/imgHablar"
             android:layout_width="106dp"
             android:layout_height="72dp"
@@ -119,30 +111,39 @@
 
     <Space
         android:layout_width="0dp"
-        android:layout_height="40dp"></Space>
+        android:layout_height="40dp"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="162dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
+            android:id="@+id/btnMenuCL"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.857" />
 
         <Button
             android:id="@+id/btnSiguienteCompetenciaLexica"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
-    </LinearLayout>
-
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Siguiente"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.857" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

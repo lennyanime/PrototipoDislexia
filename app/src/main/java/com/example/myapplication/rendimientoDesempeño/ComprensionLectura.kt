@@ -1,9 +1,12 @@
 package com.example.myapplication.rendimientoDesempeño
 
+import android.app.Activity
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -13,6 +16,9 @@ import kotlinx.android.synthetic.main.activity_comprension_de_lectura.*
 class ComprensionLectura : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -31,16 +37,17 @@ class ComprensionLectura : AppCompatActivity() {
         respuestaCorrecta3()
 
         siguiente()
+
     }
 
     private fun instruccionesComprensionLectura() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.comprensiondelectura)
 
         btnInstruccionesComprensionLectura.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(13000)
                 btnInstruccionesComprensionLectura.isEnabled = false
             }
             /*else {
@@ -59,11 +66,7 @@ class ComprensionLectura : AppCompatActivity() {
 
                 hits++
                 hits = hitsAcierto(hits)
-                Toast.makeText(
-                    applicationContext,
-                    "correcto, $hits",
-                    Toast.LENGTH_SHORT
-                ).show()
+
             }
 
             chkRespuesta1.isChecked = false
@@ -102,11 +105,7 @@ class ComprensionLectura : AppCompatActivity() {
 
                 hits++
                 hits = hitsAcierto(hits)
-                Toast.makeText(
-                    applicationContext,
-                    "correcto, $hits",
-                    Toast.LENGTH_SHORT
-                ).show()
+
             }
 
             chkRespuesta4.isChecked = false
@@ -146,11 +145,7 @@ class ComprensionLectura : AppCompatActivity() {
 
                 hits++
                 hits = hitsAcierto(hits)
-                Toast.makeText(
-                    applicationContext,
-                    "correcto, $hits",
-                    Toast.LENGTH_SHORT
-                ).show()
+
             }
 
             chkRespuesta8.isChecked = false
@@ -219,6 +214,36 @@ class ComprensionLectura : AppCompatActivity() {
                     )
                 )
             }
+
+            obtenerDocumento(
+                user?.email.toString(),
+                "ReconocimientoCorrecciónErrores",
+                Reconocimiento_CorreccionErrores()
+            )
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

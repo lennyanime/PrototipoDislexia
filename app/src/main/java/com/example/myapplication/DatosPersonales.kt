@@ -17,7 +17,7 @@ import java.util.*
 private val listaEdadNiño = arrayListOf("Seleccione", "7", "8", "9", "10", "11")
 
 private val listaGradoEscolar =
-    arrayListOf("Seleccione", "1ro", "2do", "3ro", "4to", "5to", "6to")
+    arrayListOf("Seleccione", "2do", "3ro", "4to", "5to", "6to")
 
 private val listaSexoNiño = arrayListOf("Seleccione", "F", "M")
 
@@ -141,17 +141,15 @@ class DatosPersonales : AppCompatActivity() {
 
     private fun validarNombreAcudiente(): Boolean {
 
-        //nombreAcudiente = toString()
+        val regex = "^[A-Za-záéíóú ]+\$".toRegex()
 
-        val regex = "^[a-zA-Z ]+$".toRegex()
-
-        return if (txtNombreAcudiente.isEmpty()) {
+        return if (txtNombreAcudiente.editText?.toString()?.isEmpty() == true) {
             txtNombreAcudiente.error = "Este campo no puede estar vacío"
             false
         } else if (!txtNombreAcudiente.editText?.text.toString().trim().toLowerCase(Locale.ROOT)
                 .contains(regex)
         ) {
-            txtNombreAcudiente.error = "Por favor escribe un nombre válido"
+            txtNombreAcudiente.error = "Por favor escribe un nombre valido"
             false
         } else {
             txtNombreAcudiente.error = null
@@ -162,11 +160,12 @@ class DatosPersonales : AppCompatActivity() {
 
     private fun validarFormulario() {
 
-        if (edadNiño == "Seleccione" || gradoEscolarNiño == "Seleccione" || sexoNiño == "Seleccione" || !validarNombreAcudiente()) {
+        if (edadNiño == "Seleccione" || gradoEscolarNiño == "Seleccione"
+            || sexoNiño == "Seleccione" || !validarNombreAcudiente()) {
 
             Toast.makeText(
                 applicationContext,
-                "Formulario inválido",
+                "Formulario invalido",
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -194,5 +193,10 @@ class DatosPersonales : AppCompatActivity() {
                 )
             }
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

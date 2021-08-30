@@ -22,208 +22,220 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/Instrucciones" />
 
-        </LinearLayout>
+    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/prueba1"
-        android:visibility="invisible"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="v  e  r  b  e"
-            android:textSize="30dp"/>
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/prueba1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-    <LinearLayout
-        android:id="@+id/botonesPrueba1"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="v  e  r  b  e"
+                    android:textSize="30dp" />
 
-        <Button
-            android:id="@+id/btnOpcion1Palabra1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="q"
-            android:tag="q"/>
+            </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp"/>
+            <LinearLayout
+                android:id="@+id/botonesPrueba1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-        <Button
-            android:id="@+id/btnOpcion2Palabra1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="d"
-            android:tag="d"/>
+                <Button
+                    android:id="@+id/btnOpcion1Palabra1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:tag="q"
+                    android:text="q"
+                    android:textAllCaps="false" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-        <Button
-            android:id="@+id/btnOpcion3Palabra1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="p"
-            android:tag="p"/>
+                <Button
+                    android:id="@+id/btnOpcion2Palabra1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:tag="d"
+                    android:text="d"
+                    android:textAllCaps="false" />
 
-    </LinearLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-    <LinearLayout
-        android:id="@+id/prueba2"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnOpcion3Palabra1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:tag="p"
+                    android:text="p"
+                    android:textAllCaps="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="v  o  t  a  s"
-            android:textSize="30dp" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/prueba2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-    <LinearLayout
-        android:id="@+id/botonesPrueba2"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="v  o  t  a  s"
+                    android:textSize="30dp" />
 
-        <Button
-            android:id="@+id/btnOpcion1Palabra2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="q" />
+            </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp"/>
+            <LinearLayout
+                android:id="@+id/botonesPrueba2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-        <Button
-            android:id="@+id/btnOpcion2Palabra2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="d" />
+                <Button
+                    android:id="@+id/btnOpcion1Palabra2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="q"
+                    android:textAllCaps="false" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-        <Button
-            android:id="@+id/btnOpcion3Palabra2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="b" />
+                <Button
+                    android:id="@+id/btnOpcion2Palabra2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="d"
+                    android:textAllCaps="false" />
 
-    </LinearLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-    <LinearLayout
-        android:id="@+id/prueba3"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnOpcion3Palabra2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="b"
+                    android:textAllCaps="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="d  u  e  r  t  a"
-            android:textSize="30dp" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/prueba3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-    <LinearLayout
-        android:id="@+id/botonesPrueba3"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="d  u  e  r  t  a"
+                    android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/btnOpcion1Palabra3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="p" />
+            </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp"/>
+            <LinearLayout
+                android:id="@+id/botonesPrueba3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-        <Button
-            android:id="@+id/btnOpcion2Palabra3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="d" />
+                <Button
+                    android:id="@+id/btnOpcion1Palabra3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="p"
+                    android:textAllCaps="false" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-        <Button
-            android:id="@+id/btnOpcion3Palabra3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="q" />
+                <Button
+                    android:id="@+id/btnOpcion2Palabra3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="d"
+                    android:textAllCaps="false" />
 
-    </LinearLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnOpcion3Palabra3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="q"
+                    android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btnCorreccionErrores"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="menú" />
+            </LinearLayout>
 
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="40dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnSiguienteCorreccionErrores"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente"
-            android:enabled="false"/>
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btnMenuCErrores"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="menú" />
 
+                <Space
+                    android:layout_width="30dp"
+                    android:layout_height="0dp" />
+
+                <Button
+                    android:id="@+id/btnSiguienteCorreccionErrores"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:enabled="false"
+                    android:text="Siguiente" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

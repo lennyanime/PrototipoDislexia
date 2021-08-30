@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,255 +8,231 @@
     tools:context=".competenciasLinguisticas.CompetenciaAlfabetica">
 
 
-        <TextView
-            android:id="@+id/textView"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnInstruccionesCAlfabetica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:background="#2196F3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
-            android:text="Competencia Alfabética"
-            android:textSize="30sp" />
+            android:text="@string/Instrucciones" />
 
-        <TextView
-            android:id="@+id/textViewI"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLetrasCorrectasCAlfabetica"
+            android:layout_width="68dp"
+            android:layout_height="54dp"
+            android:background="#2196F3"
+            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+            android:foreground="?android:attr/selectableItemBackground" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="p"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnf"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="f"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btne"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="e"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btna"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="a"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnj"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="j"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="t"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnm"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="m"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnu"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="u"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btni"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="i"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btns"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="s"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btnq"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="q"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/btno"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="o"
+            android:textAllCaps="false"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnMenuCA"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Instrucciones"
-            android:textSize="20dp"/>
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="menu"
+            android:textSize="12sp"
+             />
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnSiguienteCompetenciaAlfabetica"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnInstruccionesCAlfabetica"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#2196F3"
-                    android:gravity="center"
-                    android:text="@string/Instrucciones"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnLetrasCorrectasCAlfabetica"
-                    android:layout_width="68dp"
-                    android:layout_height="54dp"
-                    android:background="#2196F3"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnp"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="p"
-                    android:textAllCaps="false"
-                    android:visibility="invisible" />
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btnf"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="c"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btne"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="e"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btna"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="f"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnj"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="j"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btnt"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="t"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btnm"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="m"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btnu"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="u"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btni"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="s"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btns"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="q"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btnq"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="o"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="0dp">
-                </Space>
-
-                <Button
-                    android:id="@+id/btno"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="r"
-                    android:textAllCaps="false"
-                    android:visibility="invisible"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-
-                <Button
-                    android:id="@+id/btnSalirCA"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Salir" />
-
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="0dp"></Space>
-
-                <Button
-                    android:id="@+id/btnSiguienteCompetenciaAlfabetica"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Siguiente" />
-        </LinearLayout>
-
-
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="Siguiente"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

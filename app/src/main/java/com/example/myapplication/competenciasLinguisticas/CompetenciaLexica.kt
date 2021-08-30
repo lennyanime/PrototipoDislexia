@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,6 +27,9 @@ class CompetenciaLexica : AppCompatActivity() {
     private val RECOGNIZE_SPEECH_ACTIVITY = 1
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -43,6 +47,8 @@ class CompetenciaLexica : AppCompatActivity() {
         limpiarTexto()
 
         siguiente()
+
+        menu()
 
         botonesBloqueadosDefault()
 
@@ -79,7 +85,6 @@ class CompetenciaLexica : AppCompatActivity() {
             btnLimpiarTexto.setEnabled(true)
 
 
-
         } catch (a: ActivityNotFoundException) {
             Toast.makeText(
                 applicationContext,
@@ -91,14 +96,14 @@ class CompetenciaLexica : AppCompatActivity() {
 
     private fun instruccionesPruebaLexica() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.competencialexica)
 
         if (!mp.isPlaying) {
             btnInstruccionesCompetenciaLexica.setOnClickListener {
                 mp.start()
-                Thread.sleep(2000)
-                btnInstruccionesCompetenciaLexica.setEnabled(false)
-                btnMostrarPalabra.setEnabled(true)
+                Thread.sleep(25000)
+                btnInstruccionesCompetenciaLexica.isEnabled = false
+                btnMostrarPalabra.isEnabled = true
             }
         }
     }
@@ -118,20 +123,20 @@ class CompetenciaLexica : AppCompatActivity() {
 
         btnLimpiarTexto.setOnClickListener {
 
-           /* Toast.makeText(
-                applicationContext,
-                palabrasAudio.firstOrNull(),
-                Toast.LENGTH_SHORT
-            ).show()*/
+            /* Toast.makeText(
+                 applicationContext,
+                 palabrasAudio.firstOrNull(),
+                 Toast.LENGTH_SHORT
+             ).show()*/
 
-            if(wordLexica.text.toString() == txtMostrarPalabra.text.toString()){
-                    //palabrasAudio.add(txtMostrarPalabra.getText().toString())
-                    hits++
-            }else{
+            if (wordLexica.text.toString() == txtMostrarPalabra.text.toString()) {
+                //palabrasAudio.add(txtMostrarPalabra.getText().toString())
+                hits++
+            } else {
                 misses++
             }
 
-            if(wordsCLexica.isEmpty())
+            if (wordsCLexica.isEmpty())
                 btnSiguienteCompetenciaLexica.isEnabled = true
 
             //if (txtMostrarPalabra.toString().toLowerCase().equals(wordLexica.toString().toLowerCase())){
@@ -169,6 +174,14 @@ class CompetenciaLexica : AppCompatActivity() {
         btnMostrarPalabra.setEnabled(false)
     }
 
+    private fun menu() {
+
+        btnMenuCL.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         clicks = wordsCLexica.size
@@ -176,11 +189,43 @@ class CompetenciaLexica : AppCompatActivity() {
 
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("CompetenciaLéxica").set(
-                    hashMapOf("Clicks" to clicks,
+                    hashMapOf(
+                        "Clicks" to clicks,
                         "Hits" to hits,
-                        "Misses" to misses)
+                        "Misses" to misses
+                    )
                 )
             }
+
+            obtenerDocumento(
+                user?.email.toString(),
+                "CompetenciaSintáctica",
+                CompetenciaSintactica()
+            )
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

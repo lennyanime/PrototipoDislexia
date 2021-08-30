@@ -1,5 +1,7 @@
 package com.example.myapplication.memoriaDeTrabajo
 
+import android.app.Activity
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
@@ -7,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,6 +22,9 @@ private lateinit var imagenesSeleccionadas: MutableList<String>
 class MemoriaVisual : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -42,6 +48,8 @@ class MemoriaVisual : AppCompatActivity() {
 
         siguiente()
 
+        menu()
+
         prueba()
 
         validarImagenCorrecta()
@@ -51,13 +59,13 @@ class MemoriaVisual : AppCompatActivity() {
 
     private fun instruccionesMemoriaVisual() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.memoriavisual)
 
         btnInstruccionesMemoriaVisual.setOnClickListener {
 
             if (!mp.isPlaying) {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(14000)
                 btnInstruccionesMemoriaVisual.isEnabled = false
                 habilitarImagenes()
                 btnIniciarPruebaMemoriaVisual.isEnabled = true
@@ -100,6 +108,8 @@ class MemoriaVisual : AppCompatActivity() {
 
         btnIniciarPruebaMemoriaVisual.setOnClickListener {
 
+            btnIniciarPruebaMemoriaVisual.isEnabled = false
+
             imagenAzar1 = listaImagenes().random()
             imagenAzar1.tag = "correcto"
 
@@ -109,17 +119,17 @@ class MemoriaVisual : AppCompatActivity() {
             imagenAzar3 = listaImagenes().random()
             imagenAzar3.tag = "correcto"
 
-            while(imagenAzar1 == imagenAzar2 || imagenAzar1 == imagenAzar3){
+            while (imagenAzar1 == imagenAzar2 || imagenAzar1 == imagenAzar3) {
                 imagenAzar1 = listaImagenes().random()
                 imagenAzar1.tag = "correcto"
             }
 
-            while(imagenAzar2 == imagenAzar1 || imagenAzar2 == imagenAzar3){
+            while (imagenAzar2 == imagenAzar1 || imagenAzar2 == imagenAzar3) {
                 imagenAzar2 = listaImagenes().random()
                 imagenAzar2.tag = "correcto"
             }
 
-            while(imagenAzar3 == imagenAzar2 || imagenAzar3 == imagenAzar1){
+            while (imagenAzar3 == imagenAzar2 || imagenAzar3 == imagenAzar1) {
                 imagenAzar3 = listaImagenes().random()
                 imagenAzar3.tag = "correcto"
             }
@@ -127,7 +137,7 @@ class MemoriaVisual : AppCompatActivity() {
             ocultarImagen()
 
             GlobalScope.launch {
-                delay(100)
+                delay(1000)
                 imagenTransparente()
             }
         }
@@ -165,12 +175,6 @@ class MemoriaVisual : AppCompatActivity() {
 
                 if (it.tag == "correcto") {
 
-                    Toast.makeText(
-                        applicationContext,
-                        "correcto",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
                     hits++
                 }
 
@@ -189,6 +193,15 @@ class MemoriaVisual : AppCompatActivity() {
         }
     }
 
+    private fun menu() {
+
+        btnMenuMemoriaVisual.setOnClickListener {
+
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         btnSiguienteMemoriaVisual.setOnClickListener {
@@ -204,6 +217,35 @@ class MemoriaVisual : AppCompatActivity() {
                     )
                 )
             }
+            obtenerDocumento(
+                user?.email.toString(),
+                "MemoriaSecuencialAuditiva",
+                MemoriaSecuencialVisual()
+            )
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

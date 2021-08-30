@@ -1,10 +1,12 @@
 package com.example.myapplication.funcionesEjecutivas
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_atencion_sostenida3.*
 class AtencionSostenida3 : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -67,9 +71,7 @@ class AtencionSostenida3 : AppCompatActivity() {
                 if (imagenAzar1.tag == boton || imagenAzar2.tag == boton || imagenAzar3.tag == boton) {
 
                     hits++
-                    Toast.makeText(applicationContext,
-                        "correcto",
-                        Toast.LENGTH_SHORT).show()
+
                     habilitarBotonSiguiente()
                 } else {
                     habilitarBotonSiguiente()
@@ -112,9 +114,6 @@ class AtencionSostenida3 : AppCompatActivity() {
         clicks = bundle?.get("clicks") as Int
         hits = bundle?.get("hits") as Int
 
-        Toast.makeText(applicationContext,
-            "$hits , $clicks",
-            Toast.LENGTH_SHORT).show()
     }
 
     private fun habilitarBotonSiguiente() {
@@ -139,6 +138,14 @@ class AtencionSostenida3 : AppCompatActivity() {
                         "Misses" to misses)
                 )
             }
+
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

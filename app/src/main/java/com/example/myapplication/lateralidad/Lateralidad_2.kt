@@ -2,6 +2,7 @@ package com.example.myapplication.lateralidad
 
 import android.content.ClipData
 import android.content.ClipDescription
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Point
@@ -11,14 +12,16 @@ import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
+import com.example.myapplication.competenciasLinguisticas.CompetenciaFonica
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_lateralidad_2.*
 
-//lateinit var view: TextView
 class Lateralidad_2 : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
@@ -32,8 +35,12 @@ class Lateralidad_2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lateralidad_2)
 
+        btnSiguienteLateralidad2.isEnabled = false
+
         instruccionesPruebaLateralidad2()
+
         salir()
+
         siguiente()
 
         dragTargetImageViewBoat.setColorFilter(Color.GRAY)
@@ -69,27 +76,30 @@ class Lateralidad_2 : AppCompatActivity() {
 
             //arrastrando la imagen
             DragEvent.ACTION_DRAG_STARTED -> {
-                textView.text = "arrastrando imagen"
+                //textView.text = "arrastrando imagen"
                 true
             }
             //entrando a la imagen
 
             DragEvent.ACTION_DRAG_ENTERED -> {
-                textView.text = "entrando a la imagen"
+                //textView.text = "entrando a la imagen"
 
                 if (receiverView.tag as String == event.clipDescription.label) {
 
                     receiverView.setColorFilter(Color.TRANSPARENT)
                     dragImageViewBoat.setColorFilter(Color.GRAY)
-                    dragImageViewBoat.setEnabled(false)
+                    dragImageViewBoat.isEnabled = false
                     hits++
 
+                    habilitarBotonSiguiente()
                 } else {
 
                     receiverView.setColorFilter(Color.TRANSPARENT)
                     dragImageViewBoat.setColorFilter(Color.GRAY)
-                    dragImageViewBoat.setEnabled(false)
+                    dragImageViewBoat.isEnabled = false
                     misses ++
+
+                    habilitarBotonSiguiente()
                 }
                 true
             }
@@ -99,17 +109,17 @@ class Lateralidad_2 : AppCompatActivity() {
             }
             //saliendo de la imagen
             DragEvent.ACTION_DRAG_EXITED -> {
-                textView.text = "saliendo de la imagen"
+                //textView.text = "saliendo de la imagen"
                 true
             }
             //soltando la imager
             DragEvent.ACTION_DROP -> {
-                textView.text = "soltando la imagen"
+                //textView.text = "soltando la imagen"
                 true
             }
             //dejando de arrastrar la imagen
             DragEvent.ACTION_DRAG_ENDED -> {
-                textView.text = "dejando de arrastrar la imagen"
+                //textView.text = "dejando de arrastrar la imagen"
                 clicks ++
                 true
             }
@@ -134,24 +144,31 @@ class Lateralidad_2 : AppCompatActivity() {
     private fun salir() {
 
         btnSalirLateralidad2.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
     }
 
     private fun instruccionesPruebaLateralidad2() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.lateralidad2)
 
         btnInstruccionesLateralidad2.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
                 btnInstruccionesLateralidad2.setEnabled(false)
-                Thread.sleep(2000)
+                Thread.sleep(17000)
             }
             /*else {
                 mp.pause()
             }*/
         }
+    }
+
+    private fun habilitarBotonSiguiente(){
+
+        if(hits > 0 || misses > 0)
+            btnSiguienteLateralidad2.isEnabled = true
     }
 
     private fun siguiente(){
@@ -165,6 +182,13 @@ class Lateralidad_2 : AppCompatActivity() {
                             "Hits" to hits,
                             "Misees" to misses)
             )
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

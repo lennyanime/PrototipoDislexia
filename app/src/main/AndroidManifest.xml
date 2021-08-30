@@ -13,11 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".DatosPersonales" />
-        <activity android:name=".rendimientoDesempeño.ComprensionLectura" />
-        <activity android:name=".rendimientoDesempeño.VelocidadDeLectura" />
-        <activity android:name=".funcionesEjecutivas.AtencionSostenida3" />
-        <activity android:name=".funcionesEjecutivas.AtencionSostenida2" />
+        <activity android:name=".DatosPersonales"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".rendimientoDesempeño.ComprensionLectura"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".rendimientoDesempeño.VelocidadDeLectura"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcionesEjecutivas.AtencionSostenida3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcionesEjecutivas.AtencionSostenida2"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".procesosPerceptivos.DiscriminacionCategorizacionVisual3"
             android:screenOrientation="portrait" />
@@ -29,9 +35,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".funcionesEjecutivas.AtencionSelectiva"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".rendimientoDesempeño.Competencias_Rendimiento_Desempeno"

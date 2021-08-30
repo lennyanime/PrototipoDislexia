@@ -21,19 +21,9 @@ class AtencionSostenida2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_atencion_sostenida2)
 
-        //ocultarImagenes()
-
         desaparecerImagenesPrueba2()
 
         validarImagenesPrueba2()
-
-        /*btnIniciarPrueba2AtencionSostenida.setOnClickListener {
-
-            btnIniciarPrueba2AtencionSostenida.isEnabled = false
-            Thread.sleep(4000)
-            desaparecerImagenesPrueba2()
-            validarImagenesPrueba2()
-        }*/
 
         obtenerClicksHits()
     }
@@ -82,9 +72,7 @@ class AtencionSostenida2 : AppCompatActivity() {
                 if (imagenAzar1.tag == boton || imagenAzar2.tag == boton) {
 
                     hits++
-                    Toast.makeText(applicationContext,
-                        "correcto",
-                        Toast.LENGTH_SHORT).show()
+
                     terceraPrueba()
 
                 } else {
@@ -108,9 +96,6 @@ class AtencionSostenida2 : AppCompatActivity() {
         clicks = bundle?.get("clicks") as Int
         hits = bundle?.get("hits") as Int
 
-        Toast.makeText(applicationContext,
-            "$hits , $clicks",
-            Toast.LENGTH_SHORT).show()
     }
 
     private fun terceraPrueba() {
@@ -123,5 +108,10 @@ class AtencionSostenida2 : AppCompatActivity() {
             intent.putExtra("clicks", clicks)
             startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

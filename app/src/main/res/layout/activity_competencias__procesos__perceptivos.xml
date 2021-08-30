@@ -12,7 +12,7 @@
         android:layout_height="70dp"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:text="Procesos Perceptivos"
+        android:text="Nivel 3"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Discriminización Visual">
+            android:text="Percepción Prueba 1">
 
         </Button>
 
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Discriminizacion Auditiva">
+            android:text="Percepción Prueba 2">
 
         </Button>
 
@@ -55,25 +55,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="40dp"
-        android:gravity="top"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
-
-        <Button
-            android:id="@+id/btnSiguienteCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
-
+            android:id="@+id/btnMenuProcesosPerceptivos"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="menu" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".procesosPerceptivos.DiscriminacionCategorizacionAuditiva">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="Discriminación y categorización auditiva"
-        android:textSize="30sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="left"
         android:layout_margin="20dp">
 
         <Button
@@ -34,10 +25,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutDiscriminacionAuditiva"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
+        android:visibility="invisible"
         android:orientation="horizontal">
 
         <Button
@@ -45,32 +38,9 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:background="#6663C3"
+            android:visibility="invisible"
             android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground"/>
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnPalabra2PruebaDCA"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground"/>
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnPalabra3PruebaDCA"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:background="#6663C3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
-            android:foreground="?android:attr/selectableItemBackground"/>
+            android:foreground="?android:attr/selectableItemBackground" />
 
     </LinearLayout>
 
@@ -89,7 +59,7 @@
 
         <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
+            android:layout_height="0dp"/>
 
         <Button
             android:id="@+id/btn_rta2_DiscriminizacionAuditiva"
@@ -113,7 +83,7 @@
 
         <Space
             android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
+            android:layout_height="0dp"/>
 
         <Button
             android:id="@+id/btn_rta4_DiscriminizacionAuditiva"
@@ -122,28 +92,38 @@
             android:textAllCaps="false"/>
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_height="221dp"
+        android:layout_margin="10dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
+            android:id="@+id/btnMenuDiscriminacionAuditiva"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="menu"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.186"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.786" />
 
         <Button
             android:id="@+id/btnSiguienteDiscriminizacionCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
-    </LinearLayout>
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Siguiente"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.726"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.786" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

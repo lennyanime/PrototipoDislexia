@@ -1,12 +1,16 @@
 package com.example.myapplication.competenciasLinguisticas
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -15,16 +19,21 @@ import kotlinx.android.synthetic.main.activity_competencia_fonica.*
 import java.util.*
 
 private val palabrasCorrectas =
-    arrayListOf("miedo", "riego", "reír", "freír",
+    arrayListOf(
+        "miedo", "riego", "reír", "freír",
         "flor", "ladrillo", "abrigo", "cristal", "saltar",
-        "mano", "sano", "playa", "raya", "paja", "caja")
+        "mano", "sano", "playa", "raya", "paja", "caja"
+    )
 
 class CompetenciaFonica : AppCompatActivity() {
 
     private val map: HashMap<String, String> = hashMapOf(
-        "leña" to "peña", "bota" to "gota", "montaña" to "araña")
+        "leña" to "peña", "bota" to "gota", "montaña" to "araña"
+    )
 
     private val DB = FirebaseFirestore.getInstance()
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -56,16 +65,17 @@ class CompetenciaFonica : AppCompatActivity() {
 
         siguiente()
 
+        menu()
     }
 
     private fun instruccionesPruebaFonica() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.competenciafonica)
 
         btnInstruccionesCFonica.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(17000)
                 btnInstruccionesCFonica.isEnabled = false
                 mostrarBotones()
                 //habilitarBotones()
@@ -332,14 +342,16 @@ class CompetenciaFonica : AppCompatActivity() {
 
     private fun botonesPruebaFonica(): ArrayList<Button> {
 
-        return arrayListOf(btnRtaPositiva1CFonica,
+        return arrayListOf(
+            btnRtaPositiva1CFonica,
             btnRtaNegativaCFonica1,
             btnRtaPositiva2CFonica,
             btnRtaNegativaCFonica2,
             btnRtaPositiva3CFonica,
             btnRtaNegativaCFonica3,
             btnRtaPositiva4CFonica,
-            btnRtaNegativaCFonica4)
+            btnRtaNegativaCFonica4
+        )
     }
 
     private fun inhabilitarBotones() {
@@ -366,16 +378,18 @@ class CompetenciaFonica : AppCompatActivity() {
         }
     }
 
-    private fun textoPruebaFonica():ArrayList<TextView>{
+    private fun textoPruebaFonica(): ArrayList<TextView> {
 
-        return arrayListOf(palabra1PruebaFonica,
+        return arrayListOf(
+            palabra1PruebaFonica,
             palabra2PruebaFonica,
             palabra3PruebaFonica,
             palabra4PruebaFonica,
             palabra5PruebaFonica,
             palabra6PruebaFonica,
             palabra7PruebaFonica,
-            palabra8PruebaFonica)
+            palabra8PruebaFonica
+        )
     }
 
     private fun ocultarTexto() {
@@ -418,6 +432,14 @@ class CompetenciaFonica : AppCompatActivity() {
         return _acierto
     }
 
+    private fun menu() {
+
+        btnMenuCF.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         btnSiguienteCompetenciaFonica.setOnClickListener {
@@ -427,11 +449,44 @@ class CompetenciaFonica : AppCompatActivity() {
 
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("CompetenciaFónica").set(
-                    hashMapOf("Clicks" to clicks,
+                    hashMapOf(
+                        "Clicks" to clicks,
                         "Hits" to hits,
-                        "Misses" to misses)
+                        "Misses" to misses
+                    )
                 )
             }
+
+            obtenerDocumento(
+                user?.email.toString(),
+                "CompetenciaSilábica",
+                CompetenciaSilabica()
+            )
+
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

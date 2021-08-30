@@ -1,11 +1,14 @@
 package com.example.myapplication.funcionesEjecutivas
 
+import android.app.Activity
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +23,9 @@ private lateinit var listaTags: MutableList<String>
 class AtencionDividida : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -31,11 +37,15 @@ class AtencionDividida : AppCompatActivity() {
 
         btnSiguienteAtencionDividida.isEnabled = false
 
+        btnIniciarPruebaAtencionDividida.isEnabled = false
+
         instruccionesAtencionDividida()
 
         iniciarPrueba()
 
         siguiente()
+
+        menu()
 
         validarImagenesMatriz2()
 
@@ -44,16 +54,25 @@ class AtencionDividida : AppCompatActivity() {
         listaTags = mutableListOf()
     }
 
+    private fun menu() {
+
+        btnMenuPrincipalAtencionDividida.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun instruccionesAtencionDividida() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.atenciondividida)
 
         if (!mp.isPlaying) {
             btnInstruccionesAtencionDividida.setOnClickListener {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(14000)
                 btnInstruccionesAtencionDividida.isEnabled = false
                 habilitarImagenes()
+                btnIniciarPruebaAtencionDividida.isEnabled = true
             }
         }
     }
@@ -61,6 +80,8 @@ class AtencionDividida : AppCompatActivity() {
     private fun iniciarPrueba() {
 
         btnIniciarPruebaAtencionDividida.setOnClickListener {
+
+            btnIniciarPruebaAtencionDividida.isEnabled = false
 
             desaparecerImagenes()
 
@@ -106,55 +127,67 @@ class AtencionDividida : AppCompatActivity() {
 
     private fun desaparecerImagenes() {
 
-        val imagenAzar1 = listaImagenes1().random()
+        var imagenAzar1 = listaImagenes1().random()
         var imagenAzar2 = listaImagenes2().random()
 
-        listaTags.add(imagenAzar1.tag.toString())
+        while (listaTags.contains(imagenAzar1.tag.toString()) || listaTags.contains(imagenAzar2.tag.toString())) {
 
-        while (listaTags.contains(imagenAzar2.tag.toString()))
+            imagenAzar1 = listaImagenes1().random()
             imagenAzar2 = listaImagenes2().random()
+        }
+
+        listaTags.add(imagenAzar1.tag.toString())
+        listaTags.add(imagenAzar2.tag.toString())
 
         imagenAzar1.isInvisible = true
         imagenAzar2.isInvisible = true
 
-        listaTags.add(imagenAzar2.tag.toString())
+        listaImagenes1().remove(imagenAzar1)
+        listaImagenes2().remove(imagenAzar2)
     }
 
     suspend fun desaparecerImagenes2() {
 
-            delay(2000)
+        delay(2000)
 
-            val imagenAzar3 = listaImagenes1().random()
-            var imagenAzar4 = listaImagenes2().random()
+        var imagenAzar3 = listaImagenes1().random()
+        var imagenAzar4 = listaImagenes2().random()
 
-            listaTags.add(imagenAzar3.tag.toString())
+        while (listaTags.contains(imagenAzar3.tag.toString()) || listaTags.contains(imagenAzar4.tag.toString())) {
+            imagenAzar3 = listaImagenes1().random()
+            imagenAzar4 = listaImagenes2().random()
+        }
 
-            while (listaTags.contains(imagenAzar4.tag.toString()))
-                imagenAzar4 = listaImagenes2().random()
+        imagenAzar3.isInvisible = true
+        imagenAzar4.isInvisible = true
 
-            imagenAzar3.isInvisible = true
-            imagenAzar4.isInvisible = true
+        listaTags.add(imagenAzar3.tag.toString())
+        listaTags.add(imagenAzar4.tag.toString())
 
-            listaTags.add(imagenAzar4.tag.toString())
-
+        listaImagenes1().remove(imagenAzar3)
+        listaImagenes2().remove(imagenAzar4)
     }
 
     suspend fun desaparecerImagenes3() {
 
-            delay(4000)
+        delay(4000)
 
-            val imagenAzar5 = listaImagenes1().random()
-            var imagenAzar6 = listaImagenes2().random()
+        var imagenAzar5 = listaImagenes1().random()
+        var imagenAzar6 = listaImagenes2().random()
 
-            listaTags.add(imagenAzar5.tag.toString())
+        while (listaTags.contains(imagenAzar5.tag.toString()) || listaTags.contains(imagenAzar6.tag.toString())) {
+            imagenAzar5 = listaImagenes1().random()
+            imagenAzar6 = listaImagenes2().random()
+        }
 
-            while (listaTags.contains(imagenAzar6.tag.toString()))
-                imagenAzar6 = listaImagenes2().random()
+        imagenAzar5.isInvisible = true
+        imagenAzar6.isInvisible = true
 
-            imagenAzar5.isInvisible = true
-            imagenAzar6.isInvisible = true
+        listaTags.add(imagenAzar5.tag.toString())
+        listaTags.add(imagenAzar6.tag.toString())
 
-            listaTags.add(imagenAzar6.tag.toString())
+        listaImagenes1().remove(imagenAzar5)
+        listaImagenes2().remove(imagenAzar6)
     }
 
     private fun validarImagenesMatriz1() {
@@ -172,12 +205,6 @@ class AtencionDividida : AppCompatActivity() {
                 if (listaTags.contains(boton)) {
 
                     hits++
-
-                    Toast.makeText(
-                            applicationContext,
-                    "correcto",
-                    Toast.LENGTH_SHORT
-                    ).show()
                 }
 
                 habilitarBotonSiguiente()
@@ -200,12 +227,6 @@ class AtencionDividida : AppCompatActivity() {
                 if (listaTags.contains(boton)) {
 
                     hits++
-
-                    Toast.makeText(
-                        applicationContext,
-                        "correcto",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
 
                 habilitarBotonSiguiente()
@@ -263,6 +284,36 @@ class AtencionDividida : AppCompatActivity() {
                     )
                 )
             }
+
+            obtenerDocumento(
+                user?.email.toString(),
+                "AtenciónSelectiva",
+                AtencionSelectiva()
+            )
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

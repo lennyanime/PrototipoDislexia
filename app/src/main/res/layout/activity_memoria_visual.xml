@@ -35,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#2196F3"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
             android:text="Iniciar prueba" />
@@ -163,26 +162,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                android:gravity="center_horizontal"
+                android:layout_height="155dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnMenuMemoriaVisual"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Salir" />
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="menu"
+                    android:textSize="12sp" />
 
                 <Space
-                    android:layout_width="50dp"
-                    android:layout_height="0dp"/>
+                    android:layout_width="30dp"
+                    android:layout_height="0dp" />
 
                 <Button
                     android:id="@+id/btnSiguienteMemoriaVisual"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Siguiente" />
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Siguiente"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

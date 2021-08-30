@@ -89,13 +89,13 @@ class Login : AppCompatActivity() {
                     val user = Firebase.auth.currentUser
                     if (user != null) {
                         // User is signed in
-                        txtCorreo.text = user.email.toString()
-                        intent.putExtra("prueba", txtCorreo.text)
+                        //txtCorreo.text = user.email.toString()
+                        //intent.putExtra("prueba", txtCorreo.text)
                         startActivity(intent)
 
                     } else {
                         // No user is signed in
-                        txtCorreo.text = "error"
+                        //txtCorreo.text = "error"
                     }
                     //finish()
                 } else {

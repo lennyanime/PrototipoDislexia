@@ -1,8 +1,11 @@
 package com.example.myapplication.procesosPerceptivos
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_discriminacion_categorizacion_vis
 class DiscriminacionCategorizacionVisual3 : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -63,9 +69,6 @@ class DiscriminacionCategorizacionVisual3 : AppCompatActivity() {
 
         if (t1 == 1 && t2 == 1) {
             hits++
-            Toast.makeText(applicationContext,
-                "$hits",
-                Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -115,6 +118,35 @@ class DiscriminacionCategorizacionVisual3 : AppCompatActivity() {
                         "Misses" to misses)
                 )
             }
+            obtenerDocumento(
+                user?.email.toString(),
+                "DiscriminaciónCategorizacionAuditiva",
+                DiscriminacionCategorizacionAuditiva()
+            )
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

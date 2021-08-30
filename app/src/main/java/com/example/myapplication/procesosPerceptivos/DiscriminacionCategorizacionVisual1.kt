@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_discriminicion_visual.*
 
@@ -27,9 +28,8 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
 
         figurasIncorrectas()
 
-        btnSiguienteDiscriminizacionCV.isEnabled = false
+        menu()
     }
-
 
     private fun instruccionesPruebaDiscriminizacionVisual() {
 
@@ -74,7 +74,9 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
             img5PruebaDiscriminizacionVisual,
             img6PruebaDiscriminizacionVisual)
 
-        IMAGENES_DISCRIMINIZCION_VISUAL.forEach { it.isEnabled = false }
+        IMAGENES_DISCRIMINIZCION_VISUAL.forEach {
+            it.isEnabled = false
+        }
     }
 
     private fun activarImagenes() {
@@ -87,7 +89,9 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
             img5PruebaDiscriminizacionVisual,
             img6PruebaDiscriminizacionVisual)
 
-        IMAGENES_DISCRIMINIZCION_VISUAL.forEach { it.isEnabled = true }
+        IMAGENES_DISCRIMINIZCION_VISUAL.forEach {
+            it.isEnabled = true
+        }
     }
 
     private fun pruebaCorrecta() {
@@ -112,9 +116,6 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
         if (t1 == 1 && t2 == 1) {
             hits++
             segundaPrueba()
-            Toast.makeText(applicationContext,
-                "$hits",
-                Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -160,5 +161,17 @@ class DiscriminacionCategorizacionVisual1 : AppCompatActivity() {
             opcionIncorrecta()
             segundaPrueba()
         }
+    }
+
+    private fun menu(){
+        btnMenuDiscriminacionVisual.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

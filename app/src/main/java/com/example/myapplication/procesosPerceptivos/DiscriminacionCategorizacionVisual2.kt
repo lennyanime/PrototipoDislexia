@@ -2,6 +2,7 @@ package com.example.myapplication.procesosPerceptivos
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_discriminacion_categorizacion_visual2.*
@@ -94,5 +95,10 @@ class DiscriminacionCategorizacionVisual2 : AppCompatActivity() {
             opcionIncorrecta()
             terceraPrueba()
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

@@ -20,6 +20,7 @@
             android:background="#2196F3"
             android:gravity="center"
             android:text="@string/Instrucciones"
+            android:layout_margin="5dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
 
@@ -38,6 +39,7 @@
             android:background="#2196F3"
             android:gravity="center"
             android:text="Iniciar prueba"
+            android:layout_margin="5dp"
             android:foreground="?android:attr/selectableItemBackground"
              />
 
@@ -300,18 +302,20 @@
 
                 <Button
                     android:id="@+id/btnMenuPrincipalAtencionDividida"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
                     android:text="Menú" />
 
                 <Space
-                    android:layout_width="50dp"
+                    android:layout_width="30dp"
                     android:layout_height="0dp"/>
 
                 <Button
                     android:id="@+id/btnSiguienteAtencionDividida"
-                    android:layout_width="130dp"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
+                    android:textSize="12sp"
                     android:text="Siguiente" />
             </LinearLayout>
         </LinearLayout>

@@ -25,14 +25,7 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="10dp"
-        android:gravity="center|center_horizontal"
-        android:text="titulo lectura"
-        android:textSize="32sp" />
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -71,10 +64,9 @@
                         android:id="@+id/txtTextoCOrtografica"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/texto_prueba"
+                        android:text="@string/texto_competenciaOrtografica"
                         android:textSize="24sp"
-                        android:visibility="invisible">
-                    </TextView>
+                        android:visibility="invisible" />
 
                 </LinearLayout>
 
@@ -89,19 +81,19 @@
                         android:id="@+id/btnMenuPrincipalCompetenciaOrtografica"
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="Menú " />
+                        android:text="Menú "
+                        android:textSize="12sp" />
 
                     <Space
                         android:layout_width="30dp"
-                        android:layout_height="0dp"></Space>
+                        android:layout_height="0dp" />
 
                     <Button
                         android:id="@+id/btnSiguienteCompetenciaOrtografica"
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="Siguiente" />
+                        android:text="Siguiente"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

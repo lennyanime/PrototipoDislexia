@@ -141,26 +141,41 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_height="177dp"
+        android:layout_margin="10dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnMenuMSV"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Menú" />
+            android:text="Menú"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/btnSiguienteMemoriaSV"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Siguiente" />
-    </LinearLayout>
+            android:layout_marginBottom="24dp"
+            android:text="Siguiente"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.769"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

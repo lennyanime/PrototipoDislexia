@@ -1,10 +1,14 @@
 package com.example.myapplication.memoriaDeTrabajo
 
+import android.app.Activity
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,6 +23,9 @@ private lateinit var secuenciaAuditivaRespuestas: MutableList<String>
 class MemoriaSecuencialAuditiva : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -46,33 +53,48 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
 
         siguiente()
 
+        menu()
+
         secuenciaAuditivaRespuestas = mutableListOf()
     }
 
     private fun instruccionesMemoriaSecuencialAuditiva() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.memoriasecuencialauditiva)
 
         if (!mp.isPlaying) {
             btnInstruccionesMemoriaSecuencialAuditiva.setOnClickListener {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(16000)
                 btnInstruccionesMemoriaSecuencialAuditiva.isEnabled = false
                 btnMemoriaSecuencialAuditiva.isEnabled = true
             }
         }
     }
 
+    private fun ocultarBotonesSecuencia(){
+
+    }
+
+    private fun botonesSecuenciaAuditiva(): ArrayList<Button> {
+
+        return arrayListOf(
+            btnAudioPato,
+            btnAudioPerro,
+            btnAudioGato
+        )
+    }
+
     private fun secuenciaAuditiva() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.memoriasecuencialprueba)
 
         if (!mp.isPlaying) {
 
             btnMemoriaSecuencialAuditiva.setOnClickListener {
 
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(7000)
                 btnMemoriaSecuencialAuditiva.isEnabled = false
                 habilitarSecuenciaBotones()
             }
@@ -91,7 +113,7 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
     private fun inhabilitarBotonesSecuencia() {
 
         listaBotonesSecuencia().forEach {
-
+            it.isVisible = false
             it.isEnabled = false
         }
     }
@@ -99,14 +121,14 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
     private fun habilitarSecuenciaBotones() {
 
         listaBotonesSecuencia().forEach {
-
+            it.isVisible = true
             it.isEnabled = true
         }
     }
 
     private fun secuenciaGato() {
 
-        var gato = "gato"
+        val gato = "gato"
 
         btnAudioGato.setOnClickListener {
 
@@ -120,7 +142,7 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
 
     private fun secuenciaPerro() {
 
-        var perro = "perro"
+        val perro = "perro"
 
         btnAudioPerro.setOnClickListener {
 
@@ -134,7 +156,7 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
 
     private fun secuenciaPato() {
 
-        var pato = "pato"
+        val pato = "pato"
 
         btnAudioPato.setOnClickListener {
 
@@ -168,6 +190,14 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
         }
     }
 
+    private fun menu() {
+
+        btnSMenuMTSA.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         btnSiguienteMTSA.setOnClickListener {
@@ -175,12 +205,6 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
             validarRespuestas()
 
             misses = PUNTAJE_MAXIMO - hits
-
-            Toast.makeText(
-                applicationContext,
-                "$hits",
-                Toast.LENGTH_SHORT
-            ).show()
 
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("MemoriaSecuencialAuditiva").set(
@@ -191,6 +215,13 @@ class MemoriaSecuencialAuditiva : AppCompatActivity() {
                     )
                 )
             }
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

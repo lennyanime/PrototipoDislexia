@@ -76,20 +76,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSalirCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
+            android:id="@+id/btnMenuFuncionesEjecutivas"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="menu" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="50dp"
-            android:layout_height="0dp"></androidx.appcompat.widget.AppCompatEditText>
-
-        <Button
-            android:id="@+id/btnSiguienteCA"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
     </LinearLayout>
 
 

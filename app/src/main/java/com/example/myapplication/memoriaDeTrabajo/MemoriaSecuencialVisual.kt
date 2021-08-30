@@ -1,5 +1,7 @@
 package com.example.myapplication.memoriaDeTrabajo
 
+import android.app.Activity
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
@@ -7,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,6 +27,9 @@ private lateinit var secuenciaVisualRespuestas: MutableList<ImageView>
 class MemoriaSecuencialVisual : AppCompatActivity() {
 
     private val DB = FirebaseFirestore.getInstance()
+
+    private val user = Firebase.auth.currentUser
+
     private var clicks: Int = 0
     private var hits: Int = 0
     private var misses: Int = 0
@@ -49,6 +55,8 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
 
         siguiente()
 
+        menu()
+
         validarImagenCorrecta()
 
         iniciarPrueba()
@@ -60,13 +68,13 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
 
     private fun instruccionesMemoriaSecuencialVisual() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.memoriasecuencialvisual)
 
         btnInstruccionesMemoriaSecuencialVisual.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
                 btnInstruccionesMemoriaSecuencialVisual.isEnabled = false
-                Thread.sleep(2000)
+                Thread.sleep(14000)
                 btnMemoriaSecuencialVisual.isEnabled = true
             }
         }
@@ -338,27 +346,9 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         while (indice < secuenciaVisualCorrectas.size) {
             if (secuenciaVisualCorrectas[indice] == secuenciaVisualRespuestas[indice]) {
                 hits++
-                Toast.makeText(
-                    applicationContext,
-                    "yes",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                Toast.makeText(
-                    applicationContext,
-                    "no",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
-
             indice++
         }
-
-        Toast.makeText(
-            applicationContext,
-            "$hits",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun pruebas() {
@@ -366,6 +356,14 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
         if (totalPruebas == 1) {
 
             btnMemoriaSecuencialVisual.isEnabled = true
+        }
+    }
+
+    private fun menu(){
+
+        btnMenuMSV.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
     }
 
@@ -394,7 +392,42 @@ class MemoriaSecuencialVisual : AppCompatActivity() {
                     )
                 )
             }
+
+            obtenerDocumento(
+                user?.email.toString(),
+                "MemoriaTrabajoAuditiva",
+                MemoriaTrabajoAuditiva()
+            )
+
+           /* if(clicks == 9){
+                val intent = Intent(this, MemoriaTrabajoAuditiva()::class.java)
+                startActivity(intent)
+            }*/
         }
+    }
+
+    private fun obtenerDocumento(
+        correo: String,
+        documento: String,
+        activity: Activity
+    ) {
+
+        val document = DB.collection(correo).document(documento)
+        document.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val intent = Intent(this, Componentes()::class.java)
+                    startActivity(intent)
+                } else if(clicks == 9){
+                    val intent = Intent(this, activity::class.java)
+                    startActivity(intent)
+                }
+            }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }
 

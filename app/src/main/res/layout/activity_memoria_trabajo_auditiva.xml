@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".memoriaDeTrabajo.MemoriaTrabajoAuditiva">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="Memoria de trabajo auditiva"
-        android:textSize="30sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -44,10 +36,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutFila1MemoriaAuditiva"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:visibility="invisible"
                 android:layout_margin="20dp">
 
                 <Button
@@ -59,7 +53,7 @@
 
                 <Space
                     android:layout_width="50dp"
-                    android:layout_height="0dp"></Space>
+                    android:layout_height="0dp"/>
 
                 <Button
                     android:id="@+id/btn_rta2_memoriatrabajoaudtiva"
@@ -70,10 +64,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutFila2MemoriaAuditiva"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:visibility="invisible"
                 android:layout_margin="20dp">
 
                 <Button
@@ -85,7 +81,7 @@
 
                 <Space
                     android:layout_width="50dp"
-                    android:layout_height="0dp"></Space>
+                    android:layout_height="0dp"/>
 
                 <Button
                     android:id="@+id/btn_rta4_memoriatrabajoaudtiva"
@@ -95,34 +91,38 @@
                     android:tag="udp"/>
             </LinearLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:layout_height="191dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnSalirCA"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Menú" />
-
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="0dp"></Space>
+                    android:id="@+id/btnMenuMemoriaAuditiva"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Menú"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.205"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.888" />
 
                 <Button
                     android:id="@+id/btnSiguienteMemoriaTrabajoAuditiva"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Siguiente" />
-            </LinearLayout>
-
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="68dp"
+                    android:text="Siguiente"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.888" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
-
-
-
 </LinearLayout>

@@ -1,36 +1,45 @@
 <resources>
     <string name="app_name">app dyslex</string>
-    <string name="texto_prueba">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="texto_velocidadLectura">Carlos quería ir al cine con sus amigos, pero sus padres
+    no le dejaban. Muy enfadado entró en su habitación abrió la alcancía donde guardaba sus ahorros
+    y saco varias monedas. Durante unos momentos estuvo pensando en bajar por la ventana, pero sus
+    padres se iban a enfadar mucho, así que no lo hizo. Busco el teléfono y llamó a sus amigos que lo
+    estaban esperando. Después estuvo un rato tumbado sobre la cama hasta que se le paso el enfado
+    y ya más alegre se fue a ver la televisión con sus padres.</string>
 
+    <string name="texto_competenciaOrtografica">Después de salir del cole, Juan fue al parque a ver a sus amigos
+        los animales. Enseguida vió un grupo de palomas que volaban y jugaban por los aires.
+    -¡Qué suerte! - exclamó Juan - ¡Cómo me gustaría volar.
+        Estaba tan distraído que ni siquiera vió a su madre acercarse. Por eso se asusto un poco cuando
+    escucho que le preguntaban:
+    -¿Qué miras?
+    -Estaba pensando lo bonito que es volar: Mamá ¿por qué nosotros no podemos volar?
+    -porque nosotros tenemos otras ventajas - le respondió la madre.
+    -¿Te refieres al hecho de que podemos hablar?
+    -Esa es una de ellas.</string>
 
-    <string name="c_lingúísticas">Competencias Lingüísticas</string>
+    <string name="c_lingúísticas">Nivel 1</string>
 
-    <string name="c_alfabetica">Competencia Alfabética</string>
-    <string name="c_fonica">Competencia Fónica</string>
-    <string name="c_silabica">Competencia Silábica</string>
-    <string name="c_lexica">Competencia Léxica</string>
-    <string name="c_sintactica">Competencia Sintáctica</string>
-    <string name="c_semantica">Competencia Semántica</string>
-    <string name="c_ortografica">Competencia Ortográfica</string>
+    <string name="c_alfabetica">Prueba Lingüística 1</string>
+    <string name="c_fonica">Prueba Lingüística 2</string>
+    <string name="c_silabica">Prueba Lingüística 3</string>
+    <string name="c_lexica">Prueba Lingüística 4</string>
+    <string name="c_sintactica">Prueba Lingüística 5</string>
+    <string name="c_semantica">Prueba Lingüística 6</string>
+    <string name="c_ortografica">Prueba Lingüística 7</string>
 
-    <string name="c_m_trabajo">Competencias Memoria de Trabajo</string>
+    <string name="c_m_trabajo">Nivel 2</string>
 
-    <string name="c_m_t_visual">Memoria de trabajo visual</string>
-    <string name="c_m_t_s_visual">Memoria de trabajo secuencial visual</string>
-    <string name="c_m_t_auditiva">Memoria de trabajo auditiva</string>
-    <string name="c_m_t_s_auditiva">Memoria de trabajo secuencial auditiva</string>
+    <string name="c_m_t_visual">Memoria Prueba 1</string>
+    <string name="c_m_t_s_visual">Memoria Prueba 2</string>
+    <string name="c_m_t_auditiva">Memoria Prueba 3</string>
+    <string name="c_m_t_s_auditiva">Memoria Prueba 4</string>
 
-    <string name="c_f_e_ejecutivas">Competencias Funciones Ejecutivas</string>
+    <string name="c_f_e_ejecutivas">Nivel 5</string>
 
-    <string name="c_a_dividida">Competencia Atención dividida</string>
-    <string name="c_a_sostenida">Competencia Atención sostenida</string>
-    <string name="c_a_selectiva">Competencia Atención selectiva</string>
+    <string name="c_a_dividida">Atención Prueba 1</string>
+    <string name="c_a_selectiva">Atención Prueba 2</string>
+    <string name="c_a_sostenida">Atención Prueba 3</string>
 
     <string name="c_r_d">Competencias Rendimiento o Desempeño</string>
 
@@ -38,17 +47,16 @@
     <string name="c_r_c_errores">Reconocimiento y corrección de errores</string>
 
 
-    <string name="c_lateralidad">Competencias de Lateralidad</string>
+    <string name="c_lateralidad">Nivel 6</string>
 
-    <string name="lateralidad_1">Lateralidad 1</string>
-    <string name="lateralidad_2">Lateralidad 2</string>
+    <string name="lateralidad_1">Lateralidad Prueba 1</string>
+    <string name="lateralidad_2">Lateralidad Prueba 2</string>
 
-    <string name="rendimientoDesempeño">Rendimiento o Desempeño</string>
+    <string name="rendimientoDesempeño">Nivel 4</string>
 
-    <string name="velocidadLectura">Velocidad de lectura</string>
-    <string name="comprensionLectura">Comprensión de lectura</string>
-    <string name="reconocimientoErrores">Reconocimiento de Errores</string>
-    <string name="ortografiaArbitraria">Ortografía arbitraria y velocidad de escritura</string>
+    <string name="velocidadLectura">Rendimiento Prueba 1</string>
+    <string name="reconocimientoErrores">Rendimiento Prueba 2</string>
+    <string name="ortografiaArbitraria">Rendimiento Prueba 3</string>
 
     <string name="Instrucciones">Instrucciones</string>
 </resources>

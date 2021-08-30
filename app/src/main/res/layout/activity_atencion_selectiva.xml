@@ -1,217 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".funcionesEjecutivas.AtencionSelectiva">
 
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:text="Atención Selectiva"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnInstruccionesatencionSelectiva"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#2196F3"
-            android:gravity="center"
-            android:text="@string/Instrucciones"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:drawableLeft="@android:drawable/ic_lock_silent_mode_off" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnInstruccionesatencionSelectiva"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#2196F3"
+                    android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:text="@string/Instrucciones" />
 
-        <Button
-            android:id="@+id/btnOpcion1AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible" />
+            </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnOpcion2AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Button
+                    android:id="@+id/btnOpcion1AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-        <Button
-            android:id="@+id/btnOpcion3AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Button
+                    android:id="@+id/btnOpcion2AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-        <Button
-            android:id="@+id/btnOpcion4AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Button
+                    android:id="@+id/btnOpcion3AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-    </LinearLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
+                <Button
+                    android:id="@+id/btnOpcion4AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btnOpcion5AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Button
+                    android:id="@+id/btnOpcion5AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnOpcion6AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Button
+                    android:id="@+id/btnOpcion6AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnOpcion7AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Button
+                    android:id="@+id/btnOpcion7AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnOpcion8AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="u"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
-    </LinearLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnOpcion8AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="u"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btnOpcion9AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Button
+                    android:id="@+id/btnOpcion9AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnOpcion10AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Button
+                    android:id="@+id/btnOpcion10AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnOpcion11AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp">
-        </Space>
+                <Button
+                    android:id="@+id/btnOpcion11AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btnOpcion12AtencionSelectiva"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:textAllCaps="false"
-            android:visibility="invisible"/>
-    </LinearLayout>
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="0dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnOpcion12AtencionSelectiva"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:textAllCaps="false"
+                    android:visibility="invisible" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btnMenuPrincipalAtencionSelectiva"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Salir" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="294dp"
+                android:layout_margin="30dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"></Space>
+                <Button
+                    android:id="@+id/btnSiguienteAtencionSelectiva"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="80dp"
+                    android:text="Siguiente"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.863"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/btnSiguienteAtencionSelectiva"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:text="Siguiente" />
-    </LinearLayout>
-
+                <Button
+                    android:id="@+id/btnMenuPrincipalAtencionSelectiva"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="80dp"
+                    android:text="menu"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.136"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 

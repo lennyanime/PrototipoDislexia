@@ -53,28 +53,28 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
-                    android:text="1. ¿?"
+                    android:text="1. ¿Por qué estaba enfadado Carlos?"
                     android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/chkRespuesta1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción1"
+                    android:text="Carlos estaba enfadado porque no lo dejaban ver la televisión"
                     android:tag="incorrecto"/>
 
                 <RadioButton
                     android:id="@+id/chkRespuesta2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción2"
+                    android:text="Carlos estaba enfadado porque no lo dejaban ir al cine con sus amigos"
                     android:tag="correcto"/>
 
                 <RadioButton
                     android:id="@+id/chkRespuesta3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción3"
+                    android:text="Carlos estaba enfadado porque no lo dejaban jugar con sus amigos"
                     android:tag="incorrecto"/>
 
             </LinearLayout>
@@ -90,28 +90,28 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
-                    android:text="2. ¿?"
+                    android:text="2. ¿Por qué saco varias monedas de la alcancía?"
                     android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/chkRespuesta4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción1"
+                    android:text="Para comprar dulces"
                     android:tag="incorrecto"/>
 
                 <RadioButton
                     android:id="@+id/chkRespuesta5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción2"
+                    android:text="Para ir a la tienda"
                     android:tag="incorrecto"/>
 
                 <RadioButton
                     android:id="@+id/chkRespuesta6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción3"
+                    android:text="Para ir al cine"
                     android:tag="correcto"/>
 
             </LinearLayout>
@@ -127,28 +127,28 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
-                    android:text="3. ¿?"
+                    android:text="3. ¿Por qué no bajo por la ventana?"
                     android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/chkRespuesta7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción1"
+                    android:text="Porque le daba miedo golpearse"
                     android:tag="incorrecto"/>
 
                 <RadioButton
                     android:id="@+id/chkRespuesta8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción2"
+                    android:text="Porque estaba muy alto"
                     android:tag="incorrecto"/>
 
                 <RadioButton
                     android:id="@+id/chkRespuesta9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="opción3"
+                    android:text="Porque sus padres se iban a enfadar"
                     android:tag="correcto"/>
 
             </LinearLayout>
@@ -161,19 +161,10 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnMenuPrincipalComprensionLectura"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Salir" />
-
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="0dp" />
-
-                <Button
                     android:id="@+id/btnSiguienteComprensionLectura"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
                     android:text="Siguiente" />
 
             </LinearLayout>

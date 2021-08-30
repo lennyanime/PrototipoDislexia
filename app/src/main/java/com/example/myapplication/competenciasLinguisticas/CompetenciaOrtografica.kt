@@ -1,9 +1,12 @@
 package com.example.myapplication.competenciasLinguisticas
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,6 +26,8 @@ class CompetenciaOrtografica : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competencia_ortografica)
 
+        btnContadorSignosPuntuacion.isEnabled = false
+
         instruccionesCompetenciaOrtografica()
 
         contarSignosPuntuacion()
@@ -30,17 +35,21 @@ class CompetenciaOrtografica : AppCompatActivity() {
         contarSignosPrueba()
 
         siguiente()
+
+        menu()
     }
 
     private fun instruccionesCompetenciaOrtografica() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.competenciaortografica)
 
         btnInstruccionesCompetenciaOrtografica.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(29000)
                 txtTextoCOrtografica.visibility = View.VISIBLE
+                btnContadorSignosPuntuacion.isEnabled = true
+
             }
             /*else {
                 mp.pause()
@@ -67,13 +76,23 @@ class CompetenciaOrtografica : AppCompatActivity() {
         }
     }
 
+    private fun menu(){
+
+        btnMenuPrincipalCompetenciaOrtografica.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         btnSiguienteCompetenciaOrtografica.setOnClickListener {
 
-            if(clicks == contadorSignosPuntuacionTexto)
+            if(clicks == contadorSignosPuntuacionTexto){
                 hits = 1
-            misses = 1
+            }else{
+                misses = 1
+            }
 
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("CompetenciaOrtográfica").set(
@@ -82,6 +101,13 @@ class CompetenciaOrtografica : AppCompatActivity() {
                         "Misses" to misses)
                 )
             }
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

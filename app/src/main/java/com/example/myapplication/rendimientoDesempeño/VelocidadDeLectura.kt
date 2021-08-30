@@ -3,8 +3,10 @@ package com.example.myapplication.rendimientoDesempeño
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -33,18 +35,20 @@ class VelocidadDeLectura : AppCompatActivity() {
 
         siguiente()
 
+        menu()
+
         btnIniciarLectura.isEnabled = false
 
     }
 
     private fun instruccionesVelocidadLectura() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.velocidaddelectura)
 
         btnInstruccionesVelocidadLectura.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
-                Thread.sleep(2000)
+                Thread.sleep(13000)
                 btnInstruccionesVelocidadLectura.isEnabled = false
                 btnIniciarLectura.isEnabled = true
             }
@@ -81,6 +85,14 @@ class VelocidadDeLectura : AppCompatActivity() {
         return horaFinal
     }
 
+    private fun menu(){
+
+        btnMenuPrincipalVelocidadLectura.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         btnSiguienteVelocidadLectura.setOnClickListener {
@@ -90,7 +102,7 @@ class VelocidadDeLectura : AppCompatActivity() {
             Firebase.auth.currentUser?.email?.let { email ->
                 DB.collection(email).document("VelocidadLectura").set(
                     hashMapOf(
-                        "VelodidadLectura" to velocidadLectura
+                        "VelocidadLectura" to velocidadLectura
                     )
                 )
             }
@@ -98,5 +110,10 @@ class VelocidadDeLectura : AppCompatActivity() {
             val intent = Intent(this, ComprensionLectura()::class.java)
             startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

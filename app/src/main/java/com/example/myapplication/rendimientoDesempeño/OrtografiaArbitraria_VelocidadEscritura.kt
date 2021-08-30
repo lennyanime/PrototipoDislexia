@@ -1,6 +1,7 @@
 package com.example.myapplication.rendimientoDesempeño
 
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.InputType
@@ -9,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -43,6 +45,8 @@ class OrtografiaArbitraria_VelocidadEscritura : AppCompatActivity() {
 
         siguiente()
 
+        menu()
+
         btnSiguienteOrtografiaArbitraria.isEnabled = false
 
         btnConfirmarFraseOrtografiaArbitraria.isEnabled = false
@@ -54,7 +58,7 @@ class OrtografiaArbitraria_VelocidadEscritura : AppCompatActivity() {
 
     private fun instruccionesOrtografiaArbitrariaVelocidadEscritura() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.ortografiaarbitrariaycorrecciondeerrores)
 
         if (!mp.isPlaying) {
             btnInstruccionesOrtografiaVelocidadEscritura.setOnClickListener {
@@ -223,6 +227,14 @@ class OrtografiaArbitraria_VelocidadEscritura : AppCompatActivity() {
         }
     }
 
+    private fun menu(){
+
+        btnMenuPrincipalOAVE.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun siguiente() {
 
         btnSiguienteOrtografiaArbitraria.setOnClickListener {
@@ -244,6 +256,13 @@ class OrtografiaArbitraria_VelocidadEscritura : AppCompatActivity() {
                     )
                 )
             }
+            val intent = Intent(this, Componentes()::class.java)
+            startActivity(intent)
         }
+    }
+
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }

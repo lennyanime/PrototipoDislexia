@@ -24,13 +24,13 @@ class AtencionSostenida1 : AppCompatActivity() {
 
     private fun instruccionesAtencionSostenida() {
 
-        val mp = MediaPlayer.create(this, R.raw.lenny2)
+        val mp = MediaPlayer.create(this, R.raw.atencionsostenida)
 
         if (!mp.isPlaying) {
             btnInstruccionesAtencionSostenida.setOnClickListener {
                 mp.start()
                 btnInstruccionesAtencionSostenida.isEnabled = false
-                Thread.sleep(2000)
+                Thread.sleep(19000)
                 desaparecerImagenesPrueba1()
             }
         }
@@ -72,9 +72,7 @@ class AtencionSostenida1 : AppCompatActivity() {
                 if (imagenAzar1.tag == boton) {
 
                     hits++
-                    Toast.makeText(applicationContext,
-                        "correcto",
-                        Toast.LENGTH_SHORT).show()
+
                     inhabilitarImagenesInterfazPrueba1()
                     segundaPrueba()
 
@@ -103,7 +101,11 @@ class AtencionSostenida1 : AppCompatActivity() {
             intent.putExtra("clicks", clicks)
             startActivity(intent)
         }
+    }
 
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "Funcionalidad desactivada", Toast.LENGTH_SHORT).show()
     }
 }
 
