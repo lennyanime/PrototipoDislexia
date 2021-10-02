@@ -43,9 +43,10 @@
 
                 <Button
                     android:id="@+id/btnOpcion1AtencionSelectiva"
-                    android:layout_width="60dp"
+                    android:layout_width="64dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -57,6 +58,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -68,6 +70,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -79,6 +82,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
             </LinearLayout>
@@ -95,6 +99,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -106,6 +111,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -117,6 +123,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -128,6 +135,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:text="u"
+                    android:textSize="28sp"
                     android:textAllCaps="false"
                     android:visibility="invisible" />
             </LinearLayout>
@@ -144,6 +152,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -155,6 +164,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -166,6 +176,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
 
                 <Space
@@ -177,6 +188,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:textAllCaps="false"
+                    android:textSize="28sp"
                     android:visibility="invisible" />
             </LinearLayout>
 

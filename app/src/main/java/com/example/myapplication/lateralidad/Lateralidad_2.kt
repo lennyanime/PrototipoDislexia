@@ -43,6 +43,9 @@ class Lateralidad_2 : AppCompatActivity() {
 
         siguiente()
 
+        dragImageViewBoat.isEnabled = false
+
+
         dragTargetImageViewBoat.setColorFilter(Color.GRAY)
         dragTargetFalseImageViewBoat.setColorFilter(Color.GRAY)
 
@@ -156,8 +159,10 @@ class Lateralidad_2 : AppCompatActivity() {
         btnInstruccionesLateralidad2.setOnClickListener {
             if (!mp.isPlaying) {
                 mp.start()
-                btnInstruccionesLateralidad2.setEnabled(false)
+                btnInstruccionesLateralidad2.isEnabled = false
                 Thread.sleep(17000)
+                dragImageViewBoat.isEnabled = true
+
             }
             /*else {
                 mp.pause()

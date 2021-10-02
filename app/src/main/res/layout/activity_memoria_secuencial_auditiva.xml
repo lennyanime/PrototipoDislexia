@@ -38,6 +38,7 @@
             android:background="#2196F3"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
+            android:textSize="20sp"
             android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"
             android:text="escuchar secuencia" />
 
@@ -56,6 +57,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:text="Gato"
+            android:textSize="16sp"
             android:textAllCaps="false" />
 
         <Space
@@ -67,6 +69,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:text="Perro"
+            android:textSize="16sp"
             android:textAllCaps="false"
             />
 
@@ -79,6 +82,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:text="Pato"
+            android:textSize="16sp"
             android:textAllCaps="false" />
 
     </LinearLayout>

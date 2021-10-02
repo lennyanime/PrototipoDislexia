@@ -39,28 +39,30 @@
                 android:id="@+id/layoutFila1MemoriaAuditiva"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_margin="20dp"
                 android:gravity="center"
-                android:visibility="invisible"
-                android:layout_margin="20dp">
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
                 <Button
                     android:id="@+id/btn_rta1_memoriatrabajoaudtiva"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:tag="udp"
                     android:textAllCaps="false"
-                    android:tag="udp"/>
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="50dp"
-                    android:layout_height="0dp"/>
+                    android:layout_height="0dp" />
 
                 <Button
                     android:id="@+id/btn_rta2_memoriatrabajoaudtiva"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    android:textAllCaps="false"
-                    android:tag="udp"/>
+                    android:tag="udp"
+                    android:textSize="20sp"
+                    android:textAllCaps="false" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,6 +79,7 @@
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:textAllCaps="false"
+                    android:textSize="20sp"
                     android:tag="udp"/>
 
                 <Space
@@ -88,6 +91,7 @@
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:textAllCaps="false"
+                    android:textSize="20sp"
                     android:tag="udp"/>
             </LinearLayout>
 

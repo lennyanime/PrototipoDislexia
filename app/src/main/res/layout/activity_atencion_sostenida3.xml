@@ -188,23 +188,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnMenuPrincipalAtencionSostenida"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:text="Menú" />
-
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="0dp"/>
-
-                <Button
                     android:id="@+id/btnSiguienteAtencionSostenida"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:text="Siguiente"
-                    android:foreground="?android:attr/selectableItemBackground"/>
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

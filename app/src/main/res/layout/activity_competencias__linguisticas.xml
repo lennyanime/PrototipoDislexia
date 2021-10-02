@@ -14,85 +14,96 @@
         android:text="@string/c_lingúísticas"
         android:textSize="30sp" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:gravity="center">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnc_alfabetica"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_alfabetica">
+            android:orientation="vertical">
 
-        </Button>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
 
-        <Button
-            android:id="@+id/btnc_fonica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_fonica">
+                <Button
+                    android:id="@+id/btnc_alfabetica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_alfabetica">
 
-        </Button>
+                </Button>
 
-        <Button
-            android:id="@+id/btnc_silabica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_silabica">
-        </Button>
+                <Button
+                    android:id="@+id/btnc_fonica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_fonica">
 
-        <Button
-            android:id="@+id/btnc_lexica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_lexica">
+                </Button>
 
-        </Button>
+                <Button
+                    android:id="@+id/btnc_silabica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_silabica">
+                </Button>
 
-        <Button
-            android:id="@+id/btnc_sintactica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_sintactica">
-        </Button>
+                <Button
+                    android:id="@+id/btnc_lexica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_lexica">
 
-        <Button
-            android:id="@+id/btnc_semantica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_semantica">
-        </Button>
+                </Button>
 
-        <Button
-            android:id="@+id/btnc_ortografica"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/c_ortografica">
-        </Button>
+                <Button
+                    android:id="@+id/btnc_sintactica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_sintactica">
+                </Button>
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btnc_semantica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_semantica">
+                </Button>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="top|center"
-        android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnc_ortografica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/c_ortografica">
+                </Button>
 
-        <Button
-            android:id="@+id/btnSalirCompetenciasLinguisticas"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="menu" />
-    </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSalirCompetenciasLinguisticas"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="menu" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

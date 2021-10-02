@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
+import com.example.myapplication.Componentes
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_atencion_sostenida1.*
 
@@ -20,6 +21,8 @@ class AtencionSostenida1 : AppCompatActivity() {
         setContentView(R.layout.activity_atencion_sostenida1)
 
         instruccionesAtencionSostenida()
+
+        menuPrincipal()
     }
 
     private fun instruccionesAtencionSostenida() {
@@ -99,6 +102,14 @@ class AtencionSostenida1 : AppCompatActivity() {
             val intent = Intent(this, AtencionSostenida2()::class.java)
             intent.putExtra("hits", hits)
             intent.putExtra("clicks", clicks)
+            startActivity(intent)
+        }
+    }
+
+    private fun menuPrincipal() {
+
+        btnMenuPrincipalAtencionSostenida.setOnClickListener {
+            val intent = Intent(this, Componentes()::class.java)
             startActivity(intent)
         }
     }

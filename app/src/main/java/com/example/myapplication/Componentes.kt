@@ -9,13 +9,13 @@ import com.example.myapplication.competenciasLinguisticas.Competencias_Linguisti
 import com.example.myapplication.funcionesEjecutivas.AtencionDividida
 import com.example.myapplication.funcionesEjecutivas.AtencionSelectiva
 import com.example.myapplication.funcionesEjecutivas.AtencionSostenida1
+import com.example.myapplication.funcionesEjecutivas.Competencias_Funciones_Ejecutivas
 import com.example.myapplication.lateralidad.Competencias_Lateralidad
-import com.example.myapplication.memoriaDeTrabajo.MemoriaSecuencialAuditiva
-import com.example.myapplication.memoriaDeTrabajo.MemoriaSecuencialVisual
-import com.example.myapplication.memoriaDeTrabajo.MemoriaTrabajoAuditiva
-import com.example.myapplication.memoriaDeTrabajo.MemoriaVisual
+import com.example.myapplication.memoriaDeTrabajo.*
+import com.example.myapplication.procesosPerceptivos.Competencias_Procesos_Perceptivos
 import com.example.myapplication.procesosPerceptivos.DiscriminacionCategorizacionAuditiva
 import com.example.myapplication.procesosPerceptivos.DiscriminacionCategorizacionVisual1
+import com.example.myapplication.rendimientoDesempeño.Competencias_Rendimiento_Desempeno
 import com.example.myapplication.rendimientoDesempeño.OrtografiaArbitraria_VelocidadEscritura
 import com.example.myapplication.rendimientoDesempeño.Reconocimiento_CorreccionErrores
 import com.example.myapplication.rendimientoDesempeño.VelocidadDeLectura
@@ -118,28 +118,28 @@ class Componentes : AppCompatActivity() {
         obtenerDocumento(
             user?.email.toString(),
             "MemoriaVisual",
-            MemoriaVisual(),
+            Competencia_Memoria_Trabajo(),
             4
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "MemoriaSecuencialAuditiva",
-            MemoriaSecuencialAuditiva(),
+            Competencia_Memoria_Trabajo(),
             4
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "MemoriaSecuencialVisual",
-            MemoriaSecuencialVisual(),
+            Competencia_Memoria_Trabajo(),
             4
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "MemoriaTrabajoAuditiva",
-            MemoriaTrabajoAuditiva(),
+            Competencia_Memoria_Trabajo(),
             4
         )
     }
@@ -149,21 +149,21 @@ class Componentes : AppCompatActivity() {
         obtenerDocumento(
             user?.email.toString(),
             "AtenciónDividida",
-            AtencionDividida(),
+            Competencias_Funciones_Ejecutivas(),
             3
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "AtenciónSelectiva",
-            AtencionSelectiva(),
+            Competencias_Funciones_Ejecutivas(),
             3
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "AtenciónSostenida",
-            AtencionSostenida1(),
+            Competencias_Funciones_Ejecutivas(),
             3
         )
     }
@@ -173,21 +173,21 @@ class Componentes : AppCompatActivity() {
         obtenerDocumento(
             user?.email.toString(),
             "VelocidadLectura",
-            VelocidadDeLectura(),
+            Competencias_Rendimiento_Desempeno(),
             3
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "OrtografíaArbitraria_VelodidadEscritura",
-            OrtografiaArbitraria_VelocidadEscritura(),
+            Competencias_Rendimiento_Desempeno(),
             3
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "ReconocimientoCorrecciónErrores",
-            Reconocimiento_CorreccionErrores(),
+            Competencias_Rendimiento_Desempeno(),
             3
         )
     }
@@ -197,14 +197,14 @@ class Componentes : AppCompatActivity() {
         obtenerDocumento(
             user?.email.toString(),
             "DiscriminaciónCategorizacionAuditiva",
-            DiscriminacionCategorizacionAuditiva(),
+            Competencias_Procesos_Perceptivos(),
             2
         )
 
         obtenerDocumento(
             user?.email.toString(),
             "DiscriminaciónCategorizacionVisual",
-            DiscriminacionCategorizacionVisual1(),
+            Competencias_Procesos_Perceptivos(),
             2
         )
     }

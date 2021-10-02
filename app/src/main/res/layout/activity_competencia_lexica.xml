@@ -79,6 +79,7 @@
             android:id="@+id/wordLexica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="">
         </TextView>
 
@@ -90,6 +91,7 @@
             android:id="@+id/txtMostrarPalabra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="">
         </TextView>
 

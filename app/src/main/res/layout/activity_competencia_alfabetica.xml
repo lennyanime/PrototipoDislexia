@@ -59,6 +59,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="p"
+            android:textSize="28sp"
             android:textAllCaps="false"
             android:visibility="invisible" />
 
@@ -72,6 +73,7 @@
             android:layout_height="60dp"
             android:text="f"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -84,6 +86,7 @@
             android:layout_height="60dp"
             android:text="e"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -95,6 +98,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="a"
+            android:textSize="28sp"
             android:textAllCaps="false"
             android:visibility="invisible" />
 
@@ -114,6 +118,7 @@
             android:layout_height="60dp"
             android:text="j"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -126,6 +131,7 @@
             android:layout_height="60dp"
             android:text="t"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -138,6 +144,7 @@
             android:layout_height="60dp"
             android:text="m"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -150,6 +157,7 @@
             android:layout_height="60dp"
             android:text="u"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
     </LinearLayout>
 
@@ -166,6 +174,7 @@
             android:layout_height="60dp"
             android:text="i"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -178,6 +187,7 @@
             android:layout_height="60dp"
             android:text="s"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -190,6 +200,7 @@
             android:layout_height="60dp"
             android:text="q"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
 
         <Space
@@ -202,6 +213,7 @@
             android:layout_height="60dp"
             android:text="o"
             android:textAllCaps="false"
+            android:textSize="28sp"
             android:visibility="invisible" />
     </LinearLayout>
 

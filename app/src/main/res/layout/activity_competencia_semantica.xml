@@ -45,7 +45,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="toca el triángulo"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:visibility="invisible"/>
 
             </LinearLayout>
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="top|center"
                     android:text="Arrastra el círculo dentro del cuadrado"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:visibility="invisible"/>
 
                 <LinearLayout

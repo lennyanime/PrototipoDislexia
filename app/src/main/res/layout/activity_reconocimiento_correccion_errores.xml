@@ -66,6 +66,7 @@
                     android:layout_height="50dp"
                     android:tag="q"
                     android:text="q"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
                 <Space
@@ -78,6 +79,7 @@
                     android:layout_height="50dp"
                     android:tag="d"
                     android:text="d"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
                 <Space
@@ -90,6 +92,7 @@
                     android:layout_height="50dp"
                     android:tag="p"
                     android:text="p"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
             </LinearLayout>
@@ -126,6 +129,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="q"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
                 <Space
@@ -137,6 +141,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="d"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
                 <Space
@@ -148,6 +153,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="b"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
             </LinearLayout>
@@ -184,6 +190,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="p"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
                 <Space
@@ -195,6 +202,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="d"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
                 <Space
@@ -206,6 +214,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:text="q"
+                    android:textSize="24sp"
                     android:textAllCaps="false" />
 
             </LinearLayout>

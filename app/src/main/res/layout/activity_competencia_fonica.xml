@@ -51,6 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom"
+                    android:textSize="28sp"
                     android:layout_margin="10dp">
                 </TextView>
 
@@ -59,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom"
+                    android:textSize="28sp"
                     android:layout_margin="10dp">
                 </TextView>
 
@@ -102,12 +104,14 @@
                     android:id="@+id/palabra3PruebaFonica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="28sp"
                     android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/palabra4PruebaFonica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="28sp"
                     android:layout_margin="10dp"/>
 
             </LinearLayout>
@@ -151,12 +155,14 @@
                     android:id="@+id/palabra5PruebaFonica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="28sp"
                     android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/palabra6PruebaFonica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="28sp"
                     android:layout_margin="10dp"/>
 
             </LinearLayout>
@@ -200,12 +206,14 @@
                     android:id="@+id/palabra7PruebaFonica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="28sp"
                     android:layout_margin="10dp"/>
 
                 <TextView
                     android:id="@+id/palabra8PruebaFonica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="28sp"
                     android:layout_margin="10dp"/>
 
             </LinearLayout>

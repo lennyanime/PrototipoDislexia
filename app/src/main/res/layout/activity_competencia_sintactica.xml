@@ -63,7 +63,7 @@
             android:layout_height="70dp"
             android:gravity="center|center_horizontal"
             android:text="El policía está persiguiendo al ladrón"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:visibility="invisible" />
 
     </LinearLayout>
